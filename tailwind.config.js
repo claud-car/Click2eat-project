@@ -13,6 +13,17 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            blue_default:{
+                DEFAULT: '#22262F',
+            },
+            orange_button:{
+                DEFAULT: '#E89240'
+            },
+            yellow_utility:{
+                DEFAULT: '#D8AB37'
+            }
+        },
     },
 
     variants: {
