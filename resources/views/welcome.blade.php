@@ -17,11 +17,10 @@
         </style>
     </head>
     <body class="antialiased">
-        <header class="">
-            <div class="h-32 bg-yellow-300">
-                
-            </div>
-        </header>
+        <x-app-layout>
+            <x-slot name="header">
+            </x-slot>
+            <x-slot name="slot">
             <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
                 @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -130,5 +129,7 @@
                     </div>
                 </div>
             </div>
+            </x-slot>
+        </x-app-layout>
     </body>
 </html>
