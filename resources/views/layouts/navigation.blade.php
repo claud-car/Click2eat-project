@@ -15,10 +15,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link >
+                        {{ __('Restaurants') }}
+                    </x-nav-link>
+                    <x-nav-link >
+                        {{ __('About Us') }}
+                    </x-nav-link>
+
+
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
+            @if (Auth::check())
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -47,6 +56,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @endif
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
@@ -69,10 +79,13 @@
         </div>
 
         <!-- Responsive Settings Options -->
+
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
+                @if (Auth::check())
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                @endif
             </div>
 
             <div class="mt-3 space-y-1">
@@ -90,3 +103,5 @@
         </div>
     </div>
 </nav>
+
+
