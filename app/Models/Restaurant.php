@@ -21,4 +21,9 @@ class Restaurant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class);
+    }
 }

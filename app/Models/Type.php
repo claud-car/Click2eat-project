@@ -15,5 +15,8 @@ class Type extends Model
         'thumb_path',
     ];
 
-
+    public function restaurants()
+    {
+        return $this->belongsToMany(Restaurant::class);
+    }
 }
