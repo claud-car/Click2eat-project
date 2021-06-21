@@ -19,7 +19,7 @@
     <body class="antialiased">
         <x-app-layout>
             <x-slot name="header">
-                <div class="flex justify-center items-center py-20">
+                <div class="flex justify-center items-center py-40">
                     <h1 class="text-white">JUMBO</h1>
                 </div>
             </x-slot>

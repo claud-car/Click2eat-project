@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="absolute w-full bg-transparent border-b border-gray-100 h-28">
     <!-- Primary Navigation Menu -->
     <div class="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center">
         <div class="flex justify-between">
@@ -21,9 +21,11 @@
                     <x-nav-link >
                         {{ __('About Us') }}
                     </x-nav-link>
-                    <x-nav-link >
+                </div>
+            </div>
+            <div>
                     @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        <div class="hidden top-0 right-0 px-6 py-4 sm:block">
                             @auth
                             @else
                                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
@@ -34,10 +36,8 @@
                             @endauth
                         </div>
                     @endif
-
-                    </x-nav-link>
-                </div>
             </div>
+
 
             <!-- Settings Dropdown -->
             @if (Auth::check())
