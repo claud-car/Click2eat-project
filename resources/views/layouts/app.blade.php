@@ -20,12 +20,11 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            <!-- QUI PER HEADER DI ALTRE PAGINE ECCETTO HOME -->
-            <!-- <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-blue shadow">
+                <div class="max-w-7xl mx-auto">
                     {{ $header }}
                 </div>
-            </header> -->
+            </header>
 
             <!-- Page Content -->
             <main>

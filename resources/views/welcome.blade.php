@@ -19,14 +19,12 @@
     <body class="antialiased">
         <x-app-layout>
             <x-slot name="header">
-            </x-slot>
-            <x-slot name="slot">
-                <div class="jumbo bg-blue_default flex justify-center items-center">
+                <div class="flex justify-center items-center py-20">
                     <h1 class="text-white">JUMBO</h1>
                 </div>
+            </x-slot>
+            <x-slot name="slot">
             </x-slot>
         </x-app-layout>
     </body>
 </html>
-
-<!-- ah ah ah 123 123 prova prova-->

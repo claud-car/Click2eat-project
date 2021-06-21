@@ -14,16 +14,22 @@ module.exports = {
             },
         },
         colors: {
-            blue_default:{
+            white: {
+                DEFAULT: '#FFF'
+            },
+            blue: {
                 DEFAULT: '#22262F',
             },
-            orange_button:{
+            orange: {
                 DEFAULT: '#E89240'
             },
-            yellow_utility:{
+            yellow: {
                 DEFAULT: '#D8AB37'
             }
         },
+        maxWidth: {
+            '3/4': '95%'
+        }
     },
 
     variants: {
