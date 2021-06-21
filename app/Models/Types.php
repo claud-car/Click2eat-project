@@ -14,4 +14,6 @@ class Types extends Model
         'name',
         'thumb',
     ];
+
+    
 }
