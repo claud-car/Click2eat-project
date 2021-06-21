@@ -16,7 +16,7 @@ class Payment extends Model
         'amount',
     ];
 
-    public function orders()
+    public function order()
     {
         return $this->hasOne(Order::class);
     }

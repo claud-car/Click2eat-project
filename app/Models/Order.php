@@ -16,4 +16,9 @@ class Order extends Model
         'customer_address',
         'phone_number',
     ];
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 }

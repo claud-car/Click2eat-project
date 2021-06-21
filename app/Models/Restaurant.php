@@ -17,7 +17,7 @@ class Restaurant extends Model
         'thumb_path'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
