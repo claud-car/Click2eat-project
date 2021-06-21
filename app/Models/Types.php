@@ -12,7 +12,7 @@ class Types extends Model
     protected $fillable = [
         'slug',
         'name',
-        'thumb',
+        'thumb_path',
     ];
 
     
