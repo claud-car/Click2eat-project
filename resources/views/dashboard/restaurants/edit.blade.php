@@ -23,5 +23,3 @@
     <a href="{{ route('dashboard') }}">Indietro</a>
 
 </form>
-
-<!--  odio windows -->
