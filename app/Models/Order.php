@@ -26,4 +26,9 @@ class Order extends Model
     {
         return $this->belongsTo(Payment::class);
     }
+
+    public function plates()
+    {
+        return $this->belongsToMany(Payment::plate);
+    }
 }
