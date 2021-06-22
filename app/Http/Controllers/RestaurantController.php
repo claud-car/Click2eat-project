@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Restaurant;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -14,7 +16,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $restaurants = Restaurant::all();
+
+        return view('dashboard.dashboard', compact('restaurants'));
     }
 
     /**
@@ -24,7 +28,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+
+        return view('dashboard.restaurants.create', compact('types'));
     }
 
     /**
@@ -35,7 +41,30 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'exist:user,id',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+        ]);
+
+        $data = $request->all();
+
+        $path = NULL;
+
+        if (array_key_exists('thumb_path', $data)) {
+            $path = Storage::put('uploads', $data['thumb_path']);
+        }
+
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
+
+        $restaurant->user_id = $request->user()->id;
+        $restaurant->slug = $this->generateSlug($restaurant->name);
+        $restaurant->thumb_path = 'storage/'.$path;
+        $restaurant->save();
+
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -46,7 +75,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -57,7 +86,9 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $types = Type::all();
+
+        return view('dashboard.restaurants.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -69,7 +100,32 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $request->validate([
+            'user_id' => 'exist:user,id',
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+        ]);
+
+        $data = $request->all();
+        $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
+
+        $path = NULL;
+
+        if (array_key_exists('thumb_path', $data)) {
+            $path = Storage::put('uploads', $data['thumb_path']);
+            $data['thumb_path'] = 'storage/'.$path;
+        }
+
+        $restaurant->update($data);
+
+        if (array_key_exists('type_ids', $data)) {
+            $restaurant->types()->sync($data['type_ids']);
+        } else{
+            $restaurant->types()->detach();
+        }
+
+        return redirect()->route('restaurant.edit', compact('restaurant'));
     }
 
     /**
@@ -80,6 +136,31 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+
+        return redirect()->route('dashboard', 'delete-success');
     }
+
+    private function generateSlug(string $name, bool $change = true, string $old_slug = '')
+    {
+
+        if(!$change){
+            return $old_slug;
+        }
+
+        $slug = Str::slug($name, '-');
+        $slug_base = $slug;
+        $contatore = 1;
+
+        $restaurant_with_slug= Restaurant::where('slug', '=' , $slug)->first();
+        while($restaurant_with_slug) {
+            $slug = $slug_base . '-' . $contatore;
+            $contatore++;
+
+            $restaurant_with_slug = Restaurant::where('slug', '=' , $slug)->first();
+        }
+
+        return $slug;
+    }
+
 }

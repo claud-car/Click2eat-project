@@ -13,5 +13,18 @@
                 </div>
             </div>
         </div>
+        @foreach ($restaurants as $restaurant)
+            <p>{{ $restaurant->name }}</p>
+            <p>{{ $restaurant->address }}</p>
+            <a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}">Edit</a>
+            <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
+                @csrf 
+                @method('DELETE')
+                <input type="submit" value="Delete">
+            </form>
+        @endforeach
+    </div>
+        <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
+    <div>
     </div>
 </x-app-layout>
