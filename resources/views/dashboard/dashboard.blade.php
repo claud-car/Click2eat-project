@@ -14,4 +14,7 @@
             </div>
         </div>
     </div>
+        <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
+    <div>
+    </div>
 </x-app-layout>
