@@ -18,12 +18,12 @@ class Plate extends Model
         'thumb_path'
     ];
 
-    public function restaurants()
+    public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function order()
+    public function orders()
     {
         return $this->belongsToMany(Order::class);
     }
