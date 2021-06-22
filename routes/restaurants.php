@@ -3,6 +3,10 @@
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Route;  
 
+Route::patch('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantController::class, 'update'])
+                ->middleware('auth')
+                ->name('restaurant.update');
+
 Route::get('/dashboard/restaurants/create', [RestaurantController::class, 'create'])
                 ->middleware('auth')
                 ->name('restaurant.create');
@@ -10,12 +14,14 @@ Route::get('/dashboard/restaurants/create', [RestaurantController::class, 'creat
 Route::post('/dashboard/restaurants/create', [RestaurantController::class, 'store'])
                 ->middleware('auth');
 
-Route::get('/dashboard/restaurants/edit', [RestaurantController::class, 'edit'])
+Route::get('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantController::class, 'edit'])
                 ->middleware('auth')
                 ->name('restaurant.edit');
 
-Route::put('/dashboard', [RestaurantController::class, 'update'])
-                ->middleware('auth');
+Route::delete('/restaurants/{restaurant:slug}/delete', [RestaurantController::class, 'destroy'])
+                ->middleware('auth')
+                ->name('restaurant.destroy');
+
 
 
 

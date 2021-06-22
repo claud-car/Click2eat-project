@@ -16,7 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::All();
+        $restaurants = Restaurant::all();
 
         return view('dashboard.dashboard', compact('restaurants'));
     }
@@ -108,8 +108,7 @@ class RestaurantController extends Controller
         ]);
 
         $data = $request->all();
-
-        $data['slug'] = $this->generateSlug($data['title'], $restaurant->name != $data['nam'], $restaurant->slug);
+        $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
 
         $path = NULL;
 
@@ -126,7 +125,7 @@ class RestaurantController extends Controller
             $restaurant->types()->detach();
         }
 
-        return redirect()->route('dashboard.dashboard');
+        return redirect()->route('restaurant.edit', compact('restaurant'));
     }
 
     /**
@@ -139,7 +138,7 @@ class RestaurantController extends Controller
     {
         $restaurant->delete();
 
-        return redirect()->route('dashboard.dashboard');
+        return redirect()->route('dashboard', 'delete-success');
     }
 
     private function generateSlug(string $name, bool $change = true, string $old_slug = '')
