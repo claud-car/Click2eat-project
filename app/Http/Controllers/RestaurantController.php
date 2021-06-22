@@ -50,21 +50,21 @@ class RestaurantController extends Controller
 
         $data = $request->all();
 
-        $cover = NULL;
+        $path = NULL;
 
-        if (array_key_exists('cover', $data)) {
-            $cover = Storage::put('uploads', $data['cover']);
+        if (array_key_exists('thumb_path', $data)) {
+            $path = Storage::put('uploads', $data['thumb_path']);
         }
 
         $restaurant = new Restaurant();
         $restaurant->fill($data);
 
-
+        $restaurant->user_id = $request->user()->id;
         $restaurant->slug = $this->generateSlug($restaurant->name);
-        $restaurant->thumb_path = 'storage/'.$cover;
+        $restaurant->thumb_path = 'storage/'.$path;
         $restaurant->save();
 
-        return redirect()->route('dashboard.dashboard');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -111,11 +111,11 @@ class RestaurantController extends Controller
 
         $data['slug'] = $this->generateSlug($data['title'], $restaurant->name != $data['nam'], $restaurant->slug);
 
-        $cover = NULL;
+        $path = NULL;
 
-        if (array_key_exists('cover', $data)) {
-            $cover = Storage::put('uploads', $data['cover']);
-            $data['cover'] = 'storage/'.$cover;
+        if (array_key_exists('thumb_path', $data)) {
+            $path = Storage::put('uploads', $data['thumb_path']);
+            $data['thumb_path'] = 'storage/'.$path;
         }
 
         $restaurant->update($data);
