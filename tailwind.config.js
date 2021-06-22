@@ -26,9 +26,6 @@ module.exports = {
             yellow: {
                 DEFAULT: '#D8AB37'
             }
-        },
-        maxWidth: {
-            '3/4': '95%'
         }
     },
 

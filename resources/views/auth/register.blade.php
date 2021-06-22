@@ -20,6 +20,13 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            <!-- Name -->
+            <div class="mt-4">
+                <x-label for="lastname" :value="__('Last Name')" />
+
+                <x-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus />
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
@@ -48,7 +55,7 @@
 
                         <!-- P_iva -->
             <div class="mt-4">
-                <x-label for="p_iva" :value="__('p_iva')" />
+                <x-label for="p_iva" :value="__('Partita Iva')" />
 
                 <x-input id="p_iva" class="block mt-1 w-full"
                                 type="text"
@@ -61,7 +68,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button class="bg-blue ml-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
