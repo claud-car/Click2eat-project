@@ -13,7 +13,7 @@ class PlateOrder extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_type', function (Blueprint $table) {
+        Schema::create('plate_order', function (Blueprint $table) {
             $table->foreignId('order_id');
             $table->foreignId('plate_id');
             $table->smallInteger('quantity');
