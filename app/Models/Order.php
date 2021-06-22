@@ -17,6 +17,11 @@ class Order extends Model
         'phone_number',
     ];
 
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
+
     public function payment()
     {
         return $this->belongsTo(Payment::class);
