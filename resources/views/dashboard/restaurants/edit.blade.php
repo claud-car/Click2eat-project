@@ -20,7 +20,11 @@
     @foreach ($types as $type )
         <br>
         <label for="name">{{ $type->name }}</label>
-        <input type="checkbox" name="type_id[]" value="{{ $type->id }}">
+        <input id="id" type="checkbox" name="type_id[]" value="{{ $type->id }}">
+        @error ('type_id[]')
+            <small class=" text-danger"> {{ $message }} </small>
+        @enderror
+
     @endforeach
 
     <br>

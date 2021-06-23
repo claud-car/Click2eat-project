@@ -49,8 +49,6 @@ class RestaurantController extends Controller
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
 
-        // $data = $request->all();
-
         $path = NULL;
 
         if (array_key_exists('thumb_path', $request->all())) {
@@ -112,25 +110,40 @@ class RestaurantController extends Controller
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
 
-        $data = $request->all();
-        $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
-
         $path = NULL;
 
-        if (array_key_exists('thumb_path', $data)) {
-            $path = Storage::put('uploads', $data['thumb_path']);
-            $data['thumb_path'] = 'storage/'.$path;
+        if (array_key_exists('thumb_path', $request->all())) {
+            $path = Storage::put('uploads', $request->thumb_path);
         }
 
-        $restaurant->update($data);
+        $restaurant->name = $request->name;
+        $restaurant->address = $request->address;
 
-        if (array_key_exists('type_ids', $data)) {
-            $restaurant->types()->sync($data['type_ids']);
-        } else{
-            $restaurant->types()->detach();
-        }
+        $restaurant->user_id = $request->user()->id;
+        $restaurant->slug = $this->generateSlug($request->name);
+        $restaurant->thumb_path = 'storage/'.$path;
 
-        return redirect()->route('restaurant.edit', compact('restaurant'));
+        $restaurant->update();
+
+        $restaurant->types()->attach($request->type_id);
+
+        // $data = $request->all();
+
+        // $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
+
+        // $path = NULL;
+
+        // if (array_key_exists('thumb_path', $data)) {
+        //     $path = Storage::put('uploads', $data['thumb_path']);
+        //     $data['thumb_path'] = 'storage/'.$path;
+        // }
+
+        // $restaurant->update($data);
+        
+        // $restaurant->types()->sync($data['type_id']);
+
+
+        return redirect()->route('dashboard', compact('restaurant'));
     }
 
     /**
