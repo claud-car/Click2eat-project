@@ -59,7 +59,7 @@ class TypeController extends Controller
         $type->thumb_path = 'storage/'.$path;
         $type->save();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('type.index');
     }
 
     /**
@@ -68,9 +68,9 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $types)
+    public function edit(Type $type)
     {
-        return view('dashboard.types.edit', compact('types'));
+        return view('dashboard.types.edit', compact('type'));
     }
 
     /**
@@ -80,7 +80,7 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $types)
+    public function update(Request $request, Type $type)
     {
         $request->validate([
             'restaurant_id' => 'exists:restaurant,id',
@@ -89,7 +89,7 @@ class TypeController extends Controller
         ]);
 
         $data = $request->all();
-        $data['slug'] = $this->generateSlug($data['name'], $types->name != $data['name'], $types->slug);
+        $data['slug'] = $this->generateSlug($data['name'], $type->name != $data['name'], $type->slug);
 
         $path = NULL;
 
@@ -98,15 +98,15 @@ class TypeController extends Controller
             $data['thumb_path'] = 'storage/'.$path;
         }
 
-        $types->update($data);
+        $type->update($data);
 
-        if (array_key_exists('type_ids', $data)) {
-            $types->types()->sync($data['type_ids']);
-        } else{
-            $types->types()->detach();
-        }
+        // if (array_key_exists('type_ids', $data)) {
+        //     $type->type()->sync($data['type_ids']);
+        // } else{
+        //     $type->type()->detach();
+        // }
 
-        return redirect()->route('dashboard.types.edit', compact('types'));
+        return redirect()->route('type.index', compact('type'));
     }
 
     /**
@@ -115,11 +115,13 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $types
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $types)
+    public function destroy(Type $type)
     {
-        $types->delete();
+        $type->delete();
 
-        return redirect()->route('dashboard', 'delete-success');
+        return redirect()->route('type.index', 'delete-success');
+
+        
     }
 
     private function generateSlug(string $name, bool $change = true, string $old_slug = '')

@@ -27,13 +27,10 @@
             </form>
         @endforeach
     </div>
+    <div>  
         <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
+    </div>  
     <div>
-    </div>
-    <a href="{{ route('type.create') }}">Crea la tipologia del tuo ristorante</a>
-    <div>
-    </div>
-    <a href="{{ route('type.index') }}">Controlla le tipologie del tuo ristorante</a>
-    <div>
+        <a href="{{ route('type.index') }}">Controlla le tipologie del tuo ristorante</a>
     </div>
 </x-app-layout>

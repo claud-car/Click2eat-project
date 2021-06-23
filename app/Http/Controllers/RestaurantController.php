@@ -108,6 +108,7 @@ class RestaurantController extends Controller
             'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
+            'type_id.*' => 'exists:types,id',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
 

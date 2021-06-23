@@ -17,7 +17,13 @@
             <small class=" text-danger"> {{ $message }} </small>
         @enderror
     </div>
+    @foreach ($types as $type )
+        <br>
+        <label for="name">{{ $type->name }}</label>
+        <input type="checkbox" name="type_id[]" value="{{ $type->id }}">
+    @endforeach
 
+    <br>
 
     <button class="btn btn-primary" type="submit">Salva</button>
     <a href="{{ route('dashboard') }}">Indietro</a>
