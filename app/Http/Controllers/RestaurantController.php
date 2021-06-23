@@ -42,27 +42,31 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'exist:user,id',
+            'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
+            'type_id.*' => 'exists:types,id',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
 
-        $data = $request->all();
+        // $data = $request->all();
 
         $path = NULL;
 
-        if (array_key_exists('thumb_path', $data)) {
-            $path = Storage::put('uploads', $data['thumb_path']);
+        if (array_key_exists('thumb_path', $request->all())) {
+            $path = Storage::put('uploads', $request->thumb_path);
         }
 
         $restaurant = new Restaurant();
-        $restaurant->fill($data);
+        $restaurant->name = $request->name;
+        $restaurant->address = $request->address;
 
         $restaurant->user_id = $request->user()->id;
-        $restaurant->slug = $this->generateSlug($restaurant->name);
+        $restaurant->slug = $this->generateSlug($request->name);
         $restaurant->thumb_path = 'storage/'.$path;
         $restaurant->save();
+        
+        $restaurant->types()->attach($request->type_id);
 
         return redirect()->route('dashboard');
     }
@@ -101,7 +105,7 @@ class RestaurantController extends Controller
     public function update(Request $request, Restaurant $restaurant)
     {
         $request->validate([
-            'user_id' => 'exist:user,id',
+            'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',

@@ -22,3 +22,4 @@ Route::get('/dashboard', [RestaurantController::class, 'index'])->middleware(['a
 
 require __DIR__.'/auth.php';
 require __DIR__.'/restaurants.php';
+require __DIR__.'/types.php';

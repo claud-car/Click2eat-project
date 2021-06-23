@@ -18,7 +18,7 @@ Route::get('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantControlle
                 ->middleware('auth')
                 ->name('restaurant.edit');
 
-Route::delete('/restaurants/{restaurant:slug}/delete', [RestaurantController::class, 'destroy'])
+Route::delete('/dashboard/restaurants/{restaurant:slug}/delete', [RestaurantController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('restaurant.destroy');
 

@@ -16,6 +16,9 @@
         @foreach ($restaurants as $restaurant)
             <p>{{ $restaurant->name }}</p>
             <p>{{ $restaurant->address }}</p>
+            @foreach ($restaurant->types as $type)
+            <p>{{ $type->name }}</p>                
+            @endforeach
             <a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}">Edit</a>
             <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
                 @csrf 
@@ -25,6 +28,12 @@
         @endforeach
     </div>
         <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
+    <div>
+    </div>
+    <a href="{{ route('type.create') }}">Crea la tipologia del tuo ristorante</a>
+    <div>
+    </div>
+    <a href="{{ route('type.index') }}">Controlla le tipologie del tuo ristorante</a>
     <div>
     </div>
 </x-app-layout>

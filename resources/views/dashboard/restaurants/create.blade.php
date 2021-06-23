@@ -19,6 +19,15 @@
                 <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus />
             </div>
 
+            <div class="form-group">
+                <label for="name">Category</label>
+                @foreach ($types as $type )
+                    <br>
+                    <label for="name">{{ $type->name }}</label>
+                    <input type="checkbox" name="type_id[]" value="{{ $type->id }}">
+                @endforeach
+            </div>
+
             <x-button class="bg-blue ml-4">
                 {{ __('Apply') }}
             </x-button>

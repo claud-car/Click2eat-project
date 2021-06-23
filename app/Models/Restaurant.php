@@ -14,6 +14,7 @@ class Restaurant extends Model
         'slug',
         'name',
         'address',
+        'type_id',
         'thumb_path'
     ];
 
