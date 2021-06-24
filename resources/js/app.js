@@ -2,7 +2,7 @@ require('./bootstrap');
 
 require('alpinejs');
 
-import { createApp } from "vue";
+/*import { createApp } from "vue";
 
 createApp({
     data() {
@@ -13,4 +13,4 @@ createApp({
     created() {
         console.log(this.msg)
     }
-}).mount('#app')
+}).mount('#app')*/
