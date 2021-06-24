@@ -16,10 +16,11 @@ class CreatePlatesTable extends Migration
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('restaurant_id');
+            $table->string('slug')->unique();
             $table->string('name');
             $table->text('description');
             $table->float('price');
-            $table->boolean('is_visible');
+            $table->boolean('is_visible')->default(true);
             $table->string('thumb_path');
             $table->timestamps();
         });
