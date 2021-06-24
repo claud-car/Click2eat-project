@@ -18,13 +18,14 @@
         @enderror
     </div>
 
+    @error ('type_id')
+    <small class=" text-danger"> {{ 'You may select at least one type' }} </small>
+    @enderror
+
     @foreach ($types as $type)
         <br>
         <label for="name">{{ $type->name }}</label>
         <input type="checkbox" name="type_id[]" value="{{ $type->id }}" {{ in_array($type->id, $old_types) ? 'checked' : ''  }}>
-        @error ('type_id[]')
-            <small class=" text-danger"> {{ $message }} </small>
-        @enderror
     @endforeach
 
     <br>
