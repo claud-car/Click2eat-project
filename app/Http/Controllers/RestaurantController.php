@@ -138,7 +138,7 @@ class RestaurantController extends Controller
 
         $restaurant->types()->sync($request->type_id);
 
-        return redirect()->route('dashboard', compact('restaurant'));
+        return redirect()->route('dashboard');
     }
 
     /**
