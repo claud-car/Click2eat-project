@@ -63,7 +63,7 @@ class RestaurantController extends Controller
 
         $restaurant->user_id = $request->user()->id;
         $restaurant->slug = $this->generateSlug($request->name);
-        $restaurant->thumb_path = 'storage/'.$path;
+        $restaurant->thumb_path = 'storage/'. $path;
         $restaurant->save();
 
         $restaurant->types()->attach($request->type_id);
@@ -152,6 +152,13 @@ class RestaurantController extends Controller
         $restaurant->delete();
 
         return redirect()->route('dashboard', 'delete-success');
+    }
+
+    public function search()
+    {
+        $restaurants = Restaurant::with('types')->get();
+
+        return response()->json($restaurants);
     }
 
     private function generateSlug(string $name, bool $change = true, string $old_slug = '')
