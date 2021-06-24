@@ -22,7 +22,7 @@ Route::get('/dashboard', [RestaurantController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 
-Route::get('/show/{restaurant:slug}', [RestaurantController::class, 'show'])
+Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show'])
     ->middleware(['auth'])
     ->name('restaurant.show');
 

@@ -19,6 +19,7 @@
     </div>
 
     @error ('type_id')
+    @php ($old_types = [])
     <small class=" text-danger"> {{ 'You may select at least one type' }} </small>
     @enderror
 

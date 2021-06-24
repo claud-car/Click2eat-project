@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
@@ -16,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
         return view('dashboard.dashboard', compact('restaurants'));
     }
@@ -88,6 +90,10 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
+        if (!Gate::allows('edit-restaurant', $restaurant)) {
+            abort(403);
+        }
+
         $types = Type::all();
         $restaurant_types = $restaurant->types()->get();
 
