@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('edit-restaurant', function (User $user, Restaurant $restaurant) {
+        Gate::define('check-user', function (User $user, Restaurant $restaurant) {
             return $user->id === $restaurant->user_id;
         });
     }

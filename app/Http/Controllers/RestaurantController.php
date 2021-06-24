@@ -90,7 +90,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        if (!Gate::allows('edit-restaurant', $restaurant)) {
+        if (!Gate::allows('check-user', $restaurant)) {
             abort(403);
         }
 
