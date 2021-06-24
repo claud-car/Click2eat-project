@@ -18,7 +18,7 @@ class PlateController extends Controller
     {
         $plates = Plate::all();
 
-        return view('dashboard.plates.index', compact('plates'));
+        return view('restaurants.show', compact('plates'));
     }
 
     /**
