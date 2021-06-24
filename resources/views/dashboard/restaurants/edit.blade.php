@@ -1,5 +1,5 @@
 <form action="{{route('restaurant.update', ['restaurant' => $restaurant->slug])}}" method= "post" enctype="multipart/form-data">
-    @csrf 
+    @csrf
     @method('PATCH')
 
 
@@ -12,19 +12,19 @@
     </div>
     <div class="form-group">
         <label for="address">Address</label>
-        <textarea class="form-control @error('address') is-invalid @enderror" id="address" name="address">{{ old('address', $restaurant->address) }}</textarea>
+        <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" value="{{ old('address', $restaurant->address) }}">
         @error ('address')
             <small class=" text-danger"> {{ $message }} </small>
         @enderror
     </div>
-    @foreach ($types as $type )
+
+    @foreach ($types as $type)
         <br>
         <label for="name">{{ $type->name }}</label>
-        <input id="id" type="checkbox" name="type_id[]" value="{{ $type->id }}">
+        <input type="checkbox" name="type_id[]" value="{{ $type->id }}" {{ in_array($type->id, $old_types) ? 'checked' : ''  }}> {{ $type->id }}
         @error ('type_id[]')
             <small class=" text-danger"> {{ $message }} </small>
         @enderror
-
     @endforeach
 
     <br>

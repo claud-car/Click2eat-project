@@ -63,7 +63,7 @@ class RestaurantController extends Controller
         $restaurant->slug = $this->generateSlug($request->name);
         $restaurant->thumb_path = 'storage/'.$path;
         $restaurant->save();
-        
+
         $restaurant->types()->attach($request->type_id);
 
         return redirect()->route('dashboard');
@@ -89,8 +89,13 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $types = Type::all();
+        $restaurant_types = $restaurant->types()->get();
 
-        return view('dashboard.restaurants.edit', compact('restaurant', 'types'));
+        foreach ($restaurant_types as $old_type) {
+            $old_types[] = $old_type->id;
+        }
+
+        return view('dashboard.restaurants.edit', compact('restaurant', 'types', 'old_types'));
     }
 
     /**
@@ -125,23 +130,7 @@ class RestaurantController extends Controller
 
         $restaurant->update();
 
-        $restaurant->types()->attach($request->type_id);
-
-        // $data = $request->all();
-
-        // $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
-
-        // $path = NULL;
-
-        // if (array_key_exists('thumb_path', $data)) {
-        //     $path = Storage::put('uploads', $data['thumb_path']);
-        //     $data['thumb_path'] = 'storage/'.$path;
-        // }
-
-        // $restaurant->update($data);
-        
-        // $restaurant->types()->sync($data['type_id']);
-
+        $restaurant->types()->sync($request->type_id);
 
         return redirect()->route('dashboard', compact('restaurant'));
     }

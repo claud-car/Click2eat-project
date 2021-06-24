@@ -22,7 +22,9 @@ class TypeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->unique()->text(),
+            'slug' => $this->faker->unique()->slug(),
+            'thumb_path' => ''
         ];
     }
 }
