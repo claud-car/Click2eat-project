@@ -22,7 +22,9 @@ class PlateFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->unique()->text(9),
+            'slug' => $this->faker->unique()->slug(),
+            'thumb_path' => ''
         ];
     }
 }

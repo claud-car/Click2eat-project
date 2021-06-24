@@ -3,7 +3,7 @@
 use App\Http\Controllers\PlateController;
 use Illuminate\Support\Facades\Plate;  
 
-Route::get('/restaurants/show', [PlateController::class, 'index'])
+Route::get('dashboard/restaurants/index', [PlateController::class, 'index'])
                 ->middleware('auth')
                 ->name('plate.index');
 
