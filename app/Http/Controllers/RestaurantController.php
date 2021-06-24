@@ -47,7 +47,7 @@ class RestaurantController extends Controller
             'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'type_id.*' => 'exists:types,id',
+            'type_id' => 'required',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
 
@@ -127,11 +127,11 @@ class RestaurantController extends Controller
             $path = Storage::put('uploads', $request->thumb_path);
         }
 
+        $restaurant->slug = $this->generateSlug($request->name, $restaurant->name !== $request->name, $restaurant->slug);
         $restaurant->name = $request->name;
         $restaurant->address = $request->address;
 
         $restaurant->user_id = $request->user()->id;
-        $restaurant->slug = $this->generateSlug($request->name);
         $restaurant->thumb_path = 'storage/'.$path;
 
         $restaurant->update();
@@ -156,8 +156,7 @@ class RestaurantController extends Controller
 
     private function generateSlug(string $name, bool $change = true, string $old_slug = '')
     {
-
-        if(!$change){
+        if (!$change) {
             return $old_slug;
         }
 

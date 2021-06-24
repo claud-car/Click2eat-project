@@ -23,7 +23,6 @@ Route::get('/dashboard', [RestaurantController::class, 'index'])
     ->name('dashboard');
 
 Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show'])
-    ->middleware(['auth'])
     ->name('restaurant.show');
 
 require __DIR__.'/auth.php';
