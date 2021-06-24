@@ -28,4 +28,3 @@ Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show
 
 require __DIR__.'/auth.php';
 require __DIR__.'/restaurants.php';
-require __DIR__.'/types.php';
