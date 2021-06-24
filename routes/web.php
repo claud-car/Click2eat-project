@@ -18,7 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', [RestaurantController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [RestaurantController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
+
+Route::get('/show/{restaurant:slug}', [RestaurantController::class, 'show'])
+    ->middleware(['auth'])
+    ->name('restaurant.show');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/restaurants.php';

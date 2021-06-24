@@ -14,22 +14,22 @@
             </div>
         </div>
         @foreach ($restaurants as $restaurant)
-            <p>{{ $restaurant->name }}</p>
+            <p><a class="text-orange" href="{{ route('restaurant.show', ['restaurant' => $restaurant->slug]) }}">{{ $restaurant->name }}</a></p>
             <p>{{ $restaurant->address }}</p>
             @foreach ($restaurant->types as $type)
-            <p>{{ $type->name }}</p>                
+            <p>{{ $type->name }}</p>
             @endforeach
             <a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}">Edit</a>
             <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
-                @csrf 
+                @csrf
                 @method('DELETE')
                 <input type="submit" value="Delete">
             </form>
         @endforeach
     </div>
-    <div>  
+    <div>
         <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
-    </div>  
+    </div>
     <div>
         <a href="{{ route('type.index') }}">Controlla le tipologie del tuo ristorante</a>
     </div>
