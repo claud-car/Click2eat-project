@@ -23,8 +23,11 @@ class PlateFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->text(9),
+            'description' => $this->faker->unique()->text(15),
+            'price' => '10',
             'slug' => $this->faker->unique()->slug(),
-            'thumb_path' => ''
+            'restaurant_id' =>'1',
+            'thumb_path' => 'https://via.placeholder.com/250',
         ];
     }
 }

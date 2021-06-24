@@ -12,7 +12,8 @@ Route::get('/dashboard/restaurants/create', [RestaurantController::class, 'creat
                 ->name('restaurant.create');
 
 Route::post('/dashboard/restaurants/create', [RestaurantController::class, 'store'])
-                ->middleware('auth');
+                ->middleware('auth')
+                ->name('restaurant.store');
 
 Route::get('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantController::class, 'edit'])
                 ->middleware('auth')

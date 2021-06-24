@@ -18,7 +18,7 @@ class PlateController extends Controller
     {
         $plates = Plate::all();
 
-        return view('restaurants.show', compact('plates'));
+        return view('dashboard.restaurants.plates.index', compact('plates'));
     }
 
     /**
@@ -26,9 +26,9 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('dashboard.plates.create');
+    public function create(Restaurant $restaurant)
+    {   
+        return view('dashboard.restaurants.plates.create', compact('restaurant'));
     }
 
     /**
@@ -37,13 +37,13 @@ class PlateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Restaurant $restaurant)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'price' => 'required|float',
-            'restaurant_id.*' => 'exists:restaurants,id',
+            'price' => 'required|between:0,99.99',
+            'restaurant_id' => 'exists:restaurants,id',
             'is_visible' => 'boolean',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
@@ -56,16 +56,17 @@ class PlateController extends Controller
             $path = Storage::put('uploads', $data['thumb_path']);
         }
 
+
         $plate = new Plate();
         $plate->name = $request->name;
-        $plate->description = $request->$description;
+        $plate->description = $request->description;
         $plate->price = $request->price;
-        $plate->restaurant_id = $request->restaurant()->id;
-        $plate->is_visible = $request->is_visible;        
+        $plate->restaurant_id = $restaurant->id;
+        $plate->slug = $this->generateSlug($plate->name);      
         $plate->thumb_path = 'storage/'.$path;
         $plate->save();
 
-        return redirect()->route('plate.index');
+        return redirect()->route('restaurant.show', compact('restaurant'));
     }
 
     /**
@@ -76,7 +77,7 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
-        return view('plates.show', compact('plate'));
+        return view('plate.show', compact('plate'));
     }
 
     /**
@@ -85,9 +86,9 @@ class PlateController extends Controller
      * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plate $plate)
+    public function edit(Restaurant $restaurant, Plate $plate)
     {
-        return view('dashboard.plates.edit', compact('plate'));
+        return view('dashboard.restaurants.plates.edit', compact ('restaurant', 'plate'));
     }
 
     /**
@@ -97,18 +98,16 @@ class PlateController extends Controller
      * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plate $plate)
+    public function update(Request $request, Restaurant $restaurant, Plate $plate)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'price' => 'required|float',
+            'price' => 'required|between:0,99.99',
             'restaurant_id.*' => 'exists:restaurants,id',
             'is_visible' => 'boolean',
             'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
         ]);
-
-        $data = $request->all();
 
         $path = NULL;
 
@@ -116,18 +115,16 @@ class PlateController extends Controller
             $path = Storage::put('uploads', $request->thumb_path);
         }
 
+        $plate->slug = $this->generateSlug($request->name, $plate->name !== $request->name, $restaurant->id !== $plate->restaurant_id, $plate->slug);
         $plate->name = $request->name;
-        $plate->description = $request->$description;
+        $plate->description = $request->description;
         $plate->price = $request->price;
-        $plate->restaurant_id = $request->restaurant()->id;
-        $plate->is_visible = $request->is_visible;        
+        $plate->restaurant_id = $restaurant->id;
         $plate->thumb_path = 'storage/'.$path;
 
         $plate->update();
 
-        $plate->restaurants()->attach($request->restaurant_id);
-
-        return redirect()->route('dashboard', compact('plate'));
+        return redirect()->route('restaurant.show', compact('plate', 'restaurant'));
     }
 
     /**
@@ -140,15 +137,20 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route('dashboard', 'delete-success');
+        return redirect()->route('restaurant.show', 'delete-success');
     }
 
-    private function generateSlug(string $name, bool $change = true, string $old_slug = '')
+    private function generateSlug(string $name, bool $change = true, bool $restaurant = true, string $old_slug = '')
     {
+        // dd($restaurant);
 
         if(!$change){
             return $old_slug;
         }
+
+        // if(!$restaurant){
+        //     return $old_slug;
+        // }
 
         $slug = Str::slug($name, '-');
         $slug_base = $slug;
@@ -165,3 +167,6 @@ class PlateController extends Controller
         return $slug;
     }
 }
+
+
+
