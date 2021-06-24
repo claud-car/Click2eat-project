@@ -21,7 +21,7 @@
     @foreach ($types as $type)
         <br>
         <label for="name">{{ $type->name }}</label>
-        <input type="checkbox" name="type_id[]" value="{{ $type->id }}" {{ in_array($type->id, $old_types) ? 'checked' : ''  }}> {{ $type->id }}
+        <input type="checkbox" name="type_id[]" value="{{ $type->id }}" {{ in_array($type->id, $old_types) ? 'checked' : ''  }}>
         @error ('type_id[]')
             <small class=" text-danger"> {{ $message }} </small>
         @enderror
