@@ -2,15 +2,14 @@ require('./bootstrap');
 
 require('alpinejs');
 
-/*import { createApp } from "vue";
+import { createApp } from "vue";
+import SearchByType from "./components/SearchByType";
 
 createApp({
-    data() {
-        return {
-            msg: "prova"
-        }
+    components: {
+        SearchByType,
     },
-    created() {
-        console.log(this.msg)
+    data() {
+        return {}
     }
-}).mount('#app')*/
+}).mount('#app')

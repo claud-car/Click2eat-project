@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/restaurants', [RestaurantController::class, 'search']);
+Route::get('/types', [TypeController::class, 'getAll']);
+Route::get('/restaurants', [RestaurantController::class, 'getAll']);

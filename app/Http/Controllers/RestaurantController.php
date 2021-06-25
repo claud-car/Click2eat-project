@@ -154,7 +154,7 @@ class RestaurantController extends Controller
         return redirect()->route('dashboard', 'delete-success');
     }
 
-    public function search()
+    public function getAll()
     {
         $restaurants = Restaurant::with('types')->get();
 
