@@ -3,7 +3,7 @@
 use App\Http\Controllers\PlateController;
 use Illuminate\Support\Facades\Plate;  
 
-Route::get('dashboard/restaurants/plates/index', [PlateController::class, 'index'])
+Route::get('dashboard/restaurants/{restaurant:slug}/plates', [PlateController::class, 'index'])
                 ->middleware('auth')
                 ->name('plate.index');
 
@@ -23,6 +23,6 @@ Route::get('/dashboard/restaurants/{restaurant:slug}/plates/{plate:slug}/edit', 
                 ->middleware('auth')
                 ->name('plate.edit');
 
-Route::delete('/dashboard/restaurants/plates/{plate:slug}/delete', [PlateController::class, 'destroy'])
+Route::delete('/dashboard/restaurants/{restaurant:slug}/plates/{plate:slug}/delete', [PlateController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('plate.destroy');
