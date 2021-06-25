@@ -13,9 +13,13 @@
                 </div>
             </div>
         </div>
-        @foreach ($restaurants as $restaurant)
-            <div class="container w-2/5 h-52 m-4 rounded-2xl flex flex-row border-2 border-orange">
-                <div class="bg-blue h-full w-2/5 inline-block">
+        <div class="container mx-auto flex justify-center mt-12">
+            <button class="h-20 w-520 border-2 border-yellow rounded-2xl"><a href="{{ route('restaurant.create') }}" class="text-yellow px-5">Crea il tuo ristorante</a></button>
+        </div>
+        <div class="container mx-auto grid grid-cols-2 gap-10 mt-20">
+            @foreach ($restaurants as $restaurant)
+            <div class="container w-full h-52 rounded-2xl flex flex-row border-2 border-orange m-5">
+                <div class="bg-blue h-full w-2/5 inline-block rounded-2xl">
                     <img src="" alt="" class="">
                 </div>
                 <div class="inline-block h-full w-3/5 box-border p-4 overflow-x-auto">
@@ -27,40 +31,23 @@
                             @endforeach
                        </div>
                     <hr class="border-orange m-2">
-                   <div class="flex flex-row">
-                    <a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}" class="text-blue m-2">Edit</a>
-                    <br>
-                    <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}" class="text-orange m-2">Menu -></a> 
-                    <div class="float-right">
-                        <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="Delete" class="bg-orange text-white m-2">
-                        </form>
-                    </div>
+                   <div class="flex justify-between">
+                        <div>
+                            <button class="bg-blue rounded-xl p-2"><a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}" class="text-white p-2">Edit</a></button>
+                            <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}" class="text-orange m-2">Menu -></a> 
+                        </div>
+                        <div class="">
+                            <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="Delete" class="bg-orange text-white p-2 rounded-xl">
+                            </form>
+                        </div>
                    </div>
 
                 </div>
             </div>
         @endforeach
-    </div>
-    <div>
-        <a href="{{ route('restaurant.create') }}">Crea il tuo ristorante</a>
-    </div>
+        </div>
+    </div>    
 </x-app-layout>
-
-{{-- @foreach ($restaurants as $restaurant)
-<p><a class="text-orange" href="{{ route('restaurant.show', ['restaurant' => $restaurant->slug]) }}">{{ $restaurant->name }}</a></p>
-<p>{{ $restaurant->address }}</p>
-@foreach ($restaurant->types as $type)
-<p>{{ $type->name }}</p>
-@endforeach
-<a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}">Edit</a>
-<br>
-<a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}">Gestici menu</a> 
-<form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
-    @csrf
-    @method('DELETE')
-    <input type="submit" value="Delete">
-</form>
-@endforeach --}}
