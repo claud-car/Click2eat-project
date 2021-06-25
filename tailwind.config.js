@@ -21,11 +21,17 @@ module.exports = {
             blue: {
                 DEFAULT: '#22262F',
             },
+            gray: {
+                shuttle: '#5D6978'
+            },
             orange: {
                 DEFAULT: '#E89240'
             },
             yellow: {
                 DEFAULT: '#D8AB37'
+            },
+            selago: {
+                DEFAULT: '#F4F7FD'
             }
         }
     },

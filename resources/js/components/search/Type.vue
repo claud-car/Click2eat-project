@@ -30,22 +30,14 @@ export default {
 
 <style scoped>
 .unchecked {
-    @apply color bg py-1 px-3 border-2 border-solid border-transparent rounded-full inline-block cursor-pointer transition-colors
+    @apply text-gray-shuttle bg-selago py-1 px-3 border-2 border-solid border-transparent rounded-full inline-block cursor-pointer transition-colors
 }
 
 .on-hover {
-    @apply hover:bg-white hover:border-orange hover:text-orange
+    @apply hover:bg-white hover:border-yellow hover:text-yellow
 }
 
 .checked {
     @apply bg-white border-orange text-orange
-}
-
-.bg {
-    background: #F4F7FD;
-}
-
-.color {
-    color: #5D6978;
 }
 </style>
