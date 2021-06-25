@@ -9,6 +9,15 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <!-- Norican -->
+        <link href="https://fonts.googleapis.com/css2?family=Norican&display=swap" rel="stylesheet">
+        <!-- Solway -->
+        <link href="https://fonts.googleapis.com/css2?family=Solway:wght@700&display=swap" rel="stylesheet">
+        <!-- Montserrat -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -16,7 +25,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body>
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
