@@ -156,6 +156,13 @@ class RestaurantController extends Controller
         return redirect()->route('dashboard', 'delete-success');
     }
 
+    public function getAll()
+    {
+        $restaurants = Restaurant::with('types')->get();
+
+        return response()->json($restaurants);
+    }
+
     private function generateSlug(string $name, bool $change = true, string $old_slug = '')
     {
         if (!$change) {
