@@ -14,7 +14,7 @@
 </div>
 
 
-<div class="text-blue container m-auto flex flex-wrap">
+<div class="text-blue container m-auto flex flex-wrap md:justify-evenly">
 
     @foreach ($plates as $plate)
     <div class="card flex flex-col w-96 mx-16 my-16 border rounded-2xl justify-between">
@@ -47,7 +47,7 @@
 
 </div>
 <div class="container m-auto py-8">
-    <a class="m-16 bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('dashboard')}}">Indietro</a> 
+    <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('dashboard')}}">Indietro</a> 
 </div>
 
 
