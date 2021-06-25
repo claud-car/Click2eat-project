@@ -19743,6 +19743,11 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       var index = this.currentTypes.indexOf(event);
       this.currentTypes.splice(index, 1);
       console.log(this.currentTypes);
+    },
+    compareByName: function compareByName(a, b) {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
     }
   }
 });
@@ -19827,7 +19832,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["id", "type", "onChecked", "onUnchecked"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRestaurants, function (restaurant) {
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRestaurants.sort($options.compareByName), function (restaurant) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(restaurant.name)
     }, null, 8

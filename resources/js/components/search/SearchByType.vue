@@ -7,7 +7,7 @@
                 </ul>
 
                 <ul>
-                    <li v-for="restaurant in filteredRestaurants" v-text="restaurant.name"></li>
+                    <li v-for="restaurant in filteredRestaurants.sort(compareByName)" v-text="restaurant.name"></li>
                 </ul>
             </div>
         </div>
@@ -61,6 +61,11 @@ export default {
             const index = this.currentTypes.indexOf(event)
             this.currentTypes.splice(index, 1)
             console.log(this.currentTypes)
+        },
+        compareByName(a, b) {
+            if (a.name < b.name) return -1
+            if (a.name > b.name) return 1
+            return 0;
         }
     }
 }
