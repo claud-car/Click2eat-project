@@ -1,6 +1,6 @@
 /* ./resources/sass/app.scss */
 
-/* ! tailwindcss v2.2.2 | MIT License | https://tailwindcss.com */
+/* ! tailwindcss v2.2.0 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -18599,6 +18599,14 @@ select {
 footer h1 {
   font-size: 60px;
   color: #fff !important;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Solway", serif;
 }
 
 @media (min-width: 640px) {
