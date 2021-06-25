@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
@@ -21,6 +21,9 @@
                     <x-nav-link >
                         {{ __('About Us') }}
                     </x-nav-link>
+                    <x-dropdown-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                    </x-dropdown-link>
                     <x-nav-link >
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

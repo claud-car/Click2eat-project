@@ -27,13 +27,6 @@ class TypeSeeder extends Seeder
         ];
 
         foreach ($types as $type) {
-            // $type_obj = new Type();
-            // $type_obj->name = $type;
-            // $type_obj->slug = Str::slug($type, '-');  
-            // $type_obj->thumb_path = $type;  
-            
-            // $type_obj->save();
-
             Type::create($type);
         }
     }
