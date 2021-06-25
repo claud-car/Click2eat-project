@@ -1,8 +1,12 @@
 <template>
     <div>
-        <ul>
-            <li v-for="type in types">{{ type.name }}</li>
-        </ul>
+        <div class="container mx-auto">
+            <div class="w-1/2 mx-auto">
+                <ul class="flex justify-between">
+                    <li v-for="type in types">{{ type.name }}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -35,6 +39,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
