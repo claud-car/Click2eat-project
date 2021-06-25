@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Models\Plate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
@@ -14,11 +15,11 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $plates = Plate::all();
+    public function index(Restaurant $restaurant)
+    {   
+        $plates = $restaurant->plates;
 
-        return view('dashboard.restaurants.plates.index', compact('plates'));
+        return view('dashboard.restaurants.plates.index', compact('plates', 'restaurant'));
     }
 
     /**
@@ -66,7 +67,7 @@ class PlateController extends Controller
         $plate->thumb_path = 'storage/'.$path;
         $plate->save();
 
-        return redirect()->route('restaurant.show', compact('restaurant'));
+        return redirect()->route('plate.index', compact('restaurant'));
     }
 
     /**
@@ -124,7 +125,7 @@ class PlateController extends Controller
 
         $plate->update();
 
-        return redirect()->route('restaurant.show', compact('plate', 'restaurant'));
+        return redirect()->route('plate.index', compact('restaurant'));
     }
 
     /**
@@ -133,11 +134,11 @@ class PlateController extends Controller
      * @param  \App\Models\Plate  $plate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plate $plate)
+    public function destroy(Restaurant $restaurant, Plate $plate)
     {
         $plate->delete();
 
-        return redirect()->route('restaurant.show', 'delete-success');
+        return redirect()->route('plate.index', compact('restaurant'));
     }
 
     private function generateSlug(string $name, bool $change = true, bool $restaurant = true, string $old_slug = '')

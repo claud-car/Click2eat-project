@@ -20,6 +20,8 @@
             <p>{{ $type->name }}</p>
             @endforeach
             <a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}">Edit</a>
+            <br>
+            <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}">Gestici menu</a> 
             <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
                 @csrf
                 @method('DELETE')
