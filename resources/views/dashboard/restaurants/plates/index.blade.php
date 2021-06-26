@@ -5,12 +5,14 @@
 
 <h1 class="text-blue text-center text-5xl">Menu</h1>
 <div class=" text-blue flex justify-center">
-    <a href="{{ route('plate.create', ['restaurant' => $restaurant->slug]) }}"><div class="card flex flex-col w-96 mx-16 my-16 border rounded-2xl h-48">
-        <div class="text-card flex flex-col items-center my-8">
-            <i class="text-orange fas fa-plus text-5xl py-4"></i>
-            <p class="pt-4">Aggiungi un piatto</p>
-        </div></a>
-    </div>   
+    <a href="{{ route('plate.create', ['restaurant' => $restaurant->slug]) }}">
+        <div class="card flex flex-col w-96 mx-16 my-16 border rounded-2xl h-48">
+            <div class="text-card flex flex-col items-center my-8">
+                <i class="text-orange fas fa-plus text-5xl py-4"></i>
+                <p class="pt-4">Aggiungi un piatto</p>
+            </div>
+        </div>
+    </a> 
 </div>
 
 
@@ -19,7 +21,7 @@
     @foreach ($plates as $plate)
     <div class="card flex flex-col w-96 mx-16 my-16 border rounded-2xl justify-between">
         <div class="image-card h-56">
-                <img class="w-96 h-56" src="http://my-templates.online/deli-taste/assets/images/resources/blg1.jpg">    
+            <img class="w-96 h-56" src="http://my-templates.online/deli-taste/assets/images/resources/blg1.jpg">    
         </div>
         <div class="text-card flex flex-col items-center pt-8 px-16 overflow-anywhere text-center">
             <h3 class="py-2 text-3xl">{{ $plate->name }}</h3>
