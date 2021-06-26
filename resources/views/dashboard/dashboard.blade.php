@@ -19,8 +19,8 @@
         <div class="container mx-auto grid grid-cols-2 gap-10 mt-20">
             @foreach ($restaurants as $restaurant)
             <div class="container w-full h-52 rounded-2xl flex flex-row border-2 border-orange m-5">
-                <div class="bg-blue h-full w-2/5 inline-block rounded-2xl">
-                    <img src="" alt="" class="">
+                <div class="bg-blue h-full w-2/5 inline-block rounded-2xl overflow-hidden">
+                    <img src="storage/{{ $restaurant->thumb_path }}" class="w-full h-full">
                 </div>
                 <div class="inline-block h-full w-3/5 box-border p-4 overflow-x-auto">
                     <h1 class="capitalize text-xl"><a class="text-orange" href="{{ route('restaurant.show', ['restaurant' => $restaurant->slug]) }}">{{ $restaurant->name }}</a></h1>
@@ -34,7 +34,7 @@
                    <div class="flex justify-between">
                         <div>
                             <button class="bg-blue rounded-xl p-2"><a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}" class="text-white p-2">Edit</a></button>
-                            <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}" class="text-orange m-2">Menu -></a> 
+                            <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}" class="text-orange m-2">Menu -></a>
                         </div>
                         <div class="">
                             <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
@@ -49,5 +49,5 @@
             </div>
         @endforeach
         </div>
-    </div>    
+    </div>
 </x-app-layout>
