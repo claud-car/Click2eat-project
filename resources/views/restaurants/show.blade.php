@@ -22,7 +22,7 @@
                     <h3 class="py-2 text-2xl">€ {{ $plate->price }}</h3>
                 </div>
                 <div class="flex justify-center">
-                    <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-orange hover:bg-orange text-white font-bold py-2 px-4 rounded-full" href="">Add To Cart</a>
+                    <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full" href="">Add To Cart</a>
                 </div>
             </div>
             @endforeach
