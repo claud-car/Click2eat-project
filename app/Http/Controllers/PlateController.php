@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use App\Models\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,11 @@ class PlateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Restaurant $restaurant)
-    {   
+    {
+        if (!Gate::allows('check-user', $restaurant)) {
+            abort(403);
+        }
+
         $plates = $restaurant->plates;
 
         return view('dashboard.restaurants.plates.index', compact('plates', 'restaurant'));
@@ -28,7 +33,11 @@ class PlateController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Restaurant $restaurant)
-    {   
+    {
+        if (!Gate::allows('check-user', $restaurant)) {
+            abort(403);
+        }
+
         return view('dashboard.restaurants.plates.create', compact('restaurant'));
     }
 
@@ -46,16 +55,11 @@ class PlateController extends Controller
             'price' => 'required|between:0,99.99',
             'restaurant_id' => 'exists:restaurants,id',
             'is_visible' => 'boolean',
-            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
-        $data = $request->all();
-
-        $path = NULL;
-
-        if (array_key_exists('thumb_path', $data)) {
-            $path = Storage::put('uploads', $data['thumb_path']);
-        }
+        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+        $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
 
 
         $plate = new Plate();
@@ -63,22 +67,11 @@ class PlateController extends Controller
         $plate->description = $request->description;
         $plate->price = $request->price;
         $plate->restaurant_id = $restaurant->id;
-        $plate->slug = $this->generateSlug($plate->name);      
-        $plate->thumb_path = 'storage/'.$path;
+        $plate->slug = $this->generateSlug($plate->name);
+        $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
         $plate->save();
 
         return redirect()->route('plate.index', compact('restaurant'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Plate  $plate
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Plate $plate)
-    {
-        return view('plate.show', compact('plate'));
     }
 
     /**
@@ -89,6 +82,10 @@ class PlateController extends Controller
      */
     public function edit(Restaurant $restaurant, Plate $plate)
     {
+        if (!Gate::allows('check-user', $restaurant)) {
+            abort(403);
+        }
+
         return view('dashboard.restaurants.plates.edit', compact ('restaurant', 'plate'));
     }
 
@@ -107,21 +104,20 @@ class PlateController extends Controller
             'price' => 'required|between:0,99.99',
             'restaurant_id.*' => 'exists:restaurants,id',
             'is_visible' => 'boolean',
-            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
-        $path = NULL;
+        Storage::disk('public')->delete($plate->thumb_path);
 
-        if (array_key_exists('thumb_path', $request->all())) {
-            $path = Storage::put('uploads', $request->thumb_path);
-        }
+        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+        $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
 
         $plate->slug = $this->generateSlug($request->name, $plate->name !== $request->name, $restaurant->id !== $plate->restaurant_id, $plate->slug);
         $plate->name = $request->name;
         $plate->description = $request->description;
         $plate->price = $request->price;
         $plate->restaurant_id = $restaurant->id;
-        $plate->thumb_path = 'storage/'.$path;
+        $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
 
         $plate->update();
 
@@ -136,6 +132,8 @@ class PlateController extends Controller
      */
     public function destroy(Restaurant $restaurant, Plate $plate)
     {
+        Storage::disk('public')->delete($plate->thumb_path);
+
         $plate->delete();
 
         return redirect()->route('plate.index', compact('restaurant'));

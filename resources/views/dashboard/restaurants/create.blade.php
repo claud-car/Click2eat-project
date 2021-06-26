@@ -1,8 +1,8 @@
-     
+
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('restaurant.store') }}">
+        <form method="POST" action="{{ route('restaurant.store') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->
@@ -12,11 +12,17 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
-            <!-- NameAddress -->
+            <!-- Address -->
             <div class="mt-4">
                 <x-label for="address" :value="__('Address')" />
 
                 <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="cover" :value="__('Cover')" />
+
+                <x-input id="thumb" class="block mt-1 w-full" type="file" name="thumb" :value="old('thumb')" required autofocus />
             </div>
 
             <div class="form-group">

@@ -17,6 +17,11 @@
             <small class=" text-danger"> {{ $message }} </small>
         @enderror
     </div>
+    <div class="mt-4">
+        <x-label for="cover" :value="__('Cover')" />
+
+        <x-input id="thumb" class="block mt-1 w-full" type="file" name="thumb" :value="old('thumb')" required autofocus />
+    </div>
 
     @error ('type_id')
     @php ($old_types = [])

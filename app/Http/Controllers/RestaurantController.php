@@ -7,6 +7,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
@@ -48,14 +49,11 @@ class RestaurantController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'type_id' => 'required',
-            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
-        $path = NULL;
-
-        if (array_key_exists('thumb_path', $request->all())) {
-            $path = Storage::put('uploads', $request->thumb_path);
-        }
+        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+        $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path);
 
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
@@ -63,7 +61,7 @@ class RestaurantController extends Controller
 
         $restaurant->user_id = $request->user()->id;
         $restaurant->slug = $this->generateSlug($request->name);
-        $restaurant->thumb_path = 'storage/'.$path;
+        $restaurant->thumb_path = 'restaurants/covers/'. $path;
         $restaurant->save();
 
         $restaurant->types()->attach($request->type_id);
@@ -120,21 +118,20 @@ class RestaurantController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'type_id' => 'required',
-            'thumb_path' => 'mimes:jpeg,jpg,png|max:6000|nullable',
+            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
-        $path = NULL;
+        Storage::disk('public')->delete($restaurant->thumb_path);
 
-        if (array_key_exists('thumb_path', $request->all())) {
-            $path = Storage::put('uploads', $request->thumb_path);
-        }
+        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+        $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path);
 
         $restaurant->slug = $this->generateSlug($request->name, $restaurant->name !== $request->name, $restaurant->slug);
         $restaurant->name = $request->name;
         $restaurant->address = $request->address;
 
         $restaurant->user_id = $request->user()->id;
-        $restaurant->thumb_path = 'storage/'.$path;
+        $restaurant->thumb_path = 'restaurants/covers/'. $path;
 
         $restaurant->update();
 
@@ -151,6 +148,8 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
+        Storage::disk('public')->delete($restaurant->thumb_path);
+
         $restaurant->delete();
 
         return redirect()->route('dashboard', 'delete-success');
