@@ -19,6 +19,7 @@ module.exports = {
                 },
                 blue: {
                     DEFAULT: '#22262F',
+                    footer: '#141519',
                 },
                 gray: {
                     shuttle: '#5D6978'
@@ -31,8 +32,16 @@ module.exports = {
                 },
                 selago: {
                     DEFAULT: '#F4F7FD'
-                }
-            }
+                },
+                gray_text: {
+                    DEFAULT: '#C1C1C1'
+                }                
+            },
+            backgroundImage: theme => ({
+                'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
+                'jumbo-others': "url('/images/click2eat-jumbo-other.jpg')",
+                'footer': "url('/images/click2eat-footer.jpg')",
+            }),            
         },
     },
 
