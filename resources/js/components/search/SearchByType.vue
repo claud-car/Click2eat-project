@@ -9,6 +9,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
                     <restaurant-card
                         v-for="restaurant in filteredRestaurants.sort(compareByName)"
+                        :cover="restaurant.thumb_path"
                         :name="restaurant.name"
                         :types="restaurant.types"
                         :slug="restaurant.slug"

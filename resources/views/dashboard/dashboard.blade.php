@@ -28,9 +28,9 @@
         </div>
         <div class="container mx-auto box-border grid lg:grid-cols-2 gap-10 mt-20 mx-10">
             @foreach ($restaurants as $restaurant)
-            <div class="container mx-auto w-full h-52 rounded-2xl flex flex-row border-2 border-orange">
-                <div class="h-full w-0 md:w-2/5 inline-block rounded-2xl">
-                    <img src="http://my-templates.online/deli-taste/assets/images/resources/blg1.jpg" alt="" class="object-contain">
+            <div class="container w-full h-52 rounded-2xl flex flex-row border-2 border-orange m-5">
+                <div class="bg-blue h-full w-2/5 inline-block rounded-2xl overflow-hidden">
+                    <img src="storage/{{ $restaurant->thumb_path }}" class="w-full h-full">
                 </div>
                 <div class="inline-block h-full w-full md:w-3/5 box-border p-4 overflow-x-auto">
                     <h1 class="capitalize text-xl"><a class="text-orange" href="{{ route('restaurant.show', ['restaurant' => $restaurant->slug]) }}">{{ $restaurant->name }}</a></h1>
@@ -42,8 +42,11 @@
                        </div>
                     <hr class="border-orange mt-2 mb-6">
                    <div class="flex justify-between">
-                        <div class="flex flex-row">
-                            <button class="bg-blue rounded-xl px-2"><a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}" class="text-white">Edit</a></button>                            
+                        <div>
+                            <button class="bg-blue rounded-xl p-2"><a href="{{ route('restaurant.edit',['restaurant' => $restaurant->slug]) }}" class="text-white p-2">Edit</a></button>
+                            <a href="{{ route('plate.index',['restaurant' => $restaurant->slug]) }}" class="text-orange m-2">Menu -></a>
+                        </div>
+                        <div class="">
                             <form action="{{route('restaurant.destroy',['restaurant'=>$restaurant->slug])}}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -60,5 +63,5 @@
             </div>
         @endforeach
         </div>
-    </div>    
+    </div>
 </x-app-layout>

@@ -26,30 +26,25 @@
         <div class="text-card flex flex-col items-center pt-8 px-16 overflow-anywhere text-center">
             <h3 class="py-2 text-3xl">{{ $plate->name }}</h3>
             <h5 class="my-4">{{ $plate->description }}</h5>
-            <h3 class="py-2 text-2xl">€ {{ $plate->price }}</h3>   
-        </div>
-        <div class="text-card flex flex-col items-center my-4">
-            <button class="bg-orange hover:bg-orange text-white font-bold py-2 px-4 rounded-full">
-                Add to Cart
-            </button>
+            <h3 class="py-2 text-2xl">€ {{ $plate->price }}</h3>
         </div>
 
         <div class="edit-delete flex justify-evenly py-4 px-4">
-            <a class="bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('plate.edit',['plate' => $plate->slug, 'restaurant' => $restaurant->slug]) }}">Edit</a> 
-        
+            <a class="bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('plate.edit',['plate' => $plate->slug, 'restaurant' => $restaurant->slug]) }}">Edit</a>
+
             <form action="{{route('plate.destroy',['plate' => $plate->slug, 'restaurant' => $restaurant->slug])}}" method="post">
                 @csrf
                 @method('DELETE')
                 <input class="bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full cursor-pointer" type="submit" value="Delete">
             </form>
         </div>
-    
+
     </div>
         @endforeach
 
 </div>
 <div class="container m-auto py-8">
-    <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('dashboard')}}">Indietro</a> 
+    <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('dashboard')}}">Indietro</a>
 </div>
 
 
