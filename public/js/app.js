@@ -19684,7 +19684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "RestaurantCard",
-  props: ['name', 'types', 'slug'],
+  props: ['name', 'cover', 'types', 'slug'],
   data: function data() {
     return {
       isHovered: false
@@ -19836,28 +19836,25 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 var _hoisted_1 = {
   "class": "restaurant relative border-1 rounded-lg overflow-hidden"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  src: "http://my-templates.online/deli-taste/assets/images/resources/ft2.jpg",
-  "class": "w-full h-full"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_3 = {
+var _hoisted_2 = {
   "class": "absolute bottom-16 left-0 pb-1 z-20"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "absolute bottom-0 left-0 w-full pl-8 pb-6"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "font-bold text-white text-2xl"
 };
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    src: "/storage/".concat($props.cover),
+    "class": "w-full h-full"
+  }, null, 8
+  /* PROPS */
+  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(type.name),
       "class": "font-bold text-sm text-white type-bg-gradient py-1 px-2 rounded-r-full mb-1"
@@ -19866,7 +19863,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["textContent"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
     href: "/restaurants/".concat($props.slug),
     "class": "w-full",
     onMouseenter: _cache[1] || (_cache[1] = function ($event) {
@@ -19959,12 +19956,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* UNKEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRestaurants.sort($options.compareByName), function (restaurant) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_restaurant_card, {
+      cover: restaurant.thumb_path,
       name: restaurant.name,
       types: restaurant.types,
       slug: restaurant.slug
     }, null, 8
     /* PROPS */
-    , ["name", "types", "slug"]);
+    , ["cover", "name", "types", "slug"]);
   }), 256
   /* UNKEYED_FRAGMENT */
   ))]), !$options.filteredRestaurants.length && $data.currentTypes.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_5, [_hoisted_6, _hoisted_7, _hoisted_8])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]);
@@ -20080,7 +20078,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

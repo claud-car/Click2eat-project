@@ -1,6 +1,6 @@
 <template>
     <div class="restaurant relative border-1 rounded-lg overflow-hidden">
-        <img src="http://my-templates.online/deli-taste/assets/images/resources/ft2.jpg" class="w-full h-full">
+        <img :src="`/storage/${cover}`" class="w-full h-full">
         <div class="absolute bottom-16 left-0 pb-1 z-20">
             <ul>
                 <li
@@ -25,7 +25,7 @@
 <script>
 export default {
     name: "RestaurantCard",
-    props: ['name', 'types', 'slug'],
+    props: ['name', 'cover', 'types', 'slug'],
     data() {
         return {
             isHovered: false
