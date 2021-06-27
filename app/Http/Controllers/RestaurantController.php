@@ -48,7 +48,7 @@ class RestaurantController extends Controller
             'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'type_id' => 'required',
+            'types' => 'required',
             'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
@@ -64,9 +64,9 @@ class RestaurantController extends Controller
         $restaurant->thumb_path = 'restaurants/covers/'. $path;
         $restaurant->save();
 
-        $restaurant->types()->attach($request->type_id);
+        $restaurant->types()->attach($request->types);
 
-        return redirect()->route('dashboard');
+        return ['response' => 'Business deleted successfully!'];
     }
 
     /**
@@ -152,7 +152,7 @@ class RestaurantController extends Controller
 
         $restaurant->delete();
 
-        return redirect()->route('dashboard', 'delete-success');
+        return ['response' => 'Business deleted successfully!'];
     }
 
     public function getAll()

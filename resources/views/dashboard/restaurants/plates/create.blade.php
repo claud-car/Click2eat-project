@@ -1,6 +1,4 @@
-<x-app-layout>
-<x-slot name="header">
-</x-slot>
+<x-dashboard-layout>
 
 <h1 class="text-blue text-center text-5xl py-16">Create Plate</h1>
 
@@ -48,4 +46,4 @@
     </form>
 </div>
 
-</x-app-layout>
+</x-dashboard-layout>

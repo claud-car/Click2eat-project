@@ -1,4 +1,5 @@
-<form action="{{route('restaurant.update', ['restaurant' => $restaurant->slug])}}" method= "post" enctype="multipart/form-data">
+<x-dashboard-layout>
+    <form action="{{route('restaurant.update', ['restaurant' => $restaurant->slug])}}" method= "post" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
 
@@ -40,3 +41,4 @@
     <a href="{{ route('dashboard') }}">Indietro</a>
 
 </form>
+</x-dashboard-layout>

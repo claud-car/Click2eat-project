@@ -27,21 +27,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
-<body class="font-sans antialiased bg-white-catskill">
-<div id="app" class="min-h-screen bg-gray-100">
-    @include('layouts.dashboard.navigation')
-
-    <header class="bg-blue shadow">
-        <div class="max-w-7xl mx-auto">
-            {{ $header }}
+    <body class="font-sans antialiased bg-white-catskill">
+        <div id="app" class="min-h-screen bg-gray-100">
+            {{ $slot }}
         </div>
-    </header>
-
-    <main>
-        {{ $slot }}
-    </main>
-
-    @include('layouts.dashboard.footer')
-</div>
-</body>
+    </body>
 </html>
