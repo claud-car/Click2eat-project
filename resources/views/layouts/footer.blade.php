@@ -22,23 +22,27 @@
                     <p>Sun: 10:00 am - 8:00 pm</p>
                 </div>
             </div>
-            <div class="m-10">
+            <div class="mt-20 mb-10 mx-10">
                 <h2 class="mb-2"><span class="text-yellow">Call us</span> to make an order!</h2>
                 <p>Don’t be shy, we don’t bite :)</p>
                 <p>+1 666 888 52 25</p>
             </div>
             <div class="m-10">
                 <div>
-                    <p>Payment options</p>
+                    <div class="mb-2">
+                        <p>Payment options</p>
+                    </div>
                     <img src="{{url('/images/credit-cards-icons.png')}}" alt="icone carte di credito">
                 </div>
                 <div class="mt-5">
-                    <p>Download the app</p>
+                    <div class="mb-2">
+                        <p>Download the app</p>
+                    </div>
                     <div class="">
-                        <div class="m-2 lg:w-30">
+                        <div class="my-2 lg:w-30">
                             <img src="{{url('/images/google-app.png')}}" alt="icone app google" class="object contain">
                         </div>
-                        <div class="m-2 lg:w-30">
+                        <div class="my-2 lg:w-30">
                             <img src="{{url('/images/apple-app.png')}}" alt="icona app apple" class="object contain">
                         </div>
                     </div>
