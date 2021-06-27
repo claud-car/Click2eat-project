@@ -1,14 +1,15 @@
-<footer class="relative mt-40">
-    {{-- footer orange icon absolute --}}
-    <div class="h-40 w-40 rounded-full flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -top-1/4" style="background-color:#F3F4F6">
-        <div class="w-32 h-32 border-2 rounded-full flex justify-center items-center" style="box-shadow: 0 0 10px 0 rgba(247, 191, 50, 1)">
-            <div class="h-24 w-24 bg-orange bg-gradient-to-r from-yellow to-orange rounded-full flex justify-center items-center">
-                <i class="fas fa-hamburger text-5xl text-white"></i>
-             </div>
+<footer class="mt-40">   
+    {{-- footer --}}
+    <div class="md:h-80 md:flex relative bg-footer justify-center items-center text-white">
+         {{-- footer orange icon absolute --}}
+        <div class="h-40 w-40 rounded-full flex justify-center items-center absolute top-1/2 left-1/2 transform translate-y-1/4 md:translate-y-0 -translate-x-1/2 -top-1/4" style="background-color:#F3F4F6">
+            <div class="w-32 h-32 border-2 rounded-full flex justify-center items-center" style="box-shadow: 0 0 10px 0 rgba(247, 191, 50, 1)">
+                <div class="h-24 w-24 bg-orange bg-gradient-to-r from-yellow to-orange rounded-full flex justify-center items-center">
+                    <i class="fas fa-hamburger text-5xl text-white"></i>
+                </div>
+            </div>
         </div>
-    </div>
-    {{-- footer contact info --}}
-    <div class="md:h-80 md:flex bg-footer justify-center items-center text-white">
+        {{-- footer contact info --}}
         <div class="md:flex justify-around items-center w-4/5 lg:w-3/5 overflow-hidden">
             <div class="m-10">
                 <div>

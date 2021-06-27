@@ -31,10 +31,8 @@
             @include('layouts.navigation')
 
             <!-- Header -->
-            <header class="bg-blue shadow">
-                <div class="max-w-7xl mx-auto">
-                    {{-- {{ $header }} --}}
-                </div>
+            <header class="h-screen bg-jumbo-home bg-cover">
+                {{ $header }}
             </header>
 
             <!-- Page Content -->

@@ -9,6 +9,9 @@ module.exports = {
 
     theme: {
         extend: {
+            inset: {
+               '-top-1/5': 'top:-20%;',
+              },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
