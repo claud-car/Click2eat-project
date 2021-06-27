@@ -25,14 +25,14 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
+
     <body class="font-sans antialiased">
         <div id="app" class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-            <header class="bg-blue shadow">
-                <div class="max-w-7xl mx-auto">
-                    {{ $header }}
-                </div>
+            <!-- Header -->
+            <header class="h-screen bg-jumbo-home bg-cover">
+                {{ $header }}
             </header>
 
             <!-- Page Content -->

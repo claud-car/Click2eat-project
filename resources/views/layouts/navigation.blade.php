@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-transparent absolute top-0 left-0 w-full">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center">
+    <div class="max-w-3/4 mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center bg-transparent">
         <div class="flex justify-between">
             <div class="flex">
                 <!-- Logo -->
@@ -34,13 +34,13 @@
                     </form>
                     <x-nav-link >
                     @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                        <div class="hidden absolute top-0 right-0 px-6 sm:block">
                             @auth
                             @else
-                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                                <a href="{{ route('login') }}" class="text-sm text-yellow hover:text-orange font-semibold"><p>Log in<i class="fas fa-sign-in-alt pl-2"></i></p></a>
 
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                    <a href="{{ route('register') }}" class="text-sm text-yellow font-semibold underline hover:text-orange">Register</a>
                                 @endif
                             @endauth
                         </div>
@@ -55,7 +55,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        <button class="flex items-center text-sm font-medium text-yellow hover:text-yellow hover:border-gray-300 focus:outline-none focus:text-orange focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -132,5 +132,4 @@
     </div>
 
 </nav>
-
 
