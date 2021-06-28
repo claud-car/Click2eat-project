@@ -55,11 +55,11 @@
    <div class="bg-blue-footer text-gray_text md:h-10">
         <div class="md:h-10 lg:mx-40 md:flex justify-between text-sm text-white">
             <div class="flex" style="align-items: center">
-                <p class="">© All Rights Reserved. DeliTaste 2020</p>
+                <p class="text-gray_text">© All Rights Reserved. DeliTaste 2020</p>
             </div>
             <div class="flex" style="align-items: center">
-                <ul class="flex justify-between">
-                    <li><p class="pr-5">Find us:</p></li>
+                <ul class="flex justify-between text-gray_text">
+                    <li><p class="pr-5 text-white">Find us:</p></li>
                     <li><a href="">Facebook</a></li>
                     <li><span class="px-2">-</span></li>
                     <li><a href="">Twitter</a></li>

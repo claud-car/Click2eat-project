@@ -31,7 +31,7 @@
             @include('layouts.navigation')
 
             <!-- Header -->
-            <header class="h-screen bg-jumbo-home bg-cover">
+            <header class="">
                 {{ $header }}
             </header>
 

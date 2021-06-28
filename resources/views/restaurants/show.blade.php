@@ -1,5 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="bg-jumbo-others bg-cover h-96 w-full flex justify-center items-center">
+            <div class="text-white text-4xl md:text-6xl">
+                <h1 class="capitalize">{{ $restaurant->name }}</h1>
+            </div>
+        </div>
     </x-slot>
 
     <div class="text-blue container m-auto">
