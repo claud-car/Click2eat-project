@@ -38,11 +38,14 @@ module.exports = {
                 },
                 gray_text: {
                     DEFAULT: '#C1C1C1'
-                }                
+                },
+                gray_card: {
+                    DEFAULT: '#282C35'
+                }               
             },
             backgroundImage: theme => ({
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
-                'jumbo-others': "url('/images/click2eat-jumbo-other.jpg')",
+                'jumbo-others': "url('/images/click2eat-jumbo-others.jpg')",
                 'footer': "url('/images/click2eat-footer.jpg')",
             }),            
         },
