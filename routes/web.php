@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', [RestaurantController::class, 'index'])
+Route::get('/dashboard', [OrderController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 

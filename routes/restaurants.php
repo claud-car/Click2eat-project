@@ -7,6 +7,10 @@ Route::patch('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantControl
                 ->middleware('auth')
                 ->name('restaurant.update');
 
+Route::get('/dashboard/restaurants', [RestaurantController::class, 'index'])
+                ->middleware('auth')
+                ->name('restaurant.create');
+
 Route::get('/dashboard/restaurants/create', [RestaurantController::class, 'create'])
                 ->middleware('auth')
                 ->name('restaurant.create');

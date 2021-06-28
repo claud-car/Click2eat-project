@@ -44,6 +44,27 @@
                                     </div>
                                 </div>
 
+                                <div class="col-span-12 md:col-span-6 ml-auto">
+                                    <div>
+                                        <h4 class="text-base text-gray-900">Visibility</h4>
+                                        <p class="text-sm text-gray-500">Make this plate visible or not to customers.</p>
+                                    </div>
+                                    <div class="flex gap-6 mt-4">
+                                        <div class="flex items-center">
+                                            <input id="visible" v-model="form.visibility" type="radio" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
+                                            <label for="visible" class="ml-3 block text-sm font-medium text-gray-700">
+                                                Show
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input id="notvisible" v-model="form.visibility" type="radio" value="0" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
+                                            <label for="notvisible" class="ml-3 block text-sm font-medium text-gray-700">
+                                                Do not show
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-span-12">
                                     <label class="block text-sm font-medium text-gray-700">
                                         Cover photo
@@ -68,7 +89,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="flex justify-between px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <a :href="`/dashboard/restaurants/${restaurant.slug}/plates`" class="inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium text-black hover:underline">
+                                Go back
+                            </a>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
@@ -88,17 +112,24 @@ import Success from "../../alerts/Success";
 export default {
     name: "createPlatesForm",
     components: { Success },
-    props: ['restaurant'],
+    props: ['restaurant', 'originalData'],
     data() {
         return {
             form: {
                 name: '',
                 description: '',
                 price: 0,
+                visibility: null,
                 thumb: null
             },
             messages: []
         }
+    },
+    created() {
+        this.form.name = this.originalData.name
+        this.form.description = this.originalData.description
+        this.form.price = this.originalData.price
+        this.form.visibility = this.originalData.is_visible
     },
     methods: {
         addImage(event) {
@@ -109,11 +140,11 @@ export default {
             data.append('name', this.form.name)
             data.append('description', this.form.description)
             data.append('price', this.form.price)
+            data.append('visibility', this.form.visibility)
             data.append('thumb', this.form.thumb)
+            data.append('_method', 'PATCH')
 
-            console.log(this.form)
-
-            axios.post(`/dashboard/restaurants/${this.restaurant.slug}/plates/create`, data)
+            axios.post(`/dashboard/restaurants/${this.restaurant.slug}/plates/${this.originalData.slug}/edit`, data)
             .then(response => {
                 this.messages = response.data
             })

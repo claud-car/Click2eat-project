@@ -79,7 +79,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="flex justify-between px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <a href="/dashboard/restaurants" class="inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium text-black hover:underline">
+                                Go back
+                            </a>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
@@ -97,9 +100,9 @@ const axios = require('axios');
 import Success from "../alerts/Success";
 
 export default {
-    name: "createBusinessesForm",
+    name: "updateBusinessesForm",
     components: { Success },
-    props: ['types'],
+    props: ['originalData', 'types', 'oldTypes'],
     data() {
         return {
             form: {
@@ -114,12 +117,21 @@ export default {
             messages: []
         }
     },
+    created() {
+        this.form.name = this.originalData.name
+        this.form.street = this.originalData.street
+        this.form.city = this.originalData.city
+        this.form.province = this.originalData.province
+        this.form.zip = this.originalData.zip
+        this.form.types = this.oldTypes
+    },
     methods: {
         addImage(event) {
             this.form.thumb = event.target.files[0]
         },
         addBusiness() {
             let data = new FormData()
+            data.append('_method', 'PATCH');
             data.append('name', this.form.name)
             data.append('street', this.form.street)
             data.append('city', this.form.city)
@@ -128,7 +140,7 @@ export default {
             data.append('types', JSON.stringify(this.form.types))
             data.append('thumb', this.form.thumb)
 
-            axios.post('/dashboard/restaurants/create', data)
+            axios.post(`/dashboard/restaurants/${this.originalData.slug}/edit`, data)
             .then(response => {
                 this.messages = response.data
             })
