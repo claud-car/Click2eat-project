@@ -7,12 +7,9 @@
             </div>
     </x-slot>
 
+    <h2 class="text-center text-4xl mt-48 mb-16">Sign in</h2>
+
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -27,14 +24,14 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full rounded-3xl" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password" class="block mt-1 w-full rounded-3xl"
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
@@ -47,17 +44,18 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <div class="button flex justify-center">
 
-            <div class="flex items-center justify-end mt-4">
+            <button class="bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full text-center w-full mt-4">{{ __('Log in') }}</button>
+
+            </div>
+            <div class="flex items-center justify-between mt-8">
+                <p class="text-sm">No account? <a class="text-orange" href="{{route('register')}}">Register now</a></p>
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
-                <x-button class="bg-blue ml-3">
-                    {{ __('Log in') }}
-                </x-button>
             </div>
         </form>
     </x-auth-card>
