@@ -27,11 +27,11 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div id="app" class="min-h-screen bg-gray-100">
+        <div id="app" class="min-h-screen">
             @include('layouts.navigation')
 
             <!-- Header -->
-            <header class="h-screen bg-jumbo-home bg-cover">
+            <header class="">
                 {{ $header }}
             </header>
 
