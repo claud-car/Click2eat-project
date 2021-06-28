@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import SearchByType from "./components/search/SearchByType";
 import Dashboard from "./components/dashboard/Dashboard";
+import OrdersPagination from "./components/dashboard/orders/OrdersPagination";
 import RestaurantsPagination from "./components/dashboard/restaurants/RestaurantsPagination";
 import CreateBusinessesForm from "./components/dashboard/restaurants/CreateBusinessesForm";
 import UpdateBusinessesForm from "./components/dashboard/restaurants/UpdateBusinessessForm";
@@ -12,6 +13,7 @@ createApp({
     components: {
         Dashboard,
         SearchByType,
+        OrdersPagination,
         RestaurantsPagination,
         CreateBusinessesForm,
         UpdateBusinessesForm,

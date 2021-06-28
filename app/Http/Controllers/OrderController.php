@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -14,7 +16,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
+        $restaurants_ids = $restaurants->pluck('id')->toArray();
+
+        $orders = Order::whereIn('restaurant_id', $restaurants_ids)->get();
+
+        return view('dashboard.dashboard', compact('orders'));
     }
 
     /**

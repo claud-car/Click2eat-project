@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <dashboard>
         <div class="flex">
-            <a href="/dashboard"
+            <a href="/dashboard/restaurants"
               class="flex items-center w-min whitespace-nowrap px-6 py-1 bg-gray-900 mr-2 rounded-md text-white font-medium tracking-wide hover:bg-gray-800 cursor-pointer">
                 Go back</a>
             <a

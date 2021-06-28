@@ -17,6 +17,14 @@
     </div>
 
     <success :message="messages" @clear="clearMessage"/>
+    <warning-modal v-if="warning" :item="warning" @cancel="warning = null" @delete="deleteItem(warning)">
+        <template v-slot:title>
+            Delete {{ warning.name }}
+        </template>
+        <template v-slot:content>
+            Are you sure you want to delete {{ warning.name }}? All of the data will be permanently removed. This action cannot be undone.
+        </template>
+    </warning-modal>
 
     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -68,7 +76,7 @@
                             </span>
                         </a>
                         <span
-                            class="relative inline-block px-3 py-1 mt-1 lg:mt-0 lg:ml-4 font-semibold text-green-900 leading-tight cursor-pointer" @click="deleteItem(item)">
+                            class="relative inline-block px-3 py-1 mt-1 lg:mt-0 lg:ml-4 font-semibold text-green-900 leading-tight cursor-pointer" @click="showWarning(item)">
                             <span aria-hidden
                                   class="absolute inset-0 bg-red-600 opacity-60 rounded-full"></span>
                             <span class="relative">Delete</span>
@@ -100,18 +108,20 @@
 
 <script>
 import Success from "../../alerts/Success";
+import WarningModal from "../../modals/WarningModal";
 
 const axios = require('axios');
 
 export default {
     name: "TablePagination",
-    components: { Success },
+    components: { WarningModal, Success },
     props: ['name', 'subcol', 'restaurant', 'items'],
     data() {
         return {
             itemsList: [],
             messages: [],
-            search: ''
+            search: '',
+            warning: null
         }
     },
     computed: {
@@ -129,6 +139,9 @@ export default {
             date = `${date[2]}-${date[1]}-${date[0]}`
             return date
         },
+        showWarning(item) {
+            this.warning = item
+        },
         deleteItem(item) {
             axios
                 .delete(`/dashboard/restaurants/${this.restaurant.slug}/plates/${item.slug}/delete`)
@@ -139,6 +152,9 @@ export default {
                 })
                 .catch(errors => {
                     console.log(errors)
+                })
+                .then(() => {
+                    this.warning = null
                 })
         },
         clearMessage() {
