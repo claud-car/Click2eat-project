@@ -39,6 +39,9 @@
             <main>
                 {{ $slot }}
             </main>
+            <section>
+                {{ $content }}
+            </section>
 
             @include('layouts.footer')
         </div>
