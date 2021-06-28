@@ -20927,27 +20927,55 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-20d8cc19");
 
 var _hoisted_1 = {
-  "class": "restaurant relative border-1 rounded-lg overflow-hidden"
-};
-var _hoisted_2 = {
   "class": "absolute bottom-16 left-0 pb-1 z-20"
 };
-var _hoisted_3 = {
+var _hoisted_2 = {
   "class": "absolute bottom-0 left-0 w-full pl-8 pb-6"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "font-bold text-white text-2xl"
 };
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" View Menu ");
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+  "aria-hidden": "true",
+  focusable: "false",
+  width: "1em",
+  height: "1em",
+  style: {
+    "-ms-transform": "rotate(360deg)",
+    "-webkit-transform": "rotate(360deg)",
+    "transform": "rotate(360deg)"
+  },
+  preserveAspectRatio: "xMidYMid meet",
+  viewBox: "0 0 24 24"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  d: "M4 10v4h9l-3.5 3.5l2.42 2.42L19.84 12l-7.92-7.92L9.5 6.5L13 10H4z",
+  fill: "currentColor"
+})], -1
+/* HOISTED */
+);
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+    "class": "restaurant relative border-1 rounded-lg overflow-hidden",
+    onMouseover: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $data.isHovered = true;
+    }, ["prevent"])),
+    onMouseout: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $data.isHovered = false;
+    }, ["prevent"]))
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     src: "/storage/".concat($props.cover),
     "class": "w-full h-full"
   }, null, 8
   /* PROPS */
-  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
+  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.types, function (type) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
       textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(type.name),
       "class": "font-bold text-sm text-white type-bg-gradient py-1 px-2 rounded-r-full mb-1"
@@ -20956,30 +20984,26 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     , ["textContent"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
     href: "/restaurants/".concat($props.slug),
-    "class": "w-full",
-    onMouseenter: _cache[1] || (_cache[1] = function ($event) {
-      return $data.isHovered = true;
-    }),
-    onMouseout: _cache[2] || (_cache[2] = function ($event) {
-      return $data.isHovered = false;
-    })
+    "class": "w-full"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-    "class": ["pointer-events-none", {
+    "class": {
       fadeIn: $data.isHovered
-    }]
+    }
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.name), 3
   /* TEXT, CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.isHovered]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-    "class": ["pointer-events-none", {
+    "class": [{
       fadeIn: $data.isHovered
-    }]
-  }, "View Menu ->", 2
+    }, "flex items-center gap-3"]
+  }, [_hoisted_4, _hoisted_5], 2
   /* CLASS */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.isHovered]])], 40
-  /* PROPS, HYDRATE_EVENTS */
-  , ["href"])])])]);
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.isHovered]])], 8
+  /* PROPS */
+  , ["href"])])])], 32
+  /* HYDRATE_EVENTS */
+  );
 });
 
 /***/ }),
@@ -21157,7 +21181,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
