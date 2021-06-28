@@ -54,7 +54,7 @@ class PlateController extends Controller
             'description' => 'required|string|max:255',
             'price' => 'required|between:0,99.99',
             'restaurant_id' => 'exists:restaurants,id',
-            'is_visible' => 'boolean',
+            'visibility' => 'required|boolean',
             'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
@@ -65,6 +65,7 @@ class PlateController extends Controller
         $plate->name = $request->name;
         $plate->description = $request->description;
         $plate->price = $request->price;
+        $plate->is_visible = $request->visibility;
         $plate->restaurant_id = $restaurant->id;
         $plate->slug = $this->generateSlug($plate->name);
         $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
@@ -101,8 +102,8 @@ class PlateController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'price' => 'required|between:0,99.99',
+            'visibility' => 'required|boolean',
             'restaurant_id.*' => 'exists:restaurants,id',
-            'is_visible' => 'boolean',
         ]);
 
         if ($request->hasFile('thumb')) {
@@ -118,6 +119,7 @@ class PlateController extends Controller
         $plate->name = $request->name;
         $plate->description = $request->description;
         $plate->price = $request->price;
+        $plate->is_visible = $request->visibility;
         $plate->restaurant_id = $restaurant->id;
 
         $plate->update();

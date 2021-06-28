@@ -44,6 +44,27 @@
                                     </div>
                                 </div>
 
+                                <div class="col-span-12 md:col-span-6 ml-auto">
+                                    <div>
+                                        <h4 class="text-base text-gray-900">Visibility</h4>
+                                        <p class="text-sm text-gray-500">Make this plate visible or not to customers.</p>
+                                    </div>
+                                    <div class="flex gap-6 mt-4">
+                                        <div class="flex items-center">
+                                            <input id="visible" v-model="form.visibility" type="radio" value="1" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
+                                            <label for="visible" class="ml-3 block text-sm font-medium text-gray-700">
+                                                Show
+                                            </label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input id="notvisible" v-model="form.visibility" type="radio" value="0" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
+                                            <label for="notvisible" class="ml-3 block text-sm font-medium text-gray-700">
+                                                Do not show
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-span-12">
                                     <label class="block text-sm font-medium text-gray-700">
                                         Cover photo
@@ -97,7 +118,8 @@ export default {
             form: {
                 name: '',
                 description: '',
-                price: 0,
+                price: '',
+                visibility: 1,
                 thumb: null
             },
             messages: []
@@ -112,9 +134,8 @@ export default {
             data.append('name', this.form.name)
             data.append('description', this.form.description)
             data.append('price', this.form.price)
+            data.append('visibility', this.form.visibility)
             data.append('thumb', this.form.thumb)
-
-            console.log(this.form)
 
             axios.post(`/dashboard/restaurants/${this.restaurant.slug}/plates/create`, data)
             .then(response => {

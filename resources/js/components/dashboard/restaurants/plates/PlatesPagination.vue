@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="item in filteredPlates">
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" :class="{ 'opacity-40': !item.is_visible }">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-10 h-10">
                                 <img class="w-full h-full rounded-full"
@@ -52,13 +52,13 @@
                             </div>
                         </div>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" :class="{ 'opacity-40': !item.is_visible }">
                         <p class="text-gray-900 whitespace-no-wrap" v-text="`€ ${item.price}`"></p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" :class="{ 'opacity-40': !item.is_visible }">
                         <p class="text-gray-900 whitespace-no-wrap" v-text="getDate(item)"></p>
                     </td>
-                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" :class="{ 'bg-opacity-40': !item.is_visible }">
                         <a :href="`/dashboard/restaurants/${restaurant.slug}/plates/${item.slug}/edit`">
                             <span
                                 class="relative inline-block px-3 py-1 mt-1 lg:mt-0 lg:ml-4 font-semibold text-green-900 leading-tight">
