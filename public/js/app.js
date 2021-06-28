@@ -18579,7 +18579,7 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-10244c87");
 
 var _hoisted_1 = {
-  "class": "flex justify-between items-center py-4 px-6 bg-white border-b-4 border-indigo-600"
+  "class": "flex justify-between items-center py-4 px-6 bg-white border-b-4 border-yellow"
 };
 var _hoisted_2 = {
   "class": "flex items-center"
