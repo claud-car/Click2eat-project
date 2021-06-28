@@ -43,20 +43,19 @@
                         </a>
                         <span class="absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center">0</span>
                     </div>
-                    <x-nav-link>
-                        @if (Route::has('login'))
-                            <div class="hidden px-6 md:flex gap-4">
-                                @auth
-                                @else
-                                    <a href="{{ route('login') }}" class="text-sm text-yellow hover:text-orange font-semibold"><p>Log in<i class="fas fa-sign-in-alt pl-2"></i></p></a>
 
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="text-sm text-yellow font-semibold hover:text-orange">Register</a>
-                                    @endif
-                                @endauth
-                            </div>
-                        @endif
-                    </x-nav-link>
+                    @if (Route::has('login'))
+                        <div class="hidden px-6 md:flex gap-4">
+                            @auth
+                            @else
+                                <a href="{{ route('login') }}" class="text-sm text-yellow hover:text-orange font-semibold"><p>Log in<i class="fas fa-sign-in-alt pl-2"></i></p></a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="text-sm text-yellow font-semibold hover:text-orange">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
                 </div>
             @endif
 
