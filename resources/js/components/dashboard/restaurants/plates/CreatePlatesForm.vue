@@ -4,53 +4,42 @@
             <div class="md:col-span-1">
                 <success :message="messages" @clear="clearMessage" class="mb-12" />
                 <div class="px-4 sm:px-0">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Business Information</h3>
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Plate Information</h3>
                     <p class="mt-1 text-sm text-gray-600">
-                        Provide the information about your activity.
+                        Provide the information about this plate.
                     </p>
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form @submit.prevent="addBusiness" enctype="multipart/form-data">
+                <form @submit.prevent="addPlate" enctype="multipart/form-data">
                     <div class="shadow overflow-hidden rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-12">
-                                    <label for="business_name" class="block text-sm font-medium text-gray-700">Business name</label>
-                                    <input type="text" v-model="form.name" id="business_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <label for="plate_name" class="block text-sm font-medium text-gray-700">Plate name</label>
+                                    <input type="text" v-model="form.name" id="plate_name" autocomplete="plate-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                 </div>
 
                                 <div class="col-span-12">
-                                    <label for="street_address" class="block text-sm font-medium text-gray-700">Street address</label>
-                                    <input type="text" v-model="form.street" id="street_address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                                    <textarea v-model="form.description" id="description" autocomplete="description" class="h-40 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    </textarea>
                                 </div>
 
                                 <div class="col-span-12 sm:col-span-6 lg:col-span-2">
-                                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                                    <input type="text" v-model="form.city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                </div>
-
-                                <div class="col-span-6 lg:col-span-2">
-                                    <label for="state" class="block text-sm font-medium text-gray-700 whitespace-nowrap">State / Province</label>
-                                    <input type="text" v-model="form.province" id="state" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                </div>
-
-                                <div class="col-span-6 lg:col-span-2">
-                                    <label for="postal_code" class="block text-sm font-medium text-gray-700">ZIP / Postal</label>
-                                    <input type="text" v-model="form.zip" id="postal_code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                </div>
-
-                                <div class="col-span-12">
-                                    <h4 class="font-medium text-gray-700">Typologies</h4>
-                                    <div class="grid grid-cols-6 gap-6 mt-4">
-                                        <div v-for="type in types" class="flex items-start col-span-2">
-                                            <div class="flex items-center h-5">
-                                                <input :id="type.name" v-model="form.types" type="checkbox" :value="type.id"
-                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"/>
-                                            </div>
-                                            <div class="ml-3 text-sm">
-                                                <label :for="type.name" v-text="type.name" class="font-medium text-gray-700"></label>
-                                            </div>
+                                    <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="text-gray-500 sm:text-sm">
+                                          €
+                                        </span>
+                                        </div>
+                                        <input type="text" v-model="form.price" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" />
+                                        <div class="absolute inset-y-0 right-0 flex items-center">
+                                            <label for="currency" class="sr-only">Currency</label>
+                                            <select id="currency" name="currency" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                                <option>EUR</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +68,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="flex justify-between px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <a :href="`/dashboard/restaurants/${restaurant.slug}/plates`" class="inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium text-black hover:underline">
+                                Go back
+                            </a>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
@@ -94,21 +86,18 @@
 <script>
 const axios = require('axios');
 
-import Success from "../alerts/Success";
+import Success from "../../alerts/Success";
 
 export default {
-    name: "createBusinessesForm",
+    name: "createPlatesForm",
     components: { Success },
-    props: ['types'],
+    props: ['restaurant'],
     data() {
         return {
             form: {
                 name: '',
-                street: '',
-                city: '',
-                province: '',
-                zip: '',
-                types: [],
+                description: '',
+                price: 0,
                 thumb: null
             },
             messages: []
@@ -118,17 +107,16 @@ export default {
         addImage(event) {
             this.form.thumb = event.target.files[0]
         },
-        addBusiness() {
+        addPlate() {
             let data = new FormData()
             data.append('name', this.form.name)
-            data.append('street', this.form.street)
-            data.append('city', this.form.city)
-            data.append('province', this.form.province)
-            data.append('zip', this.form.zip)
-            data.append('types', JSON.stringify(this.form.types))
+            data.append('description', this.form.description)
+            data.append('price', this.form.price)
             data.append('thumb', this.form.thumb)
 
-            axios.post('/dashboard/restaurants/create', data)
+            console.log(this.form)
+
+            axios.post(`/dashboard/restaurants/${this.restaurant.slug}/plates/create`, data)
             .then(response => {
                 this.messages = response.data
             })

@@ -61,7 +61,6 @@ class PlateController extends Controller
         $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
         $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
 
-
         $plate = new Plate();
         $plate->name = $request->name;
         $plate->description = $request->description;
@@ -104,24 +103,26 @@ class PlateController extends Controller
             'price' => 'required|between:0,99.99',
             'restaurant_id.*' => 'exists:restaurants,id',
             'is_visible' => 'boolean',
-            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
-        Storage::disk('public')->delete($plate->thumb_path);
+        if ($request->hasFile('thumb')) {
+            Storage::disk('public')->delete($plate->thumb_path);
 
-        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
-        $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
+            $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+            $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
+
+            $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
+        }
 
         $plate->slug = $this->generateSlug($request->name, $plate->name !== $request->name, $restaurant->id !== $plate->restaurant_id, $plate->slug);
         $plate->name = $request->name;
         $plate->description = $request->description;
         $plate->price = $request->price;
         $plate->restaurant_id = $restaurant->id;
-        $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
 
         $plate->update();
 
-        return redirect()->route('plate.index', compact('restaurant'));
+        return ['response' => 'Plate edited successfully!'];
     }
 
     /**
@@ -136,7 +137,7 @@ class PlateController extends Controller
 
         $plate->delete();
 
-        return redirect()->route('plate.index', compact('restaurant'));
+        return ['response' => 'Plate deleted successfully!'];
     }
 
     private function generateSlug(string $name, bool $change = true, bool $restaurant = true, string $old_slug = '')

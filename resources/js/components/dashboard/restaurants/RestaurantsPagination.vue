@@ -8,8 +8,11 @@
                         </svg>
                     </span>
 
-            <input placeholder="Search"
-                   class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"/>
+            <input
+                placeholder="Search"
+                class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                v-model="search"
+            />
         </div>
     </div>
 
@@ -35,7 +38,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="item in itemsList">
+                <tr v-for="item in filteredRestaurants">
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-10 h-10">
@@ -45,12 +48,12 @@
                             </div>
 
                             <div class="ml-3">
-                                <p class="text-gray-900 whitespace-no-wrap" v-text="item.name"></p>
+                                <a :href="`/restaurants/${item.slug}`" class="text-gray-900 whitespace-no-wrap hover:underline" v-text="item.name"></a>
                             </div>
                         </div>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <p class="text-gray-900 whitespace-no-wrap" v-text="item.address"></p>
+                        <p class="text-gray-900 whitespace-no-wrap" v-text="getFullAddress(item)"></p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p class="text-gray-900 whitespace-no-wrap" v-text="getDate(item)"></p>
@@ -82,6 +85,9 @@
                 </tr>
                 </tbody>
             </table>
+            <div v-if="!filteredRestaurants.length" class="flex justify-center w-full px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <p>La ricerca non ha prodotto risultati.</p>
+            </div>
             <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                 <span class="text-xs xs:text-sm text-gray-900">Showing 1 to 4 of {{ items.length}}</span>
 
@@ -101,7 +107,7 @@
 </template>
 
 <script>
-import Success from "./alerts/Success";
+import Success from "../alerts/Success";
 
 const axios = require('axios');
 
@@ -112,18 +118,27 @@ export default {
     data() {
         return {
             itemsList: [],
-            messages: []
+            messages: [],
+            search: ''
+        }
+    },
+    computed: {
+        filteredRestaurants() {
+            return this.itemsList.filter(item => item.name.includes(this.search))
         }
     },
     created() {
         this.itemsList = this.items
     },
     methods: {
+        getFullAddress(item) {
+            return `${item.street}, ${item.city}, ${item.zip}, ${item.province}`
+        },
         getDate(item) {
-            const date = new Date(item.created_at)
-            let day = date.getDay() > 10 ? date.getDay() : '0' + date.getDay();
-            let month = date.getMonth() > 10 ? date.getMonth() : '0' + date.getMonth();
-            return `${day}/${month}/${date.getFullYear()}`
+            let date = item.created_at.split('T')
+            date = date[0].split('-')
+            date = `${date[2]}-${date[1]}-${date[0]}`
+            return date
         },
         deleteItem(item) {
             axios
