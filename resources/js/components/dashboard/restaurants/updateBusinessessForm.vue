@@ -2,6 +2,7 @@
     <div class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
+                <success :message="messages" @clear="clearMessage" class="mb-12" />
                 <div class="px-4 sm:px-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Business Information</h3>
                     <p class="mt-1 text-sm text-gray-600">
@@ -64,9 +65,9 @@
                                                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                             <div class="flex text-sm text-gray-600">
-                                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                                <label for="thumb" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                     <span>Upload a file</span>
-                                                    <input id="file-upload" v-model="form.thumb" type="file" class="sr-only" />
+                                                    <input id="thumb" type="file" class="sr-only" @change="addImage" />
                                                 </label>
                                                 <p class="pl-1">or drag and drop</p>
                                             </div>
@@ -93,9 +94,12 @@
 <script>
 const axios = require('axios');
 
+import Success from "../alerts/Success";
+
 export default {
-    name: "createForm",
-    props: ['types'],
+    name: "updateBusinessesForm",
+    components: { Success },
+    props: ['originalData', 'types', 'oldTypes'],
     data() {
         return {
             form: {
@@ -105,24 +109,44 @@ export default {
                 province: '',
                 zip: '',
                 types: [],
-                thumb: ''
-            }
+                thumb: null
+            },
+            messages: []
         }
     },
+    created() {
+        this.form.name = this.originalData.name
+        this.form.street = this.originalData.street
+        this.form.city = this.originalData.city
+        this.form.province = this.originalData.province
+        this.form.zip = this.originalData.zip
+        this.form.types = this.oldTypes
+    },
     methods: {
+        addImage(event) {
+            this.form.thumb = event.target.files[0]
+        },
         addBusiness() {
-            console.log(this.form)
-            axios.post('/dashboard/restaurants/create', {
-                name: this.form.name,
-                address: this.form.street,
-                types: this.form.types
-            })
+            let data = new FormData()
+            data.append('_method', 'PATCH');
+            data.append('name', this.form.name)
+            data.append('street', this.form.street)
+            data.append('city', this.form.city)
+            data.append('province', this.form.province)
+            data.append('zip', this.form.zip)
+            data.append('types', JSON.stringify(this.form.types))
+            data.append('thumb', this.form.thumb)
+
+            axios.post(`/dashboard/restaurants/${this.originalData.slug}/edit`, data)
             .then(response => {
-                console.log(response)
+                this.messages = response.data
             })
             .catch(errors => {
                 console.log(errors)
             });
+        },
+        clearMessage() {
+            this.messages = []
         }
     }
 }

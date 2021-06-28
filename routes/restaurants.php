@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\RestaurantController;
-use Illuminate\Support\Facades\Route;  
+use Illuminate\Support\Facades\Route;
 
 Route::patch('/dashboard/restaurants/{restaurant:slug}/edit', [RestaurantController::class, 'update'])
                 ->middleware('auth')

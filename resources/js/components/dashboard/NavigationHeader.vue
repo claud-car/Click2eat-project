@@ -20,27 +20,9 @@
 
                 <div v-show="notificationOpen" class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10" style="width:20rem;">
                     <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
+                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="/storage/restaurants/covers/Dakoky.jpg_1624863016.jpg" alt="thumbnail">
                         <p class="text-sm mx-2">
-                            <span class="font-bold" href="#">Sara Salah</span> replied on the <span class="font-bold text-indigo-400" href="#">Upload Image</span> artical . 2m
-                        </p>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="avatar">
-                        <p class="text-sm mx-2">
-                            <span class="font-bold" href="#">Slick Net</span> start following you . 45m
-                        </p>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1450297350677-623de575f31c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar">
-                        <p class="text-sm mx-2">
-                            <span class="font-bold" href="#">Jane Doe</span> Like Your reply on <span class="font-bold text-indigo-400" href="#">Test with TDD</span> artical . 1h
-                        </p>
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-indigo-600 -mx-2">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80" alt="avatar">
-                        <p class="text-sm mx-2">
-                            <span class="font-bold" href="#">Abigail Bennett</span> start following you . 3h
+                            You received a new order!
                         </p>
                     </a>
                 </div>
@@ -54,9 +36,7 @@
                 <div v-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
 
                 <div v-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Products</a>
-                    <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+                    <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white" @click="logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -64,6 +44,8 @@
 </template>
 
 <script>
+const axios = require('axios')
+
 export default {
     name: "NavigationHeader",
     data() {
@@ -75,6 +57,12 @@ export default {
     methods: {
         open() {
             this.$emit('open', true)
+        },
+        logout() {
+            axios.post('/logout')
+                    .then(() => {
+                        window.location.replace('/')
+                    })
         }
     }
 }

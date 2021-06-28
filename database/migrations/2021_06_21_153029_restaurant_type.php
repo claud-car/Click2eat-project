@@ -14,8 +14,14 @@ class RestaurantType extends Migration
     public function up()
     {
         Schema::create('restaurant_type', function (Blueprint $table) {
-            $table->foreignId('type_id');
-            $table->foreignId('restaurant_id');
+            $table->foreignId('type_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
+            $table->foreignId('restaurant_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
         });
     }
 

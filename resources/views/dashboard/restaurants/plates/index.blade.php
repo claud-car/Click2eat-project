@@ -1,6 +1,6 @@
 <x-dashboard-layout>
 
-    <h1 class="text-blue text-center text-5xl">Menu</h1>
+    <!--    <h1 class="text-blue text-center text-5xl">Menu</h1>
     <div class=" text-blue flex justify-center">
         <a href="{{ route('plate.create', ['restaurant' => $restaurant->slug]) }}">
             <div class="card flex flex-col w-96 mx-16 my-16 border rounded-2xl h-48">
@@ -42,14 +42,10 @@
     </div>
     <div class="container m-auto py-8">
         <a class="2xl:m-16 xl:m-32 md:m-48 m-16 bg-blue hover:bg-blue text-white font-bold py-2 px-4 rounded-full" href="{{ route('dashboard')}}">Indietro</a>
-    </div>
+    </div>-->
 
-
+    <dashboard>
+        <a href="{{ route('plate.create', ['restaurant' => $restaurant->slug]) }}" class="flex items-center w-min whitespace-nowrap px-6 py-1 bg-green-600 rounded-md text-white font-medium tracking-wide hover:bg-green-500 cursor-pointer">Add new plate</a>
+        <table-pagination name="businesses" subcol="address" :items="{{ json_encode($plates) }}"/>
+    </dashboard>
 </x-dashboard-layout>
-
-
-<style>
-    .overflow-anywhere{
-        overflow-wrap: anywhere;
-    }
-</style>
