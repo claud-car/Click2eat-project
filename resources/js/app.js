@@ -8,6 +8,7 @@ import UpdateBusinessesForm from "./components/dashboard/restaurants/UpdateBusin
 import PlatesPagination from "./components/dashboard/restaurants/plates/PlatesPagination";
 import CreatePlatesForm from "./components/dashboard/restaurants/plates/CreatePlatesForm";
 import UpdatePlatesForm from "./components/dashboard/restaurants/plates/UpdatePlatesForm";
+import User from "./components/User";
 
 createApp({
     components: {
@@ -20,5 +21,6 @@ createApp({
         PlatesPagination,
         CreatePlatesForm,
         UpdatePlatesForm,
+        User
     }
 }).mount('#app')
