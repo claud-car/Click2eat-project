@@ -18,7 +18,10 @@ class CreateRestaurantsTable extends Migration
             $table->foreignId('user_id');
             $table->string('slug')->unique();
             $table->string('name');
-            $table->string('address');
+            $table->string('street');
+            $table->string('city');
+            $table->string('province');
+            $table->bigInteger('zip');
             $table->string('thumb_path');
             $table->timestamps();
         });

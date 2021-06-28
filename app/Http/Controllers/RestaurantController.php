@@ -47,8 +47,11 @@ class RestaurantController extends Controller
         $request->validate([
             'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'type_id' => 'required',
+            'street' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'zip' => 'required|integer',
+            'types' => 'required',
             'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
 
@@ -57,16 +60,19 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
-        $restaurant->address = $request->address;
+        $restaurant->street = $request->street;
+        $restaurant->city = $request->city;
+        $restaurant->province = $request->province;
+        $restaurant->zip = $request->zip;
 
         $restaurant->user_id = $request->user()->id;
         $restaurant->slug = $this->generateSlug($request->name);
         $restaurant->thumb_path = 'restaurants/covers/'. $path;
         $restaurant->save();
 
-        $restaurant->types()->attach($request->type_id);
+        $restaurant->types()->attach(json_decode($request->types));
 
-        return redirect()->route('dashboard');
+        return ['response' => 'Business created successfully!'];
     }
 
     /**
@@ -116,28 +122,36 @@ class RestaurantController extends Controller
         $request->validate([
             'user_id' => 'exists:user,id',
             'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'type_id' => 'required',
-            'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
+            'street' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'zip' => 'required|integer',
+            'types' => 'required'
         ]);
 
-        Storage::disk('public')->delete($restaurant->thumb_path);
+        if ($request->hasFile('thumb')) {
+            Storage::disk('public')->delete($restaurant->thumb_path);
 
-        $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
-        $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path);
+            $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
+            $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path);
+
+            $restaurant->thumb_path = 'restaurants/covers/'. $path;
+        }
 
         $restaurant->slug = $this->generateSlug($request->name, $restaurant->name !== $request->name, $restaurant->slug);
         $restaurant->name = $request->name;
-        $restaurant->address = $request->address;
+        $restaurant->street = $request->street;
+        $restaurant->city = $request->city;
+        $restaurant->province = $request->province;
+        $restaurant->zip = $request->zip;
 
         $restaurant->user_id = $request->user()->id;
-        $restaurant->thumb_path = 'restaurants/covers/'. $path;
 
         $restaurant->update();
 
-        $restaurant->types()->sync($request->type_id);
+        $restaurant->types()->sync(json_decode($request->types));
 
-        return redirect()->route('dashboard');
+        return ['response' => 'Information edited successfully!'];
     }
 
     /**
@@ -152,7 +166,7 @@ class RestaurantController extends Controller
 
         $restaurant->delete();
 
-        return redirect()->route('dashboard', 'delete-success');
+        return ['response' => 'Business deleted successfully!'];
     }
 
     public function getAll()

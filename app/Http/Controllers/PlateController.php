@@ -71,7 +71,7 @@ class PlateController extends Controller
         $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
         $plate->save();
 
-        return redirect()->route('plate.index', compact('restaurant'));
+        return ['response' => 'Plate added successfully!'];
     }
 
     /**
