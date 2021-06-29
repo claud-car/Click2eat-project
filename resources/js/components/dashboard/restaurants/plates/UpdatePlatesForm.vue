@@ -11,19 +11,43 @@
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form @submit.prevent="addPlate" enctype="multipart/form-data">
+                <form @submit.prevent="addPlate" @keydown="errors.clear($event.target.name)" enctype="multipart/form-data">
                     <div class="shadow overflow-hidden rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-12">
-                                    <label for="plate_name" class="block text-sm font-medium text-gray-700">Plate name</label>
-                                    <input type="text" v-model="form.name" id="plate_name" autocomplete="plate-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Plate name</label>
+                                    <input type="text" v-model="form.name" id="name" name="name" autocomplete="plate-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('name')">
+                                        <span class="text-xs" v-text="errors.get('name')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12">
                                     <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                                    <textarea v-model="form.description" id="description" autocomplete="description" class="h-40 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                    <textarea v-model="form.description" id="description" name="description" autocomplete="description" class="h-40 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                     </textarea>
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('description')">
+                                        <span class="text-xs" v-text="errors.get('description')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12 sm:col-span-6 lg:col-span-2">
@@ -34,7 +58,7 @@
                                           €
                                         </span>
                                         </div>
-                                        <input type="text" v-model="form.price" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" />
+                                        <input type="text" v-model="form.price" id="price" name="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="0.00" />
                                         <div class="absolute inset-y-0 right-0 flex items-center">
                                             <label for="currency" class="sr-only">Currency</label>
                                             <select id="currency" name="currency" class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
@@ -42,6 +66,18 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('price')">
+                                        <span class="text-xs" v-text="errors.get('price')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12 md:col-span-6 ml-auto">
@@ -85,6 +121,18 @@
                                                 PNG, JPG up to 10MB
                                             </p>
                                         </div>
+                                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('thumb')">
+                                            <span class="text-xs" v-text="errors.get('thumb')"></span>
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                                 focusable="false" width="1em" height="1em"
+                                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                    fill="currentColor"/>
+                                            </svg>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +141,11 @@
                             <a :href="`/dashboard/restaurants/${restaurant.slug}/plates`" class="inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium text-black hover:underline">
                                 Go back
                             </a>
-                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button
+                                type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                                :disabled="errors.any()"
+                            >
                                 Save
                             </button>
                         </div>
@@ -106,6 +158,8 @@
 
 <script>
 const axios = require('axios');
+
+import Errors from "../../../../core/Errors";
 
 import Success from "../../alerts/Success";
 
@@ -122,7 +176,8 @@ export default {
                 visibility: null,
                 thumb: null
             },
-            messages: []
+            messages: [],
+            errors: new Errors()
         }
     },
     created() {
@@ -148,8 +203,8 @@ export default {
             .then(response => {
                 this.messages = response.data
             })
-            .catch(errors => {
-                console.log(errors)
+            .catch(error => {
+                this.errors.set(error.response.data.errors)
             });
         },
         clearMessage() {
