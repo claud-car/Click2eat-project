@@ -19152,7 +19152,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 var _hoisted_3 = {
-  "class": "absolute top-7 right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
+  "class": "absolute top-10 right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
 };
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
