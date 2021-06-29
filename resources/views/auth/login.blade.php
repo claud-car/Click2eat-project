@@ -7,7 +7,7 @@
             </div>
     </x-slot>
 
-    <h2 class="text-center text-4xl mt-48 mb-16">Sign in</h2>
+    <h2 class="text-center text-4xl mt-24 mb-4">Sign in</h2>
 
     <x-auth-card>
 
@@ -22,18 +22,15 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full rounded-3xl" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full rounded-full p-input" type="email" name="email" :value="old('email')" placeholder="Email" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full rounded-3xl"
+                <x-input id="password" class="block mt-8 w-full rounded-full p-input"
                                 type="password"
                                 name="password"
+                                placeholder="Password"
                                 required autocomplete="current-password" />
             </div>
 
@@ -46,13 +43,13 @@
             </div>
             <div class="button flex justify-center">
 
-            <button class="bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full text-center w-full mt-4">{{ __('Log in') }}</button>
+            <button class="bg-orange hover:bg-orange text-white my-4 text-center w-full rounded-full p-input">{{ __('Log in') }}</button>
 
             </div>
-            <div class="flex items-center justify-between mt-8">
-                <p class="text-sm">No account? <a class="text-orange" href="{{route('register')}}">Register now</a></p>
+            <div class="flex items-center justify-between md:mt-2">
+                <p class="text-sm w-full">No account? <a class="text-orange" href="{{route('register')}}">Register now</a></p>
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="md:whitespace-nowrap underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
