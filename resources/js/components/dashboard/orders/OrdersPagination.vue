@@ -82,8 +82,11 @@
                 </tr>
                 </tbody>
             </table>
-            <div v-if="!filteredOrders.length" class="flex justify-center w-full px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p>La ricerca non ha prodotto risultati.</p>
+            <div v-if="!filteredOrders.length && search" class="flex justify-center w-full px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <p>Your search request returned no results.</p>
+            </div>
+            <div v-if="!filteredOrders.length && !search" class="flex justify-center w-full px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <p>There aren't orders yet.</p>
             </div>
             <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
                 <span class="text-xs xs:text-sm text-gray-900">Showing 1 to 4 of {{ items.length}}</span>
@@ -123,7 +126,7 @@ export default {
     },
     computed: {
         filteredOrders() {
-            return this.itemsList.filter(item => item.customer_surname.includes(this.search))
+            return this.itemsList.filter(item => item.customer_surname.toLowerCase().includes(this.search.toLowerCase()))
         }
     },
     created() {
