@@ -47,7 +47,10 @@ module.exports = {
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
                 'jumbo-others': "url('/images/click2eat-jumbo-others.jpg')",
                 'footer': "url('/images/click2eat-footer.jpg')",
-            }),            
+            }), 
+            padding:{
+                input:'1.25rem 1.5rem',
+            },   
         },
     },
 
