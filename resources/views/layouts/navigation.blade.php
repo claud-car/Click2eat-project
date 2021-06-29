@@ -15,12 +15,14 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link >
-                        {{ __('Restaurants') }}
+                    <x-nav-link>
+                        <p class="cursor-pointer">{{ __('About Us') }}</p>
                     </x-nav-link>
-                    <x-nav-link >
-                        {{ __('About Us') }}
-                    </x-nav-link>
+                    <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent 
+                    text-sm font-medium leading-5 text-white hover:text-yellow hover:border-gray-300 
+                    focus:outline-none focus:text-orange focus:border-gray-300 transition duration-150 
+                    ease-in-out" href="#footer">{{ __('Contact Us')}}
+                    </a>
                 </div>
             </div>
 
@@ -29,6 +31,9 @@
                 <user username="{{ Auth::user()->name }}" class="hidden md:flex sm:items-center sm:ml-6" />
             @else
                 <div class="hidden md:flex sm:items-center sm:ml-6">
+                    <div class="phone">
+                        <i class="fas fa-phone-alt text-orange text-lg"><label class="text-white pr-8 pl-2"> +39 123 45 67</label></i>                    
+                    </div>
                     <div class="cart relative">
                         <a href="/cart" class="text-white hover:no-underline">
                             <svg class="h-5 w-6" xmlns="http://www.w3.org/2000/svg"

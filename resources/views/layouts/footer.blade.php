@@ -1,4 +1,4 @@
-<footer class="mt-40">   
+<footer id="footer" class="mt-40">   
     {{-- footer --}}
     <div class="md:h-80 md:flex relative bg-footer justify-center items-center text-white">
          {{-- footer orange icon absolute --}}
