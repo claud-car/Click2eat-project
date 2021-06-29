@@ -52,7 +52,7 @@ class PlateController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'price' => 'required|between:0,99.99',
+            'price' => 'required|numeric|between:0,99.99',
             'restaurant_id' => 'exists:restaurants,id',
             'visibility' => 'required|boolean',
             'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
@@ -101,7 +101,7 @@ class PlateController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'price' => 'required|between:0,99.99',
+            'price' => 'required|numeric|between:0,99.99',
             'visibility' => 'required|boolean',
             'restaurant_id.*' => 'exists:restaurants,id',
         ]);
