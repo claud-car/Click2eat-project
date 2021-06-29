@@ -83,7 +83,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        $plates = $restaurant->plates;
+        $plates = $restaurant->plates->where('is_visible', '1');
 
         return view('restaurants.show', compact('restaurant', 'plates'));
     }
