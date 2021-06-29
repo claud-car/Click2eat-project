@@ -11,33 +11,93 @@
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form @submit.prevent="addBusiness" enctype="multipart/form-data">
+                <form @submit.prevent="addBusiness" @keydown="errors.clear($event.target.name)" enctype="multipart/form-data">
                     <div class="shadow overflow-hidden rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-12">
                                     <label for="business_name" class="block text-sm font-medium text-gray-700">Business name</label>
-                                    <input type="text" v-model="form.name" id="business_name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <input type="text" v-model="form.name" name="name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('name')">
+                                        <span class="text-xs" v-text="errors.get('name')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12">
                                     <label for="street_address" class="block text-sm font-medium text-gray-700">Street address</label>
-                                    <input type="text" v-model="form.street" id="street_address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <input type="text" v-model="form.street" name="street" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('street')">
+                                        <span class="text-xs" v-text="errors.get('street')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12 sm:col-span-6 lg:col-span-2">
                                     <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                                    <input type="text" v-model="form.city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <input type="text" v-model="form.city" name="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('city')">
+                                        <span class="text-xs" v-text="errors.get('city')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-6 lg:col-span-2">
                                     <label for="state" class="block text-sm font-medium text-gray-700 whitespace-nowrap">State / Province</label>
-                                    <input type="text" v-model="form.province" id="state" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <input type="text" v-model="form.province" name="province" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('province')">
+                                        <span class="text-xs" v-text="errors.get('province')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-6 lg:col-span-2">
                                     <label for="postal_code" class="block text-sm font-medium text-gray-700">ZIP / Postal</label>
-                                    <input type="text" v-model="form.zip" id="postal_code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <input type="text" v-model="form.zip" name="zip" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('zip')">
+                                        <span class="text-xs" v-text="errors.get('zip')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12">
@@ -45,14 +105,32 @@
                                     <div class="grid grid-cols-6 gap-6 mt-4">
                                         <div v-for="type in types" class="flex items-start col-span-2">
                                             <div class="flex items-center h-5">
-                                                <input :id="type.name" v-model="form.types" type="checkbox" :value="type.id"
-                                                       class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"/>
+                                                <input
+                                                    name="types"
+                                                    v-model="form.types"
+                                                    type="checkbox"
+                                                    :value="type.id"
+                                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                                    @click="errors.clear('types')"
+                                                />
                                             </div>
                                             <div class="ml-3 text-sm">
                                                 <label :for="type.name" v-text="type.name" class="font-medium text-gray-700"></label>
                                             </div>
                                         </div>
                                     </div>
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('types')">
+                                        <span class="text-xs" v-text="errors.get('types')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
 
                                 <div class="col-span-12">
@@ -76,6 +154,18 @@
                                             </p>
                                         </div>
                                     </div>
+                                    <p class="text-red-600 flex gap-1 mt-1" v-if="errors.has('thumb')">
+                                        <span class="text-xs" v-text="errors.get('thumb')"></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                                             focusable="false" width="1em" height="1em"
+                                             style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
+                                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z"
+                                                fill="currentColor"/>
+                                        </svg>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +173,11 @@
                             <a href="/dashboard/restaurants" class="inline-flex justify-center py-2 px-4 shadow-sm text-sm font-medium text-black hover:underline">
                                 Go back
                             </a>
-                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button
+                                type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                                :disabled="errors.any()"
+                            >
                                 Save
                             </button>
                         </div>
@@ -96,6 +190,7 @@
 
 <script>
 const axios = require('axios');
+import Errors from "../../../core/Errors";
 
 import Success from "../alerts/Success";
 
@@ -114,12 +209,14 @@ export default {
                 types: [],
                 thumb: null
             },
-            messages: []
+            messages: [],
+            errors: new Errors()
         }
     },
     methods: {
         addImage(event) {
             this.form.thumb = event.target.files[0]
+            this.errors.clear('thumb')
         },
         addBusiness() {
             let data = new FormData()
@@ -128,15 +225,15 @@ export default {
             data.append('city', this.form.city)
             data.append('province', this.form.province)
             data.append('zip', this.form.zip)
-            data.append('types', JSON.stringify(this.form.types))
+            data.append('types', this.form.types.length ? JSON.stringify(this.form.types) : '')
             data.append('thumb', this.form.thumb)
 
             axios.post('/dashboard/restaurants/create', data)
             .then(response => {
                 this.messages = response.data
             })
-            .catch(errors => {
-                console.log(errors)
+            .catch(error => {
+                this.errors.set(error.response.data.errors)
             });
         },
         clearMessage() {

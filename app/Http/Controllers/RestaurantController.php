@@ -50,7 +50,7 @@ class RestaurantController extends Controller
             'street' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'province' => 'required|string|max:255',
-            'zip' => 'required|integer',
+            'zip' => 'required|numeric|digits_between:5,5',
             'types' => 'required',
             'thumb' => 'mimes:jpeg,jpg,png|max:8000|required',
         ]);
@@ -125,7 +125,7 @@ class RestaurantController extends Controller
             'street' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'province' => 'required|string|max:255',
-            'zip' => 'required|integer',
+            'zip' => 'required|numeric|digits_between:5,5',
             'types' => 'required'
         ]);
 
