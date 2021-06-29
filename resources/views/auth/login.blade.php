@@ -10,6 +10,6 @@
     <h2 class="text-center text-4xl mt-24 mb-4">Sign in</h2>
 
     <x-auth-card>
-        <login />
+        <login-form />
     </x-auth-card>
 </x-app-layout>
