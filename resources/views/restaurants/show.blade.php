@@ -86,7 +86,11 @@
                         </div>
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <div>
+                        <h3>$</h3>
+                    </div>
+                </div>
                 <div>
                     <i class="far fa-times-circle"></i>
                 </div>
