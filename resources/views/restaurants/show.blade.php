@@ -43,6 +43,57 @@
     
     </div>
 
+    <div class="flex justify-center mt-20">
+        {{-- orders list --}}
+        <div class="w-full flex flex-col items-center">
+            {{-- orders title --}}
+            <div class="h-14 w-3/4 xl:w-1/2 bg-blue rounded-full text-white text-lg flex flex-row justify-around items-center">
+                <div class="w-1/2">
+                    <h3 class="ml-10">Product</h3>
+                </div>
+                <div class="w-1/4">
+                    <h3>Quantity</h3>
+                </div>
+                <div class="w-1/4">
+                    <h3>Price</h3>
+                </div>
+            </div>
+            {{-- orders card --}}
+            <div class="border-b-2 border-gray-200">
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p></p>
+                        <span></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-gray-400">
+                        <div>
+                            <button>
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <button>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+                <div>
+                    <i class="far fa-times-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 </x-app-layout>
