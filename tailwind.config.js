@@ -44,6 +44,7 @@ module.exports = {
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
                 'jumbo-others': "url('/images/click2eat-jumbo-other.jpg')",
                 'footer': "url('/images/click2eat-footer.jpg')",
+                'pizzaHome': "url('/images/homepage_images/bg-pizza.jpg')",
             }),            
         },
     },

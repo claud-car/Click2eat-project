@@ -20,7 +20,7 @@
 
     <x-slot name="content">
         <!-- wy people chose us -->
-        <div class="text-blue text-center mt-16">
+        <section class="text-blue text-center mt-16">
             <div>
                 <h3 class="text-3xl lg:text-4xl norican text-yellow">The reason why</h3>
                 <h2 class="text-3xl lg:text-5xl lg:m-4">Why People Choose Us</h2>
@@ -50,10 +50,69 @@
                    <p>Large selection of restaurants and cafes throughout the country.</p>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- wy people chose us fine-->
+
+        <!-- first order 50% off -->
+        <section class="bg-pizzaHome w-screen h-96 bg-center my-5">
+            <div class="max-w-2xl m-auto h-96 flex items-center">
+                <div class="text-white max-w-md">
+                    <h2 class="text-3xl lg:text-5xl">Make Your first order and get <span class="text-yellow">50% off</span></h2>
+                    <h4 class="my-2 text-xl font-bold">Get it delivered right to your door.</h4>
+                    <p class="my-2 text-gray-400">If you order food delivery from us for the first time then we have a gift - 50% discount for you on the first order. You just need to register and order your favorite food.</p>
+                    <button class="">Order Products </button>
+                </div>
+            </div>
+        </section>
+        <!-- first order 50% off fine-->
+
+        <!-- latest post -->
+        <section class="text-blue text-center mt-16">
+            <div>
+                <h3 class="text-3xl lg:text-4xl norican text-yellow">Our blog</h3>
+                <h2 class="text-3xl lg:text-5xl lg:m-4">Latest posts & articles</h2>
+                <p class="lg:mb-10">Here you can find recipes from the most famous chefs <br> and read useful information.</p>
+            </div>
+            <!-- cards -->
+            <div class="flex flex-wrap justify-center">
+
+                <div class="w-80 m-5 border border-gray-400 rounded-2xl overflow-hidden">
+                    <div class="mx-auto">
+                        <img class="" src="{{url('/images/homepage_images/cake.jpg')}}" alt=""> 
+                    </div>
+                    <div class="flex items-center justify-around my-5">
+                        <div class="w-5">
+                            <img src="{{url('/images/homepage_images/meta.png')}}" alt="">
+                        </div>
+                        <a href="#"><span class="text-gray-400">Antonio Refflis</span></a>
+                        <a href="#"><span class="text-gray-400">May 15, 2020</span></a>
+                    </div>
+                    <!-- horizontal rule -->
+                    <div class="border w-4/5 m-auto border-gray-400"></div> 
+                    <a href="#"><span class="my-10 text-left text-blue font-bold text-2xl hover:text-yellow">The Traditional recipe of apple pie</span></a>
+                </div>
+
+                <div class="w-80 m-5">
+                    <div class="mx-auto w-16">
+                        <img class="" src="{{url('/images/homepage_images/cupcake.jpg')}}" alt=""> 
+                    </div>
+                    <h4 class="font-bold">Express Delivery</h4>
+                    <p>The hottest food & fastest delivery to any location of your city.</p>
+                </div>
+                <div class="w-80 m-5">
+                    <div class="mx-auto w-16">
+                        <img class="" src="{{url('/images/homepage_images/cake2.jpg')}}" alt=""> 
+                    </div>
+                    <h4 class="font-bold">50+ restaurants</h4>
+                    <p>Large selection of restaurants and cafes throughout the country.</p>
+                </div>
+            </div>
+        </section>
+        <!-- latest post fine -->
+
     </x-slot>
     
+   
 
 <!-- bg: 'big-pizza': "url('/images/homepage_images/bg-pizza.jpg)", -->
 
