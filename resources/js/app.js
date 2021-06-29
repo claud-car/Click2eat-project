@@ -9,6 +9,8 @@ import PlatesPagination from "./components/dashboard/restaurants/plates/PlatesPa
 import CreatePlatesForm from "./components/dashboard/restaurants/plates/CreatePlatesForm";
 import UpdatePlatesForm from "./components/dashboard/restaurants/plates/UpdatePlatesForm";
 import User from "./components/User";
+import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 createApp({
     components: {
@@ -21,6 +23,8 @@ createApp({
         PlatesPagination,
         CreatePlatesForm,
         UpdatePlatesForm,
-        User
+        User,
+        LoginForm,
+        RegisterForm
     }
 }).mount('#app')
