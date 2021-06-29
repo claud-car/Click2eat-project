@@ -1,6 +1,14 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="bg-jumbo-others bg-cover h-96 w-full flex justify-center items-center">
+            <div class="text-white text-4xl md:text-6xl">
+                <h1 class="capitalize">Forgotten password</h1>
+            </div>
+        </div>
+    </x-slot>
+
     <x-auth-card>
-        <div class="w-full md:w-3/5 md:mx-auto">
+        <div class="w-full md:w-3/5 md:mx-auto mt-10">
             <x-slot name="logo">
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500"/>
@@ -22,18 +30,25 @@
 
             <!-- Email Address -->
                 <div>
-                    <x-label for="email" :value="__('Email')"/>
-
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                             required autofocus/>
+                    <x-input
+                        id="email"
+                        class="block mt-1 w-full"
+                        type="email"
+                        name="email"
+                        :value="old('email')"
+                        class="block mt-1 w-full rounded-full p-input mb-2"
+                        placeholder="Email"
+                        required
+                        autofocus
+                    />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <x-button>
-                        {{ __('Email Password Reset Link') }}
-                    </x-button>
+                    <button class="bg-orange hover:bg-orange text-white my-4 text-center w-full lg:w-3/5 rounded-full p-input">
+                        Email Password Reset Link
+                    </button>
                 </div>
             </form>
         </div>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>
