@@ -15,6 +15,7 @@ import CartTotal from "./components/CartTotal";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import Plates from "./components/plates/Plates";
+import CartProducts from "./components/cart/CartProducts";
 
 import Cart from "./core/Cart";
 
@@ -36,6 +37,7 @@ createApp({
         CartTotal,
         LoginForm,
         RegisterForm,
-        Plates
+        Plates,
+        CartProducts
     }
 }).mount('#app')

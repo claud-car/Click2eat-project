@@ -1,5 +1,3 @@
-import {cart} from "../app";
-
 class Cart {
     constructor() {
         this.items = []
@@ -23,7 +21,7 @@ class Cart {
                 i++
             })
 
-            this.increaseQty(this.items[index])
+            this.items[index].qty++
 
             return true
         }
@@ -35,14 +33,30 @@ class Cart {
                 item.qty = 1;
                 this.items.push(item)
             }
-            cart.store()
+            this.store()
             return true
         }
         else return false
     }
 
     increaseQty(item) {
-        item.qty++
+        this.items.forEach(itemStored => {
+            if (itemStored.id === item.id) {
+                itemStored.qty++
+                this.store()
+                return
+            }
+        })
+    }
+
+    decreaseQty(item) {
+        this.items.forEach(itemStored => {
+            if (itemStored.id === item.id) {
+                itemStored.qty--
+                this.store()
+                return
+            }
+        })
     }
 
     getStorage() {
@@ -51,12 +65,21 @@ class Cart {
         this.items = JSON.parse(localStorage.getItem('cart'))
     }
 
+    getAll() {
+        return this.items
+    }
+
     store() {
         localStorage.setItem('cart', JSON.stringify(this.items))
     }
 
     count() {
         return this.items.length
+    }
+
+    removeItem(item) {
+        this.items = this.items.filter(itemStored => itemStored.id !== item.id)
+        this.store()
     }
 
     clear() {
