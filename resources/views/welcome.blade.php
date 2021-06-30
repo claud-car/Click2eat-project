@@ -54,7 +54,7 @@
         <!-- wy people chose us fine-->
 
         <!-- first order 50% off -->
-        <section class="bg-pizzaHome w-screen h-96 bg-center my-5">
+        <!-- <section class="bg-pizzaHome w-screen h-96 bg-center my-5">
             <div class="max-w-2xl m-auto h-96 flex items-center">
                 <div class="text-white max-w-md">
                     <h2 class="text-3xl lg:text-5xl">Make Your first order and get <span class="text-yellow">50% off</span></h2>
@@ -63,18 +63,60 @@
                     <button class="">Order Products </button>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- first order 50% off fine-->
 
+        <!-- middlmix -->
+        <section class="bg-pizzaHome bg-left w-screen min-h-96 bg-center my-20">
+            <div class="max-w-2xl m-auto h-96 py-30 flex items-center">
+                <div class="text-white max-w-md">
+                    <h2 class="text-3xl lg:text-5xl">Make orders With Our <span class="text-yellow">Application</span></h2>
+                    <ul>
+                        <li>
+                            <h4 class="my-2 text-xl font-bold">Order and pay in a few minutes</h4>
+                            <p class="my-2 text-gray-400">Сhoose food and pay for the order in a couple of clicks online also choose you current location using GPS.</p>
+                        </li>
+                        <li>
+                            <h4 class="my-2 text-xl font-bold">Check Delivery Status</h4>
+                            <p class="my-2 text-gray-400">Follow the status of your order in real time and also track the delivery path until you get it.</p>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap md:flex-nowrap">
+                        <img class="m-2 md:m-auto" src="{{url('/images/homepage_images/googleplay.png')}}" alt="">
+                        <img class="m-2 md:ml-5" src="{{url('/images/homepage_images/appstore.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- middlemix fine-->
+
+        <!-- newsletter -->
+        <section class="max-w-4xl h-72 bg-newsletter items-center rounded-2xl overflow-hidden text-white flex m-auto justify-around flex-wrap md:flex-nowrap text-center md:text-left">
+            <div class="flex items-center">
+                <div class="">
+                    <h2 class="text-3xl lg:text-5xl">Newsletter</h2>
+                    <p class="my-2 text-gray-400">Don’t miss promotions and discounts.</p>
+                </div>
+            </div>
+            <!--newsletter-text end-->
+            <form class="flex items-center h-3/5">
+                <div class="md:bg-white rounded-full">
+                    <input type="email" class="p-6 rounded-full border-none w-full md:w-auto" placeholder="Enter your email">
+                    <button type="submit" class="py-6 px-8 md:my-auto my-10 w-full md:w-auto rounded-full border-white md:border-4 bg-orange p-1">Subscribe</button>
+                </div>
+            </form>
+        </section>
+        <!-- newsletter fine -->
+
         <!-- latest post -->
-        <section class="text-blue text-center mt-16">
+        <!-- <section class="text-blue text-center mt-16">
             <div>
                 <h3 class="text-3xl lg:text-4xl norican text-yellow">Our blog</h3>
                 <h2 class="text-3xl lg:text-5xl lg:m-4">Latest posts & articles</h2>
                 <p class="lg:mb-10">Here you can find recipes from the most famous chefs <br> and read useful information.</p>
-            </div>
+            </div> -->
             <!-- cards -->
-            <div class="flex flex-wrap justify-center">
+            <!-- <div class="flex flex-wrap justify-center">
 
                 <div class="w-80 m-5 border border-gray-400 rounded-2xl overflow-hidden">
                     <div class="mx-auto">
@@ -86,9 +128,9 @@
                         </div>
                         <a href="#"><span class="text-gray-400">Antonio Refflis</span></a>
                         <a href="#"><span class="text-gray-400">May 15, 2020</span></a>
-                    </div>
+                    </div> -->
                     <!-- horizontal rule -->
-                    <div class="border w-4/5 m-auto border-gray-400"></div> 
+                    <!-- <div class="border w-4/5 m-auto border-gray-400"></div> 
                     <a href="#"><span class="my-10 text-left text-blue font-bold text-2xl hover:text-yellow">The Traditional recipe of apple pie</span></a>
                 </div>
 
@@ -107,7 +149,7 @@
                     <p>Large selection of restaurants and cafes throughout the country.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- latest post fine -->
 
     </x-slot>
