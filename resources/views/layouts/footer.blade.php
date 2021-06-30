@@ -1,4 +1,4 @@
-<footer id="footer" class="mt-40">   
+<footer id="footer" class="mt-40">
     {{-- footer --}}
     <div class="md:h-80 md:flex relative bg-footer justify-center items-center text-white">
          {{-- footer orange icon absolute --}}
@@ -18,7 +18,7 @@
                 <div class="mb-2">
                     <h3>Working schedule</h3>
                 </div>
-                <div>                    
+                <div>
                     <p>Mon - Sat: 9:00 am - 10:00 pm</p>
                     <p>Sun: 10:00 am - 8:00 pm</p>
                 </div>
