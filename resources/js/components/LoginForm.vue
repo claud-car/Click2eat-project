@@ -53,7 +53,7 @@
         </div>
         <div class="button flex justify-center">
 
-            <button class="bg-orange hover:bg-orange text-white my-4 text-center w-full rounded-full p-input">Log in</button>
+            <button class="bg-orange bg-gradient-to-r from-yellow to-orange text-white my-4 text-center w-full rounded-full p-input">Log in</button>
 
         </div>
         <div class="flex items-center justify-between md:mt-2">

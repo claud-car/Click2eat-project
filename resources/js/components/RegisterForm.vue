@@ -128,7 +128,7 @@
         </div>
 
         <div class="lg:px-16">
-            <button class="bg-orange hover:bg-orange text-white my-4 rounded-full p-input text-center w-full mt-4 disabled:opacity-50" :disabled="errors.any()">
+            <button class="bg-orange bg-gradient-to-r from-yellow to-orange text-white my-4 rounded-full p-input text-center w-full mt-4 disabled:opacity-50" :disabled="errors.any()">
                 Create Account
             </button>
         </div>
