@@ -48,6 +48,8 @@ module.exports = {
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
                 'jumbo-others': "url('/images/click2eat-jumbo-others.jpg')",
                 'footer': "url('/images/click2eat-footer.jpg')",
+                'pizzaHome': "url('/images/homepage_images/bg-pizza.jpg')",
+                'newsletter': "url('/images/homepage_images/Screenshot_2.png')",
             }), 
             padding:{
                 input:'1.25rem 1.5rem',
