@@ -19,6 +19,7 @@ module.exports = {
                 transparent: 'transparent',
                 white: {
                     DEFAULT: '#FFF',
+                    laravel: '#F3F4F6',
                 },
                 blue: {
                     DEFAULT: '#22262F',
