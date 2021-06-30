@@ -9,21 +9,41 @@
             <h3 class="py-2 text-2xl" v-text="`€ ${item.price}`"></h3>
         </div>
         <div class="flex justify-center">
-            <button class="m-16 bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full whitespace-nowrap" @click="addToCart(item)">Add To Cart</button>
+            <button class="m-16 bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full whitespace-nowrap" @click="check(item)">Add To Cart</button>
         </div>
     </div>
+    <cart-modal v-if="warning" @cancel="warning = null" @continue="addToCart(item)">
+        <template v-slot:title>
+            All products will be lost
+        </template>
+        <template v-slot:content>
+            Are you sure you want to continue? All of the products in the cart will be lost cause you can order only from one restaurant at time.
+        </template>
+    </cart-modal>
 </template>
 
 <script>
 import { cart } from "../../app";
+import CartModal from "../modals/CartModal";
 
 export default {
     name: "Plate",
+    components: {
+        CartModal
+    },
+    data() {
+        return {
+            warning: false
+        }
+    },
     props: ['item'],
     methods: {
+        check(item) {
+            this.warning = !cart.add(item)
+        },
         addToCart(item) {
-            cart.add(item)
-            cart.store()
+            cart.clear()
+            this.warning = !cart.add(item)
         }
     }
 }

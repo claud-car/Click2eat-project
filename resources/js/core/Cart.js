@@ -1,16 +1,13 @@
+import {cart} from "../app";
+
 class Cart {
     constructor() {
         this.items = []
+        this.getStorage()
     }
 
-    add(item) {
-        this.getStorage()
-
-        if (!this.checkDuplicate(item)) {
-            item.qty = 1;
-            this.items.push(item)
-        }
-
+    checkId(item) {
+        if (this.items.some(itemStored => itemStored.restaurant_id === item.restaurant_id) || !this.items.length) return true
     }
 
     checkDuplicate(item) {
@@ -30,6 +27,18 @@ class Cart {
 
             return true
         }
+    }
+
+    add(item) {
+        if (this.checkId(item)) {
+            if (!this.checkDuplicate(item)) {
+                item.qty = 1;
+                this.items.push(item)
+            }
+            cart.store()
+            return true
+        }
+        else return false
     }
 
     increaseQty(item) {
@@ -52,6 +61,7 @@ class Cart {
 
     clear() {
         localStorage.clear()
+        this.items = []
     }
 }
 
