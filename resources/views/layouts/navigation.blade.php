@@ -27,52 +27,45 @@
             </div>
 
             <!-- Settings Dropdown -->
-            @if (Auth::check())
-                <user username="{{ Auth::user()->name }}" class="flex sm:items-center sm:ml-6" />
-            @else
-                <div class="hidden md:flex sm:items-center sm:ml-6">
-                    <div class="phone text-orange md:hidden lg:flex lg:items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" class="relative top-0.5 w-6 h-8" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M26 29h-.17C6.18 27.87 3.39 11.29 3 6.23A3 3 0 0 1 5.76 3h5.51a2 2 0 0 1 1.86 1.26L14.65 8a2 2 0 0 1-.44 2.16l-2.13 2.15a9.37 9.37 0 0 0 7.58 7.6l2.17-2.15a2 2 0 0 1 2.17-.41l3.77 1.51A2 2 0 0 1 29 20.72V26a3 3 0 0 1-3 3zM6 5a1 1 0 0 0-1 1v.08C5.46 12 8.41 26 25.94 27a1 1 0 0 0 1.06-.94v-5.34l-3.77-1.51l-2.87 2.85l-.48-.06c-8.7-1.09-9.88-9.79-9.88-9.88l-.06-.48l2.84-2.87L11.28 5z" fill="currentColor"/></svg>
-                        <label class="text-white font-light pr-8 pl-2"> +39 123 45 67</label></i>
+            <div class="flex items-center">
+                @if (Auth::check())
+                    <div>
+                      <user username="{{ Auth::user()->name }}" class="flex sm:items-center sm:ml-6" />
                     </div>
-                    <div class="cart relative">
-                        <a href="/cart" class="text-white hover:no-underline">
-                            <svg class="h-5 w-6" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false"
-                                 width="1em" height="1em"
-                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 13a5 5 0 0 1-5-5h2a3 3 0 0 0 3 3a3 3 0 0 0 3-3h2a5 5 0 0 1-5 5m0-10a3 3 0 0 1 3 3H9a3 3 0 0 1 3-3m7 3h-2a5 5 0 0 0-5-5a5 5 0 0 0-5 5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"
-                                    fill="currentColor"/>
-                            </svg>
-                        </a>
-                        <span class="absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center">0</span>
-                    </div>
-
-                    @if (Route::has('login'))
-                        <div class="hidden px-6 md:flex gap-4">
-                            @auth
-                            @else
-                                <a href="{{ route('login') }}" class="text-sm text-yellow hover:text-orange font-semibold"><p>Log in<i class="fas fa-sign-in-alt pl-2"></i></p></a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="text-sm text-yellow font-semibold hover:text-orange">Register</a>
-                                @endif
-                            @endauth
+                    <mobile-btn :is-logged="true" />
+                @else
+                    <div class="flex items-center ml-6">
+                        <div class="phone text-orange hidden lg:flex lg:items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" class="relative top-0.5 w-6 h-8" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M26 29h-.17C6.18 27.87 3.39 11.29 3 6.23A3 3 0 0 1 5.76 3h5.51a2 2 0 0 1 1.86 1.26L14.65 8a2 2 0 0 1-.44 2.16l-2.13 2.15a9.37 9.37 0 0 0 7.58 7.6l2.17-2.15a2 2 0 0 1 2.17-.41l3.77 1.51A2 2 0 0 1 29 20.72V26a3 3 0 0 1-3 3zM6 5a1 1 0 0 0-1 1v.08C5.46 12 8.41 26 25.94 27a1 1 0 0 0 1.06-.94v-5.34l-3.77-1.51l-2.87 2.85l-.48-.06c-8.7-1.09-9.88-9.79-9.88-9.88l-.06-.48l2.84-2.87L11.28 5z" fill="currentColor"/></svg>
+                            <label class="text-white font-light pr-8 pl-2"> +39 123 45 67 890</label></i>
                         </div>
-                    @endif
-                </div>
-            @endif
 
-            <!-- Hamburger -->
-            <div class="-mr-2 flex items-center md:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+                        <div class="hidden md:block">
+                            <cart-total />
+                        </div>
+
+                        @if (Route::has('login'))
+                            <div class="hidden px-6 md:flex gap-4">
+                                @auth
+                                @else
+                                    <a href="{{ route('login') }}" class="text-sm text-yellow hover:text-orange font-semibold"><p>Log in<i class="fas fa-sign-in-alt pl-2"></i></p></a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="text-sm text-yellow font-semibold hover:text-orange">Register</a>
+                                    @endif
+                                @endauth
+                            </div>
+                        @endif
+                    </div>
+                    <!-- Hamburger -->
+                    <div class="-mr-2 flex items-center md:hidden">
+                        <div class="mr-6">
+                            <cart-total />
+                        </div>
+
+                        <mobile-btn :is-logged="false" />
+                    </div>
+                @endif
             </div>
         </div>
     </div>
