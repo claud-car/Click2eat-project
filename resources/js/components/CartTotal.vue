@@ -11,18 +11,16 @@
                     fill="currentColor"/>
             </svg>
         </a>
-        <span class="absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center" v-text="count"></span>
+        <span class="absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center" v-text="counter"></span>
     </div>
 </template>
 
 <script>
-import {cart} from "../app";
-
 export default {
     name: "CartTotal",
-    data() {
-        return {
-            count: cart.count()
+    computed: {
+        counter() {
+            return this.$store.state.counter
         }
     }
 }

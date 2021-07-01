@@ -31,19 +31,24 @@ export default {
     components: {
         CartModal
     },
+    props: ['item'],
     data() {
         return {
-            warning: false
+            warning: false,
         }
     },
-    props: ['item'],
     methods: {
         check(item) {
             this.warning = !cart.add(item)
+
+            if (!this.warning) {
+                this.$store.commit('increaseCounter')
+            }
         },
         addToCart(item) {
             cart.clear()
             this.warning = !cart.add(item)
+            this.$store.commit('increaseCounter')
         }
     }
 }

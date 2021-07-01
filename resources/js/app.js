@@ -1,4 +1,6 @@
 import { createApp } from "vue";
+import store from './store'
+
 
 import SearchByType from "./components/search/SearchByType";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -16,6 +18,7 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import Plates from "./components/plates/Plates";
 import CartProducts from "./components/cart/CartProducts";
+import CheckoutTable from "./components/cart/CheckoutTable";
 
 import Cart from "./core/Cart";
 
@@ -38,6 +41,10 @@ createApp({
         LoginForm,
         RegisterForm,
         Plates,
-        CartProducts
+        CartProducts,
+        CheckoutTable
+    },
+    created() {
+        this.$store.commit('getTotalCartItems')
     }
-}).mount('#app')
+}).use(store).mount('#app')

@@ -74,7 +74,10 @@ class Cart {
     }
 
     count() {
-        return this.items.length
+        let tot = 0
+        return this.items.reduce((totalQty, item) => {
+            return totalQty + item.qty
+        }, tot)
     }
 
     removeItem(item) {

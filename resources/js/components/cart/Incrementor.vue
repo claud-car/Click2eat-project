@@ -36,11 +36,13 @@ export default {
         increase() {
             this.count++
             this.$emit('increased', this.count)
+            this.$store.commit('increaseCounter')
         },
         decrease() {
             if (this.count > 1) {
                 this.count--
                 this.$emit('decreased', this.count)
+                this.$store.commit('decreaseCounter')
             } else this.count = 1
         }
     }

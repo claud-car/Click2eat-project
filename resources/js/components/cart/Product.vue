@@ -1,7 +1,7 @@
 <template>
     <div class="w-11/12 xl:w-1/2 h-36 border-b-2 border-gray-200 flex flex-row justify-around items-center">
         <div class="w-1/3 md:w-1/2 flex flex-row items-center transform md:translate-x-10">
-            <div class="hidden md:inline-block bg-blue h-20 w-20">
+            <div class="hidden md:inline-block bg-blue h-20 w-20 rounded-xl overflow-hidden">
                 <img :src="`/storage/${item.thumb_path}`" alt="">
             </div>
             <div class="md:ml-5">
@@ -9,7 +9,7 @@
                 <span class="text-gray-400" v-text="`€${item.price} per portion`"></span>
             </div>
         </div>
-        <incrementor :qty="item.qty" @increased="increaseProduct(item)" @decreased="decreaseProduct(item)" />
+        <incrementor :qty="actualQty" @increased="increaseProduct(item)" @decreased="decreaseProduct(item)" />
         <div class="w-1/4 flex items-center">
             <div>
                 <h3 class="text-2xl text-bold text-yellow" v-text="price"></h3>
@@ -41,20 +41,23 @@ export default {
     },
     created() {
         this.actualQty = this.item.qty
-        console.log(this.actualQty)
     },
     methods: {
         increaseProduct(item) {
             cart.increaseQty(item)
+            this.$store.commit('calcSubtotal')
             this.actualQty++
         },
         decreaseProduct(item) {
             cart.decreaseQty(item)
+            this.$store.commit('calcSubtotal')
             this.actualQty--
         },
         deleteProduct(item) {
             cart.removeItem(item)
-            this.$emit('deleted')
+            this.$store.commit('onDelete', this.actualQty)
+            this.$store.commit('removeProduct', this.item)
+            this.$store.commit('calcSubtotal')
         }
     }
 }

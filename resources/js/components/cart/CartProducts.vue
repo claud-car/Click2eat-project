@@ -12,7 +12,7 @@
                     <h3>Price</h3>
                 </div>
             </div>
-            <product v-for="product in products" :item="product" @deleted="refresh" />
+            <product v-for="product in $store.state.products" :item="product" />
         </div>
     </div>
 </template>
@@ -25,18 +25,8 @@ import Product from "./Product";
 export default {
     name: "CartProducts",
     components: {Product},
-    data() {
-        return {
-            products: []
-        }
-    },
     created() {
-        this.products = cart.getAll()
-    },
-    methods: {
-        refresh() {
-            this.products = cart.getAll()
-        }
+        this.$store.commit('getProducts')
     }
 }
 </script>
