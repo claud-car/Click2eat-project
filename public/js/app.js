@@ -18122,27 +18122,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Incrementor",
-  props: ['qty'],
+  props: ['item'],
   data: function data() {
     return {
-      count: 0
+      index: 0
     };
   },
   created: function created() {
-    this.count = this.qty;
+    this.index = this.$store.state.index;
   },
   methods: {
     increase: function increase() {
-      this.count++;
-      this.$emit('increased', this.count);
+      this.$store.commit('increaseProductQty', this.index);
       this.$store.commit('increaseCounter');
+      this.$store.commit('calcSubtotal');
     },
     decrease: function decrease() {
-      if (this.count > 1) {
-        this.count--;
-        this.$emit('decreased', this.count);
+      if (this.$store.state.products[this.index].qty > 1) {
+        this.$store.commit('decreaseProductQty', this.index);
         this.$store.commit('decreaseCounter');
-      } else this.count = 1;
+        this.$store.commit('calcSubtotal');
+      }
     }
   }
 });
@@ -18170,33 +18170,19 @@ __webpack_require__.r(__webpack_exports__);
     Incrementor: _Incrementor__WEBPACK_IMPORTED_MODULE_1__.default
   },
   props: ['item'],
-  data: function data() {
-    return {
-      actualQty: 0
-    };
-  },
   computed: {
     price: function price() {
-      return "\u20AC".concat(this.item.price * this.actualQty);
+      return "\u20AC".concat(this.item.price * this.item.qty);
     }
   },
   created: function created() {
-    this.actualQty = this.item.qty;
+    this.$store.commit('getIndexOfProduct', this.item);
+    this.index = this.$store.state.index;
   },
   methods: {
-    increaseProduct: function increaseProduct(item) {
-      _app__WEBPACK_IMPORTED_MODULE_0__.cart.increaseQty(item);
-      this.$store.commit('calcSubtotal');
-      this.actualQty++;
-    },
-    decreaseProduct: function decreaseProduct(item) {
-      _app__WEBPACK_IMPORTED_MODULE_0__.cart.decreaseQty(item);
-      this.$store.commit('calcSubtotal');
-      this.actualQty--;
-    },
     deleteProduct: function deleteProduct(item) {
       _app__WEBPACK_IMPORTED_MODULE_0__.cart.removeItem(item);
-      this.$store.commit('onDelete', this.actualQty);
+      this.$store.commit('onDelete', this.item.qty);
       this.$store.commit('removeProduct', this.item);
       this.$store.commit('calcSubtotal');
     }
@@ -18956,6 +18942,7 @@ __webpack_require__.r(__webpack_exports__);
     addToCart: function addToCart(item) {
       _app__WEBPACK_IMPORTED_MODULE_0__.cart.clear();
       this.warning = !_app__WEBPACK_IMPORTED_MODULE_0__.cart.add(item);
+      this.$store.commit('resetCounter');
       this.$store.commit('increaseCounter');
     }
   }
@@ -19184,7 +19171,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-    "class": "absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center",
+    "class": "absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center pointer-events-none",
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.counter)
   }, null, 8
   /* PROPS */
@@ -19838,13 +19825,13 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_11 = {
   "class": "mb-10 mx-5 flex justify-center items-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-  "class": "w-full bg-orange bg-gradient-to-r from-yellow to-orange rounded-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
   "class": "text-white text-xl p-5"
-}, "Checkout")])], -1
+}, "Checkout", -1
 /* HOISTED */
 );
 
@@ -19863,7 +19850,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)("\u20AC".concat($options.total))
   }, null, 8
   /* PROPS */
-  , ["textContent"])])])]), _hoisted_11])])]);
+  , ["textContent"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    "class": "w-full bg-orange bg-gradient-to-r from-yellow to-orange rounded-full disabled:opacity-50",
+    disabled: !_ctx.$store.state.products.length
+  }, [_hoisted_12], 8
+  /* PROPS */
+  , ["disabled"])])])])]);
 });
 
 /***/ }),
@@ -19918,13 +19910,13 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, [_hoisted_4])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "text",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $data.count = $event;
+      return _ctx.$store.state.products[$data.index].qty = $event;
     }),
     "class": "h-10 w-5 md:w-14 text-xl font-bold border-none text-center",
     readonly: ""
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.count]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.$store.state.products[$data.index].qty]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     onClick: _cache[3] || (_cache[3] = function () {
       return $options.increase && $options.increase.apply($options, arguments);
     })
@@ -19991,23 +19983,17 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, null, 8
   /* PROPS */
   , ["textContent"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_incrementor, {
-    qty: $data.actualQty,
-    onIncreased: _cache[1] || (_cache[1] = function ($event) {
-      return $options.increaseProduct($props.item);
-    }),
-    onDecreased: _cache[2] || (_cache[2] = function ($event) {
-      return $options.decreaseProduct($props.item);
-    })
+    item: $props.item
   }, null, 8
   /* PROPS */
-  , ["qty"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
+  , ["item"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
     "class": "text-2xl text-bold text-yellow",
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.price)
   }, null, 8
   /* PROPS */
   , ["textContent"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
-    "class": "fas fa-times text-3xl text-yellow",
-    onClick: _cache[3] || (_cache[3] = function ($event) {
+    "class": "fas fa-times text-3xl text-yellow cursor-pointer",
+    onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.deleteProduct($props.item);
     })
   })])])]);
@@ -23413,7 +23399,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.deleteItem && $options.deleteItem.apply($options, arguments);
     })
-  }, " Delete "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  }, " Proceed "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     type: "button",
     "class": "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
     onClick: _cache[2] || (_cache[2] = function () {
@@ -23953,8 +23939,8 @@ var Cart = /*#__PURE__*/function () {
     }
   }, {
     key: "store",
-    value: function store() {
-      localStorage.setItem('cart', JSON.stringify(this.items));
+    value: function store(products) {
+      if (products) localStorage.setItem('cart', JSON.stringify(products));else localStorage.setItem('cart', JSON.stringify(this.items));
     }
   }, {
     key: "count",
@@ -24069,11 +24055,34 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     counter: 0,
     products: [],
-    subTotal: 0
+    subTotal: 0,
+    index: 0
   },
   mutations: {
     getProducts: function getProducts(state) {
       state.products = _app__WEBPACK_IMPORTED_MODULE_0__.cart.getAll();
+    },
+    getIndexOfProduct: function getIndexOfProduct(state, item) {
+      var index = 0;
+      var i = 0;
+      state.products.forEach(function (productStored) {
+        if (productStored.id === item.id) {
+          state.index = i;
+          return;
+        }
+
+        i++;
+      });
+    },
+    increaseProductQty: function increaseProductQty(state, index) {
+      state.products[index].qty++;
+      _app__WEBPACK_IMPORTED_MODULE_0__.cart.store(state.products);
+      console.log(state.products);
+    },
+    decreaseProductQty: function decreaseProductQty(state, index) {
+      state.products[index].qty--;
+      _app__WEBPACK_IMPORTED_MODULE_0__.cart.store(state.products);
+      console.log(state.products);
     },
     removeProduct: function removeProduct(state, item) {
       state.products = state.products.filter(function (product) {
@@ -24094,6 +24103,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     decreaseCounter: function decreaseCounter(state) {
       state.counter--;
+    },
+    resetCounter: function resetCounter(state) {
+      state.counter = 0;
     },
     onDelete: function onDelete(state, value) {
       state.counter -= value;

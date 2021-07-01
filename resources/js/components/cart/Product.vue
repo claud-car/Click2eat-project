@@ -9,13 +9,13 @@
                 <span class="text-gray-400" v-text="`€${item.price} per portion`"></span>
             </div>
         </div>
-        <incrementor :qty="actualQty" @increased="increaseProduct(item)" @decreased="decreaseProduct(item)" />
+        <incrementor :item="item" />
         <div class="w-1/4 flex items-center">
             <div>
                 <h3 class="text-2xl text-bold text-yellow" v-text="price"></h3>
             </div>
             <div class="text-gray-400 ml-5 md:ml-16 xl:ml-32">
-                <i class="fas fa-times text-3xl text-yellow" @click="deleteProduct(item)"></i>
+                <i class="fas fa-times text-3xl text-yellow cursor-pointer" @click="deleteProduct(item)"></i>
             </div>
         </div>
     </div>
@@ -29,33 +29,19 @@ export default {
     name: "Product",
     components: {Incrementor},
     props: ['item'],
-    data() {
-        return {
-            actualQty: 0
-        }
-    },
     computed: {
         price() {
-            return `€${this.item.price*this.actualQty}`
+            return `€${this.item.price*this.item.qty}`
         }
     },
     created() {
-        this.actualQty = this.item.qty
+        this.$store.commit('getIndexOfProduct', this.item)
+        this.index = this.$store.state.index
     },
     methods: {
-        increaseProduct(item) {
-            cart.increaseQty(item)
-            this.$store.commit('calcSubtotal')
-            this.actualQty++
-        },
-        decreaseProduct(item) {
-            cart.decreaseQty(item)
-            this.$store.commit('calcSubtotal')
-            this.actualQty--
-        },
         deleteProduct(item) {
             cart.removeItem(item)
-            this.$store.commit('onDelete', this.actualQty)
+            this.$store.commit('onDelete', this.item.qty)
             this.$store.commit('removeProduct', this.item)
             this.$store.commit('calcSubtotal')
         }

@@ -8,7 +8,7 @@
                     </button>
                 </div>
                 <div>
-                    <input type="text" v-model="count" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center" readonly>
+                    <input type="text" v-model="$store.state.products[index].qty" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center" readonly>
                 </div>
                 <div>
                     <button @click="increase">
@@ -23,27 +23,27 @@
 <script>
 export default {
     name: "Incrementor",
-    props: ['qty'],
+    props: ['item'],
     data() {
         return {
-            count: 0
+            index: 0
         }
     },
     created() {
-        this.count = this.qty
+        this.index = this.$store.state.index
     },
     methods: {
         increase() {
-            this.count++
-            this.$emit('increased', this.count)
+            this.$store.commit('increaseProductQty', this.index)
             this.$store.commit('increaseCounter')
+            this.$store.commit('calcSubtotal')
         },
         decrease() {
-            if (this.count > 1) {
-                this.count--
-                this.$emit('decreased', this.count)
+            if (this.$store.state.products[this.index].qty > 1) {
+                this.$store.commit('decreaseProductQty', this.index)
                 this.$store.commit('decreaseCounter')
-            } else this.count = 1
+                this.$store.commit('calcSubtotal')
+            }
         }
     }
 }

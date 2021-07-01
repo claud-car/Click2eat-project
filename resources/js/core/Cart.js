@@ -69,8 +69,9 @@ class Cart {
         return this.items
     }
 
-    store() {
-        localStorage.setItem('cart', JSON.stringify(this.items))
+    store(products) {
+        if (products) localStorage.setItem('cart', JSON.stringify(products))
+        else localStorage.setItem('cart', JSON.stringify(this.items))
     }
 
     count() {

@@ -48,6 +48,7 @@ export default {
         addToCart(item) {
             cart.clear()
             this.warning = !cart.add(item)
+            this.$store.commit('resetCounter')
             this.$store.commit('increaseCounter')
         }
     }

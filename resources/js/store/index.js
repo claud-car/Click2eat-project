@@ -5,11 +5,34 @@ export default createStore({
     state: {
         counter: 0,
         products: [],
-        subTotal: 0
+        subTotal: 0,
+        index: 0
     },
     mutations: {
         getProducts(state) {
             state.products = cart.getAll()
+        },
+        getIndexOfProduct(state, item) {
+            let index = 0
+            let i = 0
+
+            state.products.forEach(productStored => {
+                if (productStored.id === item.id) {
+                    state.index = i
+                    return
+                }
+                i++
+            })
+        },
+        increaseProductQty(state, index) {
+            state.products[index].qty++
+            cart.store(state.products)
+            console.log(state.products)
+        },
+        decreaseProductQty(state, index) {
+            state.products[index].qty--
+            cart.store(state.products)
+            console.log(state.products)
         },
         removeProduct(state, item) {
             state.products = state.products.filter(product => product.id !== item.id)
@@ -28,6 +51,9 @@ export default createStore({
         },
         decreaseCounter(state) {
             state.counter--
+        },
+        resetCounter(state) {
+            state.counter = 0
         },
         onDelete(state, value) {
             state.counter -= value
