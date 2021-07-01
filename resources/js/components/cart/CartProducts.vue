@@ -13,6 +13,7 @@
                 </div>
             </div>
             <product v-for="product in $store.state.products" :item="product" />
+            <p v-if="!$store.state.products.length" class="text-gray-600 mt-8">The cart is empty.</p>
         </div>
     </div>
 </template>
