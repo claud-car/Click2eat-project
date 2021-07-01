@@ -12,7 +12,7 @@
         <incrementor :qty="item.qty" @increased="increaseProduct(item)" @decreased="decreaseProduct(item)" />
         <div class="w-1/4 flex items-center">
             <div>
-                <h3 class="text-2xl text-bold text-yellow" v-text="`€${item.price*item.qty}`"></h3>
+                <h3 class="text-2xl text-bold text-yellow" v-text="price"></h3>
             </div>
             <div class="text-gray-400 ml-5 md:ml-16 xl:ml-32">
                 <i class="fas fa-times text-3xl text-yellow" @click="deleteProduct(item)"></i>
@@ -29,12 +29,28 @@ export default {
     name: "Product",
     components: {Incrementor},
     props: ['item'],
+    data() {
+        return {
+            actualQty: 0
+        }
+    },
+    computed: {
+        price() {
+            return `€${this.item.price*this.actualQty}`
+        }
+    },
+    created() {
+        this.actualQty = this.item.qty
+        console.log(this.actualQty)
+    },
     methods: {
         increaseProduct(item) {
             cart.increaseQty(item)
+            this.actualQty++
         },
         decreaseProduct(item) {
             cart.decreaseQty(item)
+            this.actualQty--
         },
         deleteProduct(item) {
             cart.removeItem(item)

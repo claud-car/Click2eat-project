@@ -17927,12 +17927,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     increase: function increase() {
       this.count++;
-      this.$emit('increased');
+      this.$emit('increased', this.count);
     },
     decrease: function decrease() {
       if (this.count > 1) {
         this.count--;
-        this.$emit('decreased');
+        this.$emit('decreased', this.count);
       } else this.count = 1;
     }
   }
@@ -17961,12 +17961,28 @@ __webpack_require__.r(__webpack_exports__);
     Incrementor: _Incrementor__WEBPACK_IMPORTED_MODULE_1__.default
   },
   props: ['item'],
+  data: function data() {
+    return {
+      actualQty: 0
+    };
+  },
+  computed: {
+    price: function price() {
+      return "\u20AC".concat(this.item.price * this.actualQty);
+    }
+  },
+  created: function created() {
+    this.actualQty = this.item.qty;
+    console.log(this.actualQty);
+  },
   methods: {
     increaseProduct: function increaseProduct(item) {
       _app__WEBPACK_IMPORTED_MODULE_0__.cart.increaseQty(item);
+      this.actualQty++;
     },
     decreaseProduct: function decreaseProduct(item) {
       _app__WEBPACK_IMPORTED_MODULE_0__.cart.decreaseQty(item);
+      this.actualQty--;
     },
     deleteProduct: function deleteProduct(item) {
       _app__WEBPACK_IMPORTED_MODULE_0__.cart.removeItem(item);
@@ -19680,7 +19696,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   /* PROPS */
   , ["qty"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
     "class": "text-2xl text-bold text-yellow",
-    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)("\u20AC".concat($props.item.price * $props.item.qty))
+    textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.price)
   }, null, 8
   /* PROPS */
   , ["textContent"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {

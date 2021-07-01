@@ -35,12 +35,12 @@ export default {
     methods: {
         increase() {
             this.count++
-            this.$emit('increased')
+            this.$emit('increased', this.count)
         },
         decrease() {
             if (this.count > 1) {
                 this.count--
-                this.$emit('decreased')
+                this.$emit('decreased', this.count)
             } else this.count = 1
         }
     }
