@@ -43,9 +43,9 @@
 
     <x-slot name="slot">
         <!-- sezione featured -->
-        <div class="text-blue text-center mt-16">
-            <h3 class="text-3xl lg:text-4xl norican text-yellow">Featured</h3>
-            <h2 class="text-3xl lg:text-5xl lg:m-4">Restourant & Cafes</h2>
+        <div class="text-blue text-center lg:mt-16 mb-12">
+            <h3 class="text-3xl lg:text-4xl norican text-yellow mb-8">Featured</h3>
+            <h2 class="text-3xl lg:text-5xl lg:m-8 mb-4">Restourant & Cafes</h2>
             <p class="lg:mb-10">The best restaurants and cafes that <br> have been working with us for a long time</p>
         </div>
         <!-- sezione featured fine -->
@@ -54,30 +54,30 @@
 
     <x-slot name="content">
         <!-- wy people chose us -->
-        <section class="text-blue text-center mt-16">
-            <div>
-                <h3 class="text-3xl lg:text-4xl norican text-yellow">The reason why</h3>
-                <h2 class="text-3xl lg:text-5xl lg:m-4">Why People Choose Us</h2>
+        <section class="text-blue text-center mt-12">
+            <div class="mb-8">
+                <h3 class="text-3xl lg:text-4xl norican text-yellow mb-4">The reason why</h3>
+                <h2 class="text-3xl lg:text-5xl lg:m-4 mb-8">Why People Choose Us</h2>
                 <p class="lg:mb-10">We have many advantages but we will highlight <br> only some of them, look below</p>
             </div>
             <!-- cards -->
             <div class="flex flex-wrap justify-center">
                 <div class="w-80 m-5">
-                    <div class="mx-auto w-16">
+                    <div class="mx-auto w-16 mb-8">
                         <img class="" src="{{url('/images/homepage_images/discount.svg')}}" alt=""> 
                     </div>
                    <h4 class="font-bold">Discount System</h4>
                    <p>We have a favorable discount system for our regular customers.</p>
                 </div>
                 <div class="w-80 m-5">
-                    <div class="mx-auto w-16">
+                    <div class="mx-auto w-16 mb-8">
                         <img class="" src="{{url('/images/homepage_images/delivery.svg')}}" alt=""> 
                     </div>
                    <h4 class="font-bold">Express Delivery</h4>
                    <p>The hottest food & fastest delivery to any location of your city.</p>
                 </div>
                 <div class="w-80 m-5">
-                    <div class="mx-auto w-16">
+                    <div class="mx-auto w-16 mb-8">
                         <img class="" src="{{url('/images/homepage_images/food.svg')}}" alt=""> 
                     </div>
                    <h4 class="font-bold">50+ restaurants</h4>
@@ -101,23 +101,23 @@
         <!-- first order 50% off fine-->
 
         <!-- middlmix -->
-        <section class="bg-pizzaHome bg-left w-screen min-h-96 bg-center my-20">
-            <div class="max-w-2xl m-auto h-96 py-30 flex items-center">
-                <div class="text-white max-w-md">
-                    <h2 class="text-3xl lg:text-5xl">Make orders With Our <span class="text-yellow">Application</span></h2>
-                    <ul>
+        <section class="bg-pizzaHome bg-left bg-center my-20 h-90v bg-no-repeat">
+            <div class=" py-30 h-full lg:ml-64 lg:w-1/3">
+                <div class="text-white h-90v flex flex-col lg:items-start lg:justify-center ml-4">
+                    <h2 class="text-6xl my-16 md:ml-4">Make orders With Our <span class="text-yellow">Application</span></h2>
+                    <ul class="md:ml-4 md:mt-4 md:mb-4 lg:pr-12">
                         <li>
-                            <h4 class="my-2 text-xl font-bold">Order and pay in a few minutes</h4>
-                            <p class="my-2 text-gray-400">Сhoose food and pay for the order in a couple of clicks online also choose you current location using GPS.</p>
+                            <h4 class="my-4 text-xl font-bold">Order and pay in a few minutes</h4>
+                            <p class="my-4 text-gray-400">Сhoose food and pay for the order in a couple of clicks online also choose you current location using GPS.</p>
                         </li>
                         <li>
-                            <h4 class="my-2 text-xl font-bold">Check Delivery Status</h4>
-                            <p class="my-2 text-gray-400">Follow the status of your order in real time and also track the delivery path until you get it.</p>
+                            <h4 class="my-4 text-xl font-bold">Check Delivery Status</h4>
+                            <p class="my-4 text-gray-400">Follow the status of your order in real time and also track the delivery path until you get it.</p>
                         </li>
                     </ul>
-                    <div class="flex flex-wrap md:flex-nowrap">
-                        <img class="m-2 md:m-auto" src="{{url('/images/homepage_images/googleplay.png')}}" alt="">
-                        <img class="m-2 md:ml-5" src="{{url('/images/homepage_images/appstore.png')}}" alt="">
+                    <div class="mt-12">
+                        <img class="m-4" src="{{url('/images/homepage_images/googleplay.png')}}" alt="">
+                        <img class="m-4 mt-8 lg:mt-0" src="{{url('/images/homepage_images/appstore.png')}}" alt="">
                     </div>
                 </div>
             </div>
