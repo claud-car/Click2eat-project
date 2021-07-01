@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <button class="bg-orange hover:bg-orange text-white my-4 text-center w-full lg:w-3/5 rounded-full p-input">
+                    <button class="bg-orange bg-gradient-to-r from-yellow to-orange text-white my-4 text-center w-full lg:w-3/5 rounded-full p-input">
                         Email Password Reset Link
                     </button>
                 </div>

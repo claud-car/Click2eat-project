@@ -12,4 +12,6 @@
     <x-auth-card>
         <login-form />
     </x-auth-card>
+    <x-slot name="content">
+    </x-slot>
 </x-app-layout>

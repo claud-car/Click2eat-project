@@ -48,10 +48,24 @@ module.exports = {
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
                 'jumbo-others': "url('/images/click2eat-jumbo-others.jpg')",
                 'footer': "url('/images/click2eat-footer.jpg')",
+                'pizzaHome': "url('/images/homepage_images/bg-pizza.jpg')",
+                'newsletter': "url('/images/homepage_images/Screenshot_2.png')",
             }), 
             padding:{
                 input:'1.25rem 1.5rem',
-            },   
+            },
+            height:{
+                "10v": "10vh",
+                "20v": "20vh",
+                "30v": "30vh",
+                "40v": "40vh",
+                "50v": "50vh",
+                "60v": "60vh",
+                "70v": "70vh",
+                "80v": "80vh",
+                "90v": "90vh",
+                "100v": "100vh",
+            }
         },
     },
 

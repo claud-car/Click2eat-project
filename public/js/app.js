@@ -18724,7 +18724,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"block mt-4\" data-v-12a98f72><label for=\"remember_me\" class=\"inline-flex items-center\" data-v-12a98f72><input id=\"remember_me\" type=\"checkbox\" class=\"rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50\" name=\"remember\" data-v-12a98f72><span class=\"ml-2 text-sm text-gray-600\" data-v-12a98f72>Remember me</span></label></div><div class=\"button flex justify-center\" data-v-12a98f72><button class=\"bg-orange hover:bg-orange text-white my-4 text-center w-full rounded-full p-input\" data-v-12a98f72>Log in</button></div><div class=\"flex items-center justify-between md:mt-2\" data-v-12a98f72><p class=\"text-sm w-full\" data-v-12a98f72>No account? <a class=\"text-orange\" href=\"/register\" data-v-12a98f72>Register now</a></p><a class=\"whitespace-nowrap underline text-sm text-gray-600 hover:text-gray-900\" href=\"/forgot-password\" data-v-12a98f72> Forgot your password? </a></div>", 3);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"block mt-4\" data-v-12a98f72><label for=\"remember_me\" class=\"inline-flex items-center\" data-v-12a98f72><input id=\"remember_me\" type=\"checkbox\" class=\"rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50\" name=\"remember\" data-v-12a98f72><span class=\"ml-2 text-sm text-gray-600\" data-v-12a98f72>Remember me</span></label></div><div class=\"button flex justify-center\" data-v-12a98f72><button class=\"bg-orange bg-gradient-to-r from-yellow to-orange text-white my-4 text-center w-full rounded-full p-input\" data-v-12a98f72>Log in</button></div><div class=\"flex items-center justify-between md:mt-2\" data-v-12a98f72><p class=\"text-sm w-full\" data-v-12a98f72>No account? <a class=\"text-orange\" href=\"/register\" data-v-12a98f72>Register now</a></p><a class=\"whitespace-nowrap underline text-sm text-gray-600 hover:text-gray-900\" href=\"/forgot-password\" data-v-12a98f72> Forgot your password? </a></div>", 3);
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -19103,7 +19103,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, null, 8
   /* PROPS */
   , ["textContent"]), _hoisted_21])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "bg-orange hover:bg-orange text-white my-4 rounded-full p-input text-center w-full mt-4 disabled:opacity-50",
+    "class": "bg-orange bg-gradient-to-r from-yellow to-orange text-white my-4 rounded-full p-input text-center w-full mt-4 disabled:opacity-50",
     disabled: $data.errors.any()
   }, " Create Account ", 8
   /* PROPS */

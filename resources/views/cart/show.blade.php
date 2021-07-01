@@ -44,7 +44,7 @@
                                 </button>
                             </div>
                             <div>
-                                <input type="text" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center">
+                                <input type="text" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center focus:ring-0">
                             </div>
                             <div>
                                 <button>
@@ -70,7 +70,7 @@
     {{-- coupon --}}
     <div class="mt-20 flex justify-center">
         <div class="mx-10 md:mx-0 border-2 rounded-full inline-block transform lg:translate-x-60">
-            <input type="text" class="w-36 md:w-56 border-none pl-5 rounded-full" placeholder="Coupon">
+            <input type="text" class="w-36 md:w-56 border-none pl-5 rounded-full focus:ring-0" placeholder="Coupon">
             <button class="w-32 bg-orange bg-gradient-to-r from-yellow to-orange rounded-full">
                 <h3 class="text-white p-5">Apply</h3>
             </button>
@@ -117,5 +117,7 @@
             </div>           
         </div>
     </div>
+    <x-slot name="content">
+    </x-slot>
 </x-app-layout>
 
