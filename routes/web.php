@@ -30,3 +30,4 @@ require __DIR__.'/auth.php';
 require __DIR__.'/restaurants.php';
 require __DIR__.'/plates.php';
 require __DIR__.'/cart.php';
+require __DIR__.'/checkout.php';

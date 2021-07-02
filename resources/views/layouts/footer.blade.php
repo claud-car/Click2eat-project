@@ -53,11 +53,11 @@
     </div>
     {{-- footer copyright --}}
    <div class="bg-blue-footer text-gray_text md:h-10">
-        <div class="md:h-10 lg:mx-40 md:flex justify-between text-sm text-white">
-            <div class="flex" style="align-items: center">
+        <div class="md:h-10 md:flex justify-around text-sm text-white">
+            <div class="flex items-center">
                 <p class="text-gray_text">© All Rights Reserved. DeliTaste 2020</p>
             </div>
-            <div class="flex" style="align-items: center">
+            <div class="flex items-center">
                 <ul class="flex justify-between text-gray_text">
                     <li><p class="pr-5 text-white">Find us:</p></li>
                     <li><a href="">Facebook</a></li>
