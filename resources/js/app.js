@@ -5,6 +5,7 @@ import store from './store'
 import SearchByType from "./components/search/SearchByType";
 import Dashboard from "./components/dashboard/Dashboard";
 import OrdersPagination from "./components/dashboard/orders/OrdersPagination";
+import OrderInformation from "./components/dashboard/orders/OrderInformation";
 import RestaurantsPagination from "./components/dashboard/restaurants/RestaurantsPagination";
 import CreateBusinessesForm from "./components/dashboard/restaurants/CreateBusinessesForm";
 import UpdateBusinessesForm from "./components/dashboard/restaurants/UpdateBusinessessForm";
@@ -29,6 +30,7 @@ createApp({
         Dashboard,
         SearchByType,
         OrdersPagination,
+        OrderInformation,
         RestaurantsPagination,
         CreateBusinessesForm,
         UpdateBusinessesForm,
