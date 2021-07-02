@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Restaurant;
+use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Gateway;
 
 class OrderController extends Controller
 {
