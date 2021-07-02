@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/types', [TypeController::class, 'getAll']);
 Route::get('/restaurants', [RestaurantController::class, 'getAll']);
+
+Route::get('/generate-token', [OrderController::class, 'generateToken']);
+Route::post('/payment', [OrderController::class, 'payment']);

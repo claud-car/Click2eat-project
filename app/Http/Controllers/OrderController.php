@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Gateway;
 
 class OrderController extends Controller
 {
@@ -87,6 +88,22 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
+    {
+        //
+    }
+
+    public function generateToken(Request $request, Gateway $gateway)
+    {
+        $token = $gateway->clientToken()->generate();
+
+        $data = [
+            'token' => $token
+        ];
+
+        return response()->json($data);
+    }
+
+    public function payment(Request $request)
     {
         //
     }
