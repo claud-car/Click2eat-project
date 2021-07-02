@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="mb-10 mx-5 flex justify-center items-center">
-                    <button class="w-full bg-orange bg-gradient-to-r from-yellow to-orange rounded-full disabled:opacity-50" :disabled="!$store.state.products.length">
+                    <button class="w-full bg-orange bg-gradient-to-r from-yellow to-orange rounded-full disabled:opacity-50 disabled-default" @click="checkout" :disabled="!$store.state.products.length">
                         <h3 class="text-white text-xl p-5">Checkout</h3>
                     </button>
                 </div>
@@ -53,10 +53,17 @@ export default {
     },
     created() {
         this.$store.commit('calcSubtotal')
+    },
+    methods: {
+        checkout() {
+            window.location.replace('/cart/checkout')
+        }
     }
 }
 </script>
 
 <style scoped>
-
+    .disabled-default:disabled {
+        cursor: default;
+    }
 </style>

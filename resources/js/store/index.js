@@ -6,7 +6,17 @@ export default createStore({
         counter: 0,
         products: [],
         subTotal: 0,
-        index: 0
+        index: 0,
+        step: 0,
+        form: {
+            name: '',
+            lastname: '',
+            number: '',
+            email: '',
+            city: '',
+            address: '',
+            info: ''
+        }
     },
     mutations: {
         getProducts(state) {
@@ -57,6 +67,12 @@ export default createStore({
         },
         onDelete(state, value) {
             state.counter -= value
+        },
+        nextStep(state) {
+            state.step++
+        },
+        previousStep(state) {
+            state.step > 0 ? state.step-- : null
         }
     },
     actions: {

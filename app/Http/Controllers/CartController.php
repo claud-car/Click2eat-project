@@ -9,4 +9,8 @@ class CartController extends Controller
     public function show() {
         return view('cart.show');
     }
+
+    public function checkout() {
+        return view('cart.checkout');
+    }
 }
