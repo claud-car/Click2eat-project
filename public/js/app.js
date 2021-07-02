@@ -24716,23 +24716,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_search_SearchByType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/search/SearchByType */ "./resources/js/components/search/SearchByType.vue");
 /* harmony import */ var _components_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/dashboard/Dashboard */ "./resources/js/components/dashboard/Dashboard.vue");
 /* harmony import */ var _components_dashboard_orders_OrdersPagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/dashboard/orders/OrdersPagination */ "./resources/js/components/dashboard/orders/OrdersPagination.vue");
-<<<<<<< HEAD
-/* harmony import */ var _components_dashboard_restaurants_RestaurantsPagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/dashboard/restaurants/RestaurantsPagination */ "./resources/js/components/dashboard/restaurants/RestaurantsPagination.vue");
-/* harmony import */ var _components_dashboard_restaurants_CreateBusinessesForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/dashboard/restaurants/CreateBusinessesForm */ "./resources/js/components/dashboard/restaurants/CreateBusinessesForm.vue");
-/* harmony import */ var _components_dashboard_restaurants_UpdateBusinessessForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/dashboard/restaurants/UpdateBusinessessForm */ "./resources/js/components/dashboard/restaurants/UpdateBusinessessForm.vue");
-/* harmony import */ var _components_dashboard_restaurants_plates_PlatesPagination__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/dashboard/restaurants/plates/PlatesPagination */ "./resources/js/components/dashboard/restaurants/plates/PlatesPagination.vue");
-/* harmony import */ var _components_dashboard_restaurants_plates_CreatePlatesForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/dashboard/restaurants/plates/CreatePlatesForm */ "./resources/js/components/dashboard/restaurants/plates/CreatePlatesForm.vue");
-/* harmony import */ var _components_dashboard_restaurants_plates_UpdatePlatesForm__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/dashboard/restaurants/plates/UpdatePlatesForm */ "./resources/js/components/dashboard/restaurants/plates/UpdatePlatesForm.vue");
-/* harmony import */ var _components_mobile_MobileBtn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/mobile/MobileBtn */ "./resources/js/components/mobile/MobileBtn.vue");
-/* harmony import */ var _components_User__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/User */ "./resources/js/components/User.vue");
-/* harmony import */ var _components_CartTotal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/CartTotal */ "./resources/js/components/CartTotal.vue");
-/* harmony import */ var _components_LoginForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/LoginForm */ "./resources/js/components/LoginForm.vue");
-/* harmony import */ var _components_RegisterForm__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/RegisterForm */ "./resources/js/components/RegisterForm.vue");
-/* harmony import */ var _components_plates_Plates__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/plates/Plates */ "./resources/js/components/plates/Plates.vue");
-/* harmony import */ var _components_cart_CartProducts__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/cart/CartProducts */ "./resources/js/components/cart/CartProducts.vue");
-/* harmony import */ var _components_cart_CheckoutTable__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/cart/CheckoutTable */ "./resources/js/components/cart/CheckoutTable.vue");
-/* harmony import */ var _components_cart_checkout_Checkout__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/cart/checkout/Checkout */ "./resources/js/components/cart/checkout/Checkout.vue");
-=======
 /* harmony import */ var _components_dashboard_orders_OrderInformation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/dashboard/orders/OrderInformation */ "./resources/js/components/dashboard/orders/OrderInformation.vue");
 /* harmony import */ var _components_dashboard_restaurants_RestaurantsPagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/dashboard/restaurants/RestaurantsPagination */ "./resources/js/components/dashboard/restaurants/RestaurantsPagination.vue");
 /* harmony import */ var _components_dashboard_restaurants_CreateBusinessesForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/dashboard/restaurants/CreateBusinessesForm */ "./resources/js/components/dashboard/restaurants/CreateBusinessesForm.vue");
@@ -24748,8 +24731,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_plates_Plates__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/plates/Plates */ "./resources/js/components/plates/Plates.vue");
 /* harmony import */ var _components_cart_CartProducts__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/cart/CartProducts */ "./resources/js/components/cart/CartProducts.vue");
 /* harmony import */ var _components_cart_CheckoutTable__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/cart/CheckoutTable */ "./resources/js/components/cart/CheckoutTable.vue");
->>>>>>> feature/orders_view
-/* harmony import */ var _core_Cart__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./core/Cart */ "./resources/js/core/Cart.js");
+/* harmony import */ var _components_cart_checkout_Checkout__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/cart/checkout/Checkout */ "./resources/js/components/cart/checkout/Checkout.vue");
+/* harmony import */ var _core_Cart__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./core/Cart */ "./resources/js/core/Cart.js");
 
 
 
@@ -24771,29 +24754,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var cart = new _core_Cart__WEBPACK_IMPORTED_MODULE_20__.default();
+
+var cart = new _core_Cart__WEBPACK_IMPORTED_MODULE_21__.default();
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: {
     Dashboard: _components_dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_3__.default,
     SearchByType: _components_search_SearchByType__WEBPACK_IMPORTED_MODULE_2__.default,
     OrdersPagination: _components_dashboard_orders_OrdersPagination__WEBPACK_IMPORTED_MODULE_4__.default,
-<<<<<<< HEAD
-    RestaurantsPagination: _components_dashboard_restaurants_RestaurantsPagination__WEBPACK_IMPORTED_MODULE_5__.default,
-    CreateBusinessesForm: _components_dashboard_restaurants_CreateBusinessesForm__WEBPACK_IMPORTED_MODULE_6__.default,
-    UpdateBusinessesForm: _components_dashboard_restaurants_UpdateBusinessessForm__WEBPACK_IMPORTED_MODULE_7__.default,
-    PlatesPagination: _components_dashboard_restaurants_plates_PlatesPagination__WEBPACK_IMPORTED_MODULE_8__.default,
-    CreatePlatesForm: _components_dashboard_restaurants_plates_CreatePlatesForm__WEBPACK_IMPORTED_MODULE_9__.default,
-    UpdatePlatesForm: _components_dashboard_restaurants_plates_UpdatePlatesForm__WEBPACK_IMPORTED_MODULE_10__.default,
-    MobileBtn: _components_mobile_MobileBtn__WEBPACK_IMPORTED_MODULE_11__.default,
-    User: _components_User__WEBPACK_IMPORTED_MODULE_12__.default,
-    CartTotal: _components_CartTotal__WEBPACK_IMPORTED_MODULE_13__.default,
-    LoginForm: _components_LoginForm__WEBPACK_IMPORTED_MODULE_14__.default,
-    RegisterForm: _components_RegisterForm__WEBPACK_IMPORTED_MODULE_15__.default,
-    Plates: _components_plates_Plates__WEBPACK_IMPORTED_MODULE_16__.default,
-    CartProducts: _components_cart_CartProducts__WEBPACK_IMPORTED_MODULE_17__.default,
-    CheckoutTable: _components_cart_CheckoutTable__WEBPACK_IMPORTED_MODULE_18__.default,
-    Checkout: _components_cart_checkout_Checkout__WEBPACK_IMPORTED_MODULE_19__.default
-=======
     OrderInformation: _components_dashboard_orders_OrderInformation__WEBPACK_IMPORTED_MODULE_5__.default,
     RestaurantsPagination: _components_dashboard_restaurants_RestaurantsPagination__WEBPACK_IMPORTED_MODULE_6__.default,
     CreateBusinessesForm: _components_dashboard_restaurants_CreateBusinessesForm__WEBPACK_IMPORTED_MODULE_7__.default,
@@ -24808,8 +24775,8 @@ var cart = new _core_Cart__WEBPACK_IMPORTED_MODULE_20__.default();
     RegisterForm: _components_RegisterForm__WEBPACK_IMPORTED_MODULE_16__.default,
     Plates: _components_plates_Plates__WEBPACK_IMPORTED_MODULE_17__.default,
     CartProducts: _components_cart_CartProducts__WEBPACK_IMPORTED_MODULE_18__.default,
-    CheckoutTable: _components_cart_CheckoutTable__WEBPACK_IMPORTED_MODULE_19__.default
->>>>>>> feature/orders_view
+    CheckoutTable: _components_cart_CheckoutTable__WEBPACK_IMPORTED_MODULE_19__.default,
+    Checkout: _components_cart_checkout_Checkout__WEBPACK_IMPORTED_MODULE_20__.default
   },
   created: function created() {
     this.$store.commit('getTotalCartItems');

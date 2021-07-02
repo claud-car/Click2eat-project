@@ -19,9 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('customer_name');
             $table->string('customer_surname');
             $table->string('email');
-            $table->string('customer_city');
-            $table->string('customer_address');
-            $table->smallInteger('phone_number');
+            $table->string('city');
+            $table->string('address');
+            $table->BigInteger('phone_number');
             $table->timestamps();
         });
     }
