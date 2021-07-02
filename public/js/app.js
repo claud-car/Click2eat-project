@@ -20814,7 +20814,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     }),
     name: "info",
     "class": "w-full box-border p-3 mt-5 h-32 rounded-2xl mb-6 border-gray-300 resize-none"
-  }, "\n                ", 512
+  }, "\r\n                ", 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.$store.state.form.info]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     "class": "w-70 my-10 bg-orange bg-gradient-to-r from-yellow to-orange rounded-full disabled:opacity-50 disabled-cursor-default",
@@ -25052,7 +25052,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".disabled-default[data-v-29c40b38]:disabled {\n  cursor: default;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".disabled-default[data-v-29c40b38]:disabled {\n  cursor: default;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25076,7 +25076,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".disabled-cursor-default[data-v-238856b3]:disabled {\n  cursor: default;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".disabled-cursor-default[data-v-238856b3]:disabled {\n  cursor: default;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
