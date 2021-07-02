@@ -3,8 +3,8 @@
         <h1 class="capitalize">Checkout</h1>
     </div>
 </div>
-<div class="w-3/5 font-bold m-auto">
 
+<div class="w-4/5 lg:w-3/5 font-bold m-auto">
     <!-- Tabella step -->
     <div class="flex justify-center items-center mt-12">
         <div class="w-full md:flex md:flex-wrap lg:flex-nowrap justify-start justify-around border-b-2 pb-5 lg:pb-10 ">
@@ -16,7 +16,7 @@
                 <h1 class="text-4xl lg:text-6xl text-yellow">02.</h1>
                 <h3 class="text-xl lg:text-2xl pl-5">Payment</h3>
             </div>
-            <div class="flex flex-row items-center md:mt-5 lg:mt-0">
+            <div class="flex flex-row items-center">
                 <h1 class="text-4xl lg:text-6xl text-yellow">03.</h1>
                 <h3 class="text-xl lg:text-2xl text-gray-300 pl-5">Finish</h3>
             </div>
@@ -29,8 +29,8 @@
     </div>
 
     <!-- Form dati carta -->
-    <div class="tables flex lg:justify-around flex-col lg:flex-row">
-        <div class="payment-table bg-gray-100 lg:w-3/5 p-8 rounded-lg lg:h-96">
+    <div class="tables flex lg:justify-around flex-col xl:flex-row">
+        <div class="mr-10 mb-10 payment-table bg-gray-100 lg:w-3/5 p-8 rounded-lg lg:h-96">
                 <div class="img flex mb-8">
                     <img src="{{url('/images/icons/check-circle.svg')}}" alt="">
                     <p class="ml-6 text-xl">Credit Card</p>
@@ -59,8 +59,8 @@
                 
         <!-- INIZIO -->
 
-        <div class="flex flex-col justify-center mt-12 lg:mt-0">
-            <div class="w-full lg:mx-auto bg-gray-100 w-11/12 lg:w-80 rounded-lg">
+        <div class="flex flex-col mt-12 lg:mt-0">
+            <div class="w-full bg-gray-100 w-11/12 lg:w-80 rounded-lg">
                 <!-- {{-- checkout orders summary --}} -->
                 <div class="box-content p-10">
                     <h1 class="mb-5 text-2xl">Your Order</h1>
@@ -107,7 +107,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div>        
     </div>
+    {{-- button --}}
+    <button class="w-60 my-10 lg:ml-10 bg-orange bg-gradient-to-r from-yellow to-orange rounded-full">
+        <h3 class="text-white text-xl p-5">Confirm order</h3>
+    </button>
 </div>

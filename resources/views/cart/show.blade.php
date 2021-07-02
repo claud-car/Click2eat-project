@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <checkout-table />
+    <checkout-table />    
 
     <x-slot name="content"></x-slot>
 </x-app-layout>

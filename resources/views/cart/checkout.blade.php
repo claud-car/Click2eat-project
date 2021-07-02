@@ -9,6 +9,10 @@
    
     @include('layouts.checkout1')
 
+    @include('layouts.checkout2')
+
+    @include('layouts.checkout3')
+
     <x-slot name="content">
     </x-slot>
 
