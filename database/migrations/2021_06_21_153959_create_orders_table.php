@@ -18,6 +18,8 @@ class CreateOrdersTable extends Migration
             $table->foreignId('restaurant_id');
             $table->string('customer_name');
             $table->string('customer_surname');
+            $table->string('email');
+            $table->string('customer_city');
             $table->string('customer_address');
             $table->smallInteger('phone_number');
             $table->timestamps();

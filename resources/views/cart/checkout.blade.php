@@ -6,15 +6,10 @@
             </div>
         </div>
     </x-slot>
-   
-    @include('layouts.checkout1')
 
-    @include('layouts.checkout2')
-
-    @include('layouts.checkout3')
+    <Checkout />
 
     <x-slot name="content">
     </x-slot>
 
 </x-app-layout>
-

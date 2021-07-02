@@ -42,7 +42,7 @@ module.exports = {
                 },
                 gray_card: {
                     DEFAULT: '#282C35'
-                }               
+                }
             },
             backgroundImage: theme => ({
                 'jumbo-home': "url('/images/click2eat-jumbo-home.jpg')",
@@ -50,7 +50,7 @@ module.exports = {
                 'footer': "url('/images/click2eat-footer.jpg')",
                 'pizzaHome': "url('/images/homepage_images/bg-pizza.jpg')",
                 'newsletter': "url('/images/homepage_images/Screenshot_2.png')",
-            }), 
+            }),
             padding:{
                 input:'1.25rem 1.5rem',
             },
@@ -65,6 +65,10 @@ module.exports = {
                 "80v": "80vh",
                 "90v": "90vh",
                 "100v": "100vh",
+            },
+            width: {
+                checkoutLarge: '1200px',
+                checkoutMedium: '1020px',
             }
         },
     },
