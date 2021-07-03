@@ -1,7 +1,7 @@
 <template>
     <div class="w-4/5 lg:w-3/5 font-bold m-auto">
         <div class="tables flex lg:justify-around flex-col xl:flex-row">
-            <div class="mr-10 mb-10 payment-table bg-gray-100 lg:w-3/5 p-8 rounded-lg lg:h-96">
+            <div class="mr-10 mb-10 payment-table bg-gray-100 lg:w-4/5 p-8 rounded-lg lg:h-96">
                 <div class="img flex mb-8">
                     <img src="{{url('/images/icons/check-circle.svg')}}" alt="">
                     <p class="ml-6 text-xl">Credit Card</p>
