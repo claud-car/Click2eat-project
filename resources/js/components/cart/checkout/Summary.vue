@@ -1,5 +1,5 @@
 <template>
-    <div class="lg:w-2/6 lg:pl-8 mb-20 flex flex-col mt-12 lg:mt-0">
+    <div class="lg:w-2/6 lg:pl-8 mb-20 flex flex-col mt-12 lg:mt-20">
         <div class="bg-gray-100 rounded-lg">
             <div class="box-content p-10">
                 <h1 class="mb-5 text-2xl">Your Order</h1>
@@ -61,7 +61,9 @@ export default {
     computed: {
         getSubtotal() {
             let subtotal = 0
-            return this.products.reduce((tot, product) => tot + product.qty*product.price, subtotal)
+            subtotal = this.products.reduce((tot, product) => tot + product.qty*product.price, subtotal)
+            sessionStorage.setItem('amount', subtotal + this.delivery)
+            return subtotal
         }
     },
     created() {

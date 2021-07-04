@@ -21,4 +21,6 @@ mix.js('resources/js/app.js', 'public/js').vue()
 })
 .version();
 
+mix.js('resources/js/braintree.js', 'public/js')
+
 

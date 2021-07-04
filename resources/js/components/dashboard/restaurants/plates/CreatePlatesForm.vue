@@ -2,7 +2,6 @@
     <div class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
-                <success :message="messages" @clear="clearMessage" class="mb-12" />
                 <div class="px-4 sm:px-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Plate Information</h3>
                     <p class="mt-1 text-sm text-gray-600">
@@ -176,7 +175,6 @@ export default {
                 visibility: 1,
                 thumb: null
             },
-            messages: [],
             errors: new Errors()
         }
     },
@@ -195,7 +193,7 @@ export default {
 
             axios.post(`/dashboard/restaurants/${this.restaurant.slug}/plates/create`, data)
             .then(response => {
-                this.messages = response.data
+                response.status === 200 ? window.location.replace(`/dashboard/restaurants/${this.restaurant.slug}/plates`) : null
             })
             .catch(error => {
                 this.errors.set(error.response.data.errors)

@@ -1,7 +1,7 @@
 <template>
     <div class="cart relative">
         <a href="/cart" class="text-white hover:no-underline">
-            <svg class="h-5 w-6" xmlns="http://www.w3.org/2000/svg"
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  aria-hidden="true"
                  focusable="false"
@@ -16,7 +16,7 @@
                 />
             </svg>
         </a>
-        <span class="absolute top-0 -right-0.5 w-3 h-3 text-xs font-bold bg-orange rounded-full flex justify-center items-center pointer-events-none" v-text="counter"></span>
+        <span class="absolute -top-0.5 -right-1 w-4 h-4 text-xs font-bold bg-orange rounded-full flex justify-center items-center pointer-events-none" v-text="counter"></span>
     </div>
 </template>
 
