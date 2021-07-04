@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('address');
             $table->BigInteger('phone_number');
+            $table->float('amount');
             $table->timestamps();
         });
     }

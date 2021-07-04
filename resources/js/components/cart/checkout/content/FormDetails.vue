@@ -1,5 +1,9 @@
 <template>
     <div class="lg:w-4/6">
+        <div class="mb-12">
+            <a href="/cart" class="text-yellow cursor-pointer"><i class="fas fa-long-arrow-alt-left"></i> Return to cart</a>
+        </div>
+
         <form @submit.prevent="next" @keydown="errors.clear($event.target.name)">
             <div>
                 <div>
@@ -185,6 +189,9 @@ export default {
             errors: new Errors(),
         }
     },
+    created() {
+        this.$store.commit('checkExistingForm')
+    },
     methods: {
         next() {
             let obj = {}
@@ -206,9 +213,18 @@ export default {
 
             this.errors.set(obj)
 
-            console.log(this.errors)
+            if (!this.errors.any()) {
+                sessionStorage.setItem('order', JSON.stringify(this.$store.state.form))
+                sessionStorage.setItem('step', 'payment')
 
-            !this.errors.any() ? this.$store.commit('nextStep') : null
+                const details = document.querySelector('#details')
+                const payment = document.querySelector('#payment')
+                const stepper = document.querySelector('#stepPayment')
+
+                stepPayment.classList.remove('text-gray-300')
+                details.style.display = 'none'
+                payment.style.display = 'block'
+            }
         },
         validateEmail(email) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

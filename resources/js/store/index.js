@@ -7,7 +7,6 @@ export default createStore({
         products: [],
         subTotal: 0,
         index: 0,
-        step: 0,
         form: {
             name: '',
             lastname: '',
@@ -37,12 +36,10 @@ export default createStore({
         increaseProductQty(state, index) {
             state.products[index].qty++
             cart.store(state.products)
-            console.log(state.products)
         },
         decreaseProductQty(state, index) {
             state.products[index].qty--
             cart.store(state.products)
-            console.log(state.products)
         },
         removeProduct(state, item) {
             state.products = state.products.filter(product => product.id !== item.id)
@@ -68,11 +65,10 @@ export default createStore({
         onDelete(state, value) {
             state.counter -= value
         },
-        nextStep(state) {
-            state.step++
-        },
-        previousStep(state) {
-            state.step > 0 ? state.step-- : null
+        checkExistingForm(state) {
+            if (sessionStorage.getItem('order')) {
+                state.form = JSON.parse(sessionStorage.getItem('order'))
+            }
         }
     },
     actions: {

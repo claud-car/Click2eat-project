@@ -45,5 +45,7 @@
 
             @include('layouts.footer')
         </div>
+
+        @yield('braintree_scripts')
     </body>
 </html>

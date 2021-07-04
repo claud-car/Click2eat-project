@@ -1,10 +1,10 @@
 <template>
     <warning-modal v-if="warning" :item="warning" @cancel="warning = null" @delete="deleteItem(warning)">
         <template v-slot:title>
-            Delete order #{{ warning.id }}
+            Cancel order #{{ warning.id }}
         </template>
         <template v-slot:content>
-            Are you sure you want to delete {{ warning.name }}? All of the data will be permanently removed. This action cannot be undone.
+            Are you sure you want to cancel {{ warning.name }}? All of the data will be permanently removed. This action cannot be undone.
         </template>
     </warning-modal>
 
@@ -76,7 +76,7 @@
                             class="relative inline-block px-3 py-1 mt-1 lg:mt-0 lg:ml-4 font-semibold text-green-900 leading-tight cursor-pointer" @click="showWarning(item)">
                             <span aria-hidden
                                   class="absolute inset-0 bg-red-600 opacity-60 rounded-full"></span>
-                            <span class="relative">Delete</span>
+                            <span class="relative">Cancel order</span>
                         </span>
                     </td>
                 </tr>

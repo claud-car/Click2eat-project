@@ -23,7 +23,7 @@ Route::get('/dashboard', [OrderController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 
-Route::get('/dashboard/order/', [OrderController::class, 'show'])
+Route::get('/dashboard/orders/{order:id}', [OrderController::class, 'show'])
     ->name('dashboard.restaurants.order.show');
 
 Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show'])

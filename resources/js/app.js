@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 import store from './store'
 
-
 import SearchByType from "./components/search/SearchByType";
 import Dashboard from "./components/dashboard/Dashboard";
 import OrdersPagination from "./components/dashboard/orders/OrdersPagination";

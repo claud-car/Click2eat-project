@@ -44,7 +44,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order();
+        $order->restaurant_id = $request->restaurant_id;
+        $order->customer_name = $request->customer['name'];
+        $order->customer_surname = $request->customer['lastname'];
+        $order->email = $request->customer['email'];
+        $order->city = $request->customer['city'];
+        $order->address = $request->customer['address'];
+        $order->phone_number = $request->customer['number'];
+        $order->amount = $request->amount;
+        $order->save();
+
+        foreach($request->plates as $plate) {
+            $order->plates()->attach($plate['id'], ["quantity"=>$plate["qty"]]);
+        }
+
     }
 
     /**
@@ -55,7 +69,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('dashboard.orders.show');
+        return view('dashboard.orders.show', compact('order'));
     }
 
     /**
@@ -103,8 +117,20 @@ class OrderController extends Controller
         return response()->json($data);
     }
 
-    public function payment(Request $request)
+    public function payment(Request $request, Gateway $gateway)
     {
-        //
+        $result = $gateway->transaction()->sale([
+            'amount' => $request->amount,
+            'paymentMethodNonce' => $request->token,
+            'options' => [
+                'submitForSettlement' => True
+            ]
+        ]);
+
+        if($result->success) {
+            $this->store($request);
+        }
+        else
+            return response()->json(['message', 'the transaction has been failed'], 404);
     }
 }
