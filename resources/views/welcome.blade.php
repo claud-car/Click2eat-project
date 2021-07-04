@@ -43,9 +43,9 @@
 
     <x-slot name="slot">
         <!-- sezione featured -->
-        <div class="text-blue text-center lg:mt-16 mb-12">
+        <div class="text-blue text-center lg:mt-10 mb-20">
             <h3 class="text-3xl lg:text-4xl norican text-yellow mb-8">Featured</h3>
-            <h2 class="text-3xl lg:text-5xl lg:m-8 mb-4">Restourant & Cafes</h2>
+            <h2 class="text-3xl lg:text-5xl lg:m-8 mb-4">Restaurants & Cafes</h2>
             <p class="lg:mb-10">The best restaurants and cafes that <br> have been working with us for a long time</p>
         </div>
         <!-- sezione featured fine -->
@@ -102,10 +102,10 @@
 
         <!-- middlmix -->
         <section class="bg-pizzaHome bg-left bg-center my-20 h-90v bg-no-repeat">
-            <div class=" py-30 h-full lg:ml-64 lg:w-1/3">
+            <div class="px-5 py-30 h-full xl:ml-64 xl:w-1/3">
                 <div class="text-white h-90v flex flex-col lg:items-start lg:justify-center ml-4">
-                    <h2 class="text-6xl my-16 md:ml-4">Make orders With Our <span class="text-yellow">Application</span></h2>
-                    <ul class="md:ml-4 md:mt-4 md:mb-4 lg:pr-12">
+                    <h2 class="text-5xl sm:text-6xl my-16 md:ml-4">Make Orders With Our <span class="text-yellow">Application</span></h2>
+                    <ul class="md:ml-4 md:mt-4 md:mb-4 lg:pr-12 hidden md:block">
                         <li>
                             <h4 class="my-4 text-xl font-bold">Order and pay in a few minutes</h4>
                             <p class="my-4 text-gray-400">Сhoose food and pay for the order in a couple of clicks online also choose you current location using GPS.</p>
@@ -125,18 +125,18 @@
         <!-- middlemix fine-->
 
         <!-- newsletter -->
-        <section class="max-w-4xl h-72 bg-newsletter items-center rounded-2xl overflow-hidden text-white flex m-auto justify-around flex-wrap md:flex-nowrap text-center md:text-left">
+        <section class="w-11/12 md:w-4/5 xl:w-3/5 h-72 bg-newsletter bg-center items-center rounded-2xl overflow-hidden text-white flex m-auto justify-around flex-wrap md:flex-nowrap text-center md:text-left">
             <div class="flex items-center">
                 <div class="">
-                    <h2 class="text-3xl lg:text-5xl">Newsletter</h2>
-                    <p class="my-2 text-gray-400">Don’t miss promotions and discounts.</p>
+                    <h2 class="px-5 text-4xl lg:text-5xl">Newsletter</h2>
+                    <p class="px-5 my-2 text-gray-400">Don’t miss promotions and discounts.</p>
                 </div>
             </div>
             <!--newsletter-text end-->
-            <form class="flex items-center h-3/5">
-                <div class="md:bg-white rounded-full">
-                    <input type="email" class="p-6 rounded-full border-none w-full md:w-auto" placeholder="Enter your email">
-                    <button type="submit" class="py-6 px-8 md:my-auto my-10 w-full md:w-auto rounded-full border-white md:border-4 bg-orange p-1">Subscribe</button>
+            <form class="flex items-center">
+                <div class="lg:bg-white rounded-full">
+                    <input type="email" class="p-6 rounded-full border-none w-11/12 lg:w-auto" placeholder="Enter your email">
+                    <button type="submit" class="py-6 px-8 lg:my-auto my-5 lg:my-10 w-11/12 lg:w-auto rounded-full border-white lg:border-4 bg-orange p-1">Subscribe</button>
                 </div>
             </form>
         </section>
