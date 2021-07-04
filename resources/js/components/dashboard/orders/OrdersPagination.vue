@@ -58,7 +58,7 @@
                         <p class="text-gray-900 whitespace-no-wrap" v-text="`${item.customer_name} ${item.customer_surname}`"></p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <p class="text-gray-900 whitespace-no-wrap" v-text="item.customer_address"></p>
+                        <p class="text-gray-900 whitespace-no-wrap" v-text="item.address"></p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <p class="text-gray-900 whitespace-no-wrap" v-text="getDate(item)"></p>

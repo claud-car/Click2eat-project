@@ -15,7 +15,10 @@ class CreatePlatesTable extends Migration
     {
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('restaurant_id');
+            $table->foreignId('restaurant_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
             $table->string('slug')->unique();
             $table->string('name');
             $table->text('description');

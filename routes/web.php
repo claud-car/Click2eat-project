@@ -26,6 +26,9 @@ Route::get('/dashboard', [OrderController::class, 'index'])
 Route::get('/dashboard/orders/{order:id}', [OrderController::class, 'show'])
     ->name('dashboard.restaurants.order.show');
 
+Route::delete('/dashboard/orders/{order:id}/delete', [OrderController::class, 'destroy'])
+    ->name('dashboard.order.cancel');
+
 Route::get('/restaurants/{restaurant:slug}', [RestaurantController::class, 'show'])
     ->name('restaurant.show');
 

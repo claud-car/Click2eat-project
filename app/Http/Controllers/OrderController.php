@@ -103,7 +103,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return ['response' => 'Order canceled successfully!'];
     }
 
     public function generateToken(Request $request, Gateway $gateway)

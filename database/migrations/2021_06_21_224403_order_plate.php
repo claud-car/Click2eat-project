@@ -14,8 +14,14 @@ class OrderPlate extends Migration
     public function up()
     {
         Schema::create('order_plate', function (Blueprint $table) {
-            $table->foreignId('order_id');
-            $table->foreignId('plate_id');
+            $table->foreignId('order_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
+            $table->foreignId('plate_id')
+                    ->constrained()
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
             $table->smallInteger('quantity');
         });
     }
