@@ -135,7 +135,7 @@
             <!--newsletter-text end-->
             <form class="flex items-center">
                 <div class="lg:bg-white rounded-full">
-                    <input type="email" class="p-6 rounded-full border-none w-11/12 lg:w-auto" placeholder="Enter your email">
+                    <input type="email" class="p-6 rounded-full border-none w-11/12 lg:w-auto text-gray-500 focus:ring-0" placeholder="Enter your email">
                     <button type="submit" class="py-6 px-8 lg:my-auto my-5 lg:my-10 w-11/12 lg:w-auto rounded-full border-white lg:border-4 bg-orange p-1">Subscribe</button>
                 </div>
             </form>

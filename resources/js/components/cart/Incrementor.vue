@@ -8,7 +8,7 @@
                     </button>
                 </div>
                 <div>
-                    <input type="text" v-model="$store.state.products[index].qty" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center" readonly>
+                    <input type="text" v-model="$store.state.products[index].qty" class="h-10 w-5 md:w-14 text-xl font-bold border-none text-center focus:ring-0" readonly>
                 </div>
                 <div>
                     <button @click="increase">

@@ -11,7 +11,7 @@
         </div>
         <incrementor :item="item" />
         <div class="w-1/4 flex items-center">
-            <div>
+            <div class="w-20">
                 <h3 class="text-2xl text-bold text-yellow" v-text="price"></h3>
             </div>
             <div class="text-gray-400 ml-5 md:ml-16 xl:ml-32">

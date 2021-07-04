@@ -20136,7 +20136,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return _ctx.$store.state.products[$data.index].qty = $event;
     }),
-    "class": "h-10 w-5 md:w-14 text-xl font-bold border-none text-center",
+    "class": "h-10 w-5 md:w-14 text-xl font-bold border-none text-center focus:ring-0",
     readonly: ""
   }, null, 512
   /* NEED_PATCH */
@@ -20183,6 +20183,9 @@ var _hoisted_5 = {
   "class": "w-1/4 flex items-center"
 };
 var _hoisted_6 = {
+  "class": "w-20"
+};
+var _hoisted_7 = {
   "class": "text-gray-400 ml-5 md:ml-16 xl:ml-32"
 };
 
@@ -20210,12 +20213,12 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     item: $props.item
   }, null, 8
   /* PROPS */
-  , ["item"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
+  , ["item"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
     "class": "text-2xl text-bold text-yellow",
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.price)
   }, null, 8
   /* PROPS */
-  , ["textContent"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  , ["textContent"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
     "class": "fas fa-times text-3xl text-yellow cursor-pointer",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.deleteProduct($props.item);
