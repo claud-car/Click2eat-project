@@ -67,7 +67,7 @@ class RestaurantController extends Controller
 
         $restaurant->user_id = $request->user()->id;
         $restaurant->slug = $this->generateSlug($request->name);
-        $restaurant->thumb_path = 'restaurants/covers/'. $path;
+        $restaurant->thumb_path = Storage::disk('s3')->url($store);
         $restaurant->save();
 
         $restaurant->types()->attach(json_decode($request->types));
