@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="bg-jumbo-others bg-cover h-96 w-full flex justify-center items-center">
-            <div class="text-white text-4xl md:text-6xl">
+            <div class="text-white text-6xl md:text-7xl">
                 <h1 class="capitalize">Register</h1>
             </div>
         </div>
