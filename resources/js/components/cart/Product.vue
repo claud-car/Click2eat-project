@@ -14,7 +14,7 @@
             <div class="w-20">
                 <h3 class="text-2xl text-bold text-yellow" v-text="price"></h3>
             </div>
-            <div class="text-gray-400 ml-5 md:ml-16 xl:ml-32">
+            <div class="text-gray-400 ml-5 md:ml-16 xl:ml-24">
                 <i class="fas fa-times text-3xl text-yellow cursor-pointer" @click="deleteProduct(item)"></i>
             </div>
         </div>

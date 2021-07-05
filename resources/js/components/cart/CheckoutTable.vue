@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="my-20 flex flex-col justify-center">
-            <div class="mx-auto bg-gray-100 w-11/12 md:w-96 rounded-lg transform lg:translate-x-60">
+            <div class="mx-auto bg-selago w-11/12 md:w-96 rounded-lg transform lg:translate-x-60">
                 <div class="box-content p-10">
                     <div class="py-2 flex flex-row justify-between border-b-2 border-gray-200 font-semibold text-gray-600">
                         <div>
