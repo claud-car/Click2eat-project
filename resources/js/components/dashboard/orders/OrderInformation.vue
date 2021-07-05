@@ -59,7 +59,7 @@
             <li v-for="plate in plates" class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                 <div class="flex items-center w-1/3">
                     <div class='h-10 rounded-full overflow-hidden'>
-                        <img :src="`/storage/${plate.thumb_path}`" alt="" class="h-full"></div>
+                        <img :src="plate.thumb_path" alt="" class="h-full"></div>
                         <div class="mx-4 font-bold">{{ plate.pivot.quantity }}x</div>
                         <div class="w-1/3">{{ plate.name }}</div>
                 </div>
