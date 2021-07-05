@@ -16,8 +16,8 @@
         <div class="flex justify-around items-center w-11/12 flex-wrap">
             {{-- card --}}
             <div class="w-96 text-center mt-20">
-                <div class="h-80 w-80 mx-auto mb-10 bg-cover flex flex-col items-center relative border-2 border-orange" style="background-image:url('./images/200px-Johnny_furioso.jpg')">
-                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">                        
+                <div class="h-80 w-80 mx-auto mb-10 bg-cover flex flex-col items-center relative border-2 border-orange" style="background-image:url('./images/200px-Johnny_Furioso.jpg')">
+                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">
                         <h2 class="text-white text-xl">Claudio Carchietti</h2>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="w-96 text-centerr mt-20">
                 <div class="h-80 w-80 mx-auto mb-10 bg-cover flex flex-col items-center relative border-2 border-orange" style="background-image:url('./images/terry-heman.jpg')">
-                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">                        
+                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">
                         <h2 class="text-white text-xl">Andrea Emmanuele</h2>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="w-96 text-centerr mt-20">
                 <div class="h-80 w-80 mx-auto mb-10 bg-cover flex flex-col items-center relative border-2 border-orange bg-center" style="background-image:url('./images/Mr-Bean-Rowan-Atkinson.jpg')">
-                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">                        
+                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">
                         <h2 class="text-white text-xl">Flavio Secondini</h2>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
             </div>
             <div class="w-96 text-centerr mt-20">
                 <div class="h-80 w-80 mx-auto mb-10 bg-cover flex flex-col items-center relative border-2 border-orange" style="background-image:url('./images/papa-pugno.jpg')">
-                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">                        
+                    <div class="bg-blue box-border px-5 py-2 absolute bottom-0 transform translate-y-6 border-2 border-yellow">
                         <h2 class="text-white text-xl">Francesco Livio II</h2>
                     </div>
                 </div>
