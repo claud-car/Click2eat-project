@@ -1,7 +1,7 @@
 <template>
     <div class="card flex flex-col border rounded-2xl justify-between overflow-hidden">
         <div class="image-card h-56">
-            <img class="w-full h-full object-cover" :src="`/storage/${item.thumb_path}`">
+            <img class="w-full h-full object-cover" :src="item.thumb_path">
         </div>
         <div class="text-card flex flex-col items-center pt-8 px-16 overflow-anywhere text-center">
             <h3 class="py-2 text-3xl" v-text="item.name"></h3>
