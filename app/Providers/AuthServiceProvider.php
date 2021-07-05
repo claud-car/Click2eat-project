@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Restaurant;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('check-user', function (User $user, Restaurant $restaurant) {
+            return $user->id === $restaurant->user_id;
+        });
     }
 }

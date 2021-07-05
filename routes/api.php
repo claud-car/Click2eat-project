@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/types', [TypeController::class, 'getAll']);
+Route::get('/restaurants', [RestaurantController::class, 'getAll']);
+
+Route::get('/generate-token', [OrderController::class, 'generateToken']);
+Route::post('/payment', [OrderController::class, 'payment']);
+
+Route::get('/last-orders', [OrderController::class, 'getLastOrders']);
