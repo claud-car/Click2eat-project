@@ -1,5 +1,5 @@
 <template>
-    <div class="w-2/3 bg-white rounded-md border-2 border-gray-200 mb-12">
+    <div class="w-full bg-white rounded-md border-2 border-gray-200 mb-12">
         <canvas ref="lastorders" class="my-4 mx-6"></canvas>
     </div>
 </template>
