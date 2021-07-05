@@ -101,11 +101,11 @@
         <!-- first order 50% off fine-->
 
         <!-- middlmix -->
-        <section class="bg-pizzaHome bg-left bg-center my-20 h-90v bg-no-repeat">
-            <div class="px-5 py-30 h-full xl:ml-64 xl:w-1/3">
-                <div class="text-white h-90v flex flex-col lg:items-start lg:justify-center ml-4">
-                    <h2 class="text-5xl sm:text-6xl my-16 md:ml-4">Make Orders With Our <span class="text-yellow">Application</span></h2>
-                    <ul class="md:ml-4 md:mt-4 md:mb-4 lg:pr-12 hidden md:block">
+        <section class="bg-pizzaHome bg-left bg-center my-20 bg-no-repeat">
+            <div class="h-900 px-5 py-30 xl:ml-64 xl:w-2/5">
+                <div class="text-white flex flex-col lg:items-start xl:justify-center ml-4">
+                    <h2 class="text-5xl sm:text-6xl mt-20 mb-10 md:ml-4">Make Orders With Our <span class="text-yellow">Application</span></h2>
+                    <ul class="md:ml-4 md:mt-4 md:mb-4 lg:pr-12">
                         <li>
                             <h4 class="my-4 text-xl font-bold">Order and pay in a few minutes</h4>
                             <p class="my-4 text-gray-400">Сhoose food and pay for the order in a couple of clicks online also choose you current location using GPS.</p>
@@ -115,7 +115,7 @@
                             <p class="my-4 text-gray-400">Follow the status of your order in real time and also track the delivery path until you get it.</p>
                         </li>
                     </ul>
-                    <div class="mt-12">
+                    <div class="mt-10">
                         <img class="m-4" src="{{url('/images/homepage_images/googleplay.png')}}" alt="">
                         <img class="m-4 mt-8 lg:mt-0" src="{{url('/images/homepage_images/appstore.png')}}" alt="">
                     </div>
