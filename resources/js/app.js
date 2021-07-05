@@ -3,6 +3,7 @@ import store from './store'
 
 import SearchByType from "./components/search/SearchByType";
 import Dashboard from "./components/dashboard/Dashboard";
+import Stats from "./components/dashboard/Stats";
 import OrdersPagination from "./components/dashboard/orders/OrdersPagination";
 import OrderInformation from "./components/dashboard/orders/OrderInformation";
 import RestaurantsPagination from "./components/dashboard/restaurants/RestaurantsPagination";
@@ -29,6 +30,7 @@ createApp({
     components: {
         Dashboard,
         SearchByType,
+        Stats,
         OrdersPagination,
         OrderInformation,
         RestaurantsPagination,

@@ -22,3 +22,5 @@ Route::get('/restaurants', [RestaurantController::class, 'getAll']);
 
 Route::get('/generate-token', [OrderController::class, 'generateToken']);
 Route::post('/payment', [OrderController::class, 'payment']);
+
+Route::get('/last-orders', [OrderController::class, 'getLastOrders']);

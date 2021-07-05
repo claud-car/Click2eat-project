@@ -108,6 +108,21 @@ class OrderController extends Controller
         return ['response' => 'Order canceled successfully!'];
     }
 
+    public function getLastOrders(Request $request)
+    {
+        $restaurants = Restaurant::where('user_id', $request->id)->get();
+
+        $restaurants_ids = $restaurants->pluck('id')->toArray();
+
+        $orders = Order::whereIn('restaurant_id', $restaurants_ids)->get();
+
+        $orders = $orders->countBy(function ($order) {
+            return $order->created_at->format('m');
+        });
+
+        return response()->json($orders);
+    }
+
     public function generateToken(Request $request, Gateway $gateway)
     {
         $token = $gateway->clientToken()->generate();
