@@ -9,6 +9,15 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <!-- Norican -->
+        <link href="https://fonts.googleapis.com/css2?family=Norican&display=swap" rel="stylesheet">
+        <!-- Solway -->
+        <link href="https://fonts.googleapis.com/css2?family=Solway:wght@700&display=swap" rel="stylesheet">
+        <!-- Montserrat -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -16,22 +25,27 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
+
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div id="app" class="min-h-screen">
             @include('layouts.navigation')
 
-            <header class="bg-blue shadow">
-                <div class="max-w-7xl mx-auto">
-                    {{ $header }}
-                </div>
+            <!-- Header -->
+            <header class="">
+                {{ $header }}
             </header>
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+            <section>
+                {{ $content }}
+            </section>
 
             @include('layouts.footer')
         </div>
+
+        @yield('braintree_scripts')
     </body>
 </html>
