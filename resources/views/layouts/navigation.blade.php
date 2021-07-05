@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('aboutUs') }}">
+                    <x-nav-link href="{{ route('aboutUs') }}" :active="request()->routeIs('abousUs')">
                         <p class="cursor-pointer">{{ __('About Us') }}</p>
                     </x-nav-link>
                     <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent

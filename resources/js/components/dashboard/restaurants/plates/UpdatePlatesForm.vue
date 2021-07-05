@@ -183,8 +183,6 @@ export default {
         this.form.description = this.originalData.description
         this.form.price = this.originalData.price
         this.form.visibility = this.originalData.is_visible === true ? 1 : 0
-
-        console.log(this.form)
     },
     methods: {
         addImage(event) {
