@@ -19154,6 +19154,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     this.form.description = this.originalData.description;
     this.form.price = this.originalData.price;
     this.form.visibility = this.originalData.is_visible;
+    console.log(this.form);
   },
   methods: {
     addImage: function addImage(event) {
@@ -24274,7 +24275,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     name: "description",
     autocomplete: "description",
     "class": "h-40 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-  }, "\r\n                                    ", 512
+  }, "\n                                    ", 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.description]]), $data.errors.has('description') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
     "class": "text-xs",
