@@ -51,8 +51,8 @@
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-10 h-10">
                                 <img class="w-full h-full rounded-full"
-                                     :src="`/storage/${item.thumb_path}`"
-                                     alt=""/>
+                                     :src="item.thumb_path"
+                                     alt="" />
                             </div>
 
                             <div class="ml-3">

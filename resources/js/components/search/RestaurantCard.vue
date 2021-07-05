@@ -1,6 +1,6 @@
 <template>
     <div class="restaurant relative border-1 rounded-lg overflow-hidden" @mouseover.prevent="isHovered=true" @mouseout.prevent="isHovered=false">
-        <img :src="`/storage/${cover}`" class="w-full h-full">
+        <img :src="cover" class="w-full h-full">
         <div class="absolute bottom-16 left-0 pb-1 z-20">
             <ul>
                 <li

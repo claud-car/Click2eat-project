@@ -132,12 +132,14 @@ class RestaurantController extends Controller
         ]);
 
         if ($request->hasFile('thumb')) {
-            Storage::disk('public')->delete($restaurant->thumb_path);
+            Storage::disk('s3')->delete($restaurant->thumb_path);
 
             $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
-            $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path);
+            $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path, 's3');
 
-            $restaurant->thumb_path = 'restaurants/covers/'. $path;
+            Storage::disk('s3')->setVisibility($store, 'public');
+
+            $restaurant->thumb_path = Storage::disk('s3')->url($store);
         }
 
         $restaurant->slug = $this->generateSlug($request->name, $restaurant->name !== $request->name, $restaurant->slug);
@@ -164,7 +166,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        Storage::disk('public')->delete($restaurant->thumb_path);
+        Storage::disk('s3')->delete($restaurant->thumb_path);
 
         $restaurant->delete();
 

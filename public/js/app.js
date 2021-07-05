@@ -23869,7 +23869,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       }]
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
       "class": "w-full h-full rounded-full",
-      src: "/storage/".concat(item.thumb_path),
+      src: item.thumb_path,
       alt: ""
     }, null, 8
     /* PROPS */
@@ -24836,7 +24836,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       return $data.isHovered = false;
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-    src: "/storage/".concat($props.cover),
+    src: $props.cover,
     "class": "w-full h-full"
   }, null, 8
   /* PROPS */
@@ -38629,7 +38629,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".restaurant[data-v-20d8cc19]::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) no-repeat;\n  height: 100px;\n  background-size: cover;\n  border-radius: 0 0 10px 10px;\n}\n.type-bg-gradient[data-v-20d8cc19] {\n  background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);\n}\n.fadeIn[data-v-20d8cc19] {\n  -webkit-animation: appear-20d8cc19 300ms ease-in-out;\n          animation: appear-20d8cc19 300ms ease-in-out;\n}\n@-webkit-keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes appear-20d8cc19 {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -59,7 +59,9 @@ class PlateController extends Controller
         ]);
 
         $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
-        $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
+        $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path, 's3');
+
+        Storage::disk('s3')->setVisibility($store, 'public');
 
         $plate = new Plate();
         $plate->name = $request->name;
@@ -68,7 +70,7 @@ class PlateController extends Controller
         $plate->is_visible = $request->visibility;
         $plate->restaurant_id = $restaurant->id;
         $plate->slug = $this->generateSlug($plate->name);
-        $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
+        $plate->thumb_path = Storage::disk('s3')->url($store);
         $plate->save();
 
         return ['response' => 'Plate added successfully!'];
@@ -107,12 +109,14 @@ class PlateController extends Controller
         ]);
 
         if ($request->hasFile('thumb')) {
-            Storage::disk('public')->delete($plate->thumb_path);
+            Storage::disk('s3')->delete($plate->thumb_path);
 
             $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
             $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
 
-            $plate->thumb_path = 'restaurants/plates/thumbnails/'. $path;
+            Storage::disk('s3')->setVisibility($store, 'public');
+
+            $plate->thumb_path = Storage::disk('s3')->url($store);
         }
 
         $plate->slug = $this->generateSlug($request->name, $plate->name !== $request->name, $restaurant->id !== $plate->restaurant_id, $plate->slug);
@@ -135,7 +139,7 @@ class PlateController extends Controller
      */
     public function destroy(Restaurant $restaurant, Plate $plate)
     {
-        Storage::disk('public')->delete($plate->thumb_path);
+        Storage::disk('s3')->delete($plate->thumb_path);
 
         $plate->delete();
 
