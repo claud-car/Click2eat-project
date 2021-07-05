@@ -112,7 +112,7 @@ class PlateController extends Controller
             Storage::disk('s3')->delete($plate->thumb_path);
 
             $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
-            $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path);
+            $store = $request->file('thumb')->storeAs('public/restaurants/plates/thumbnails', $path, 's3');
 
             Storage::disk('s3')->setVisibility($store, 'public');
 
