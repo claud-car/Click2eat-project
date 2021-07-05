@@ -9,7 +9,7 @@
             <h3 class="py-2 text-2xl" v-text="`€ ${item.price}`"></h3>
         </div>
         <div class="flex justify-center">
-            <button class="m-16 bg-orange hover:bg-orange text-white font-bold py-3 px-12 rounded-full whitespace-nowrap" @click="check(item)">Add To Cart</button>
+            <add-to-cart @add="check(item)" />
         </div>
     </div>
     <cart-modal v-if="warning" @cancel="warning = null" @continue="addToCart(item)">
@@ -25,11 +25,13 @@
 <script>
 import { cart } from "../../app";
 import CartModal from "../modals/CartModal";
+import AddToCart from "./AddToCart";
 
 export default {
     name: "Plate",
     components: {
-        CartModal
+        CartModal,
+        AddToCart
     },
     props: ['item'],
     data() {

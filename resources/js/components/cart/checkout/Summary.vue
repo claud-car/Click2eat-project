@@ -1,6 +1,6 @@
 <template>
     <div class="lg:w-2/6 lg:pl-8 mb-20 flex flex-col mt-12 lg:mt-20">
-        <div class="bg-gray-100 rounded-lg">
+        <div class="bg-selago rounded-lg">
             <div class="box-content p-10">
                 <h1 class="mb-5 text-2xl">Your Order</h1>
                 <div v-for="product in products">

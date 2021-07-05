@@ -18,9 +18,9 @@
                         placeholder="First name*"
                         v-model="$store.state.form.name"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 p-input w-full p-input"
+                        class="p-3 mt-5 rounded-full border-gray-300 p-input w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('name')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('name')">
                             <span class="text-xs" v-text="errors.get('name')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -41,9 +41,9 @@
                         placeholder="Last name*"
                         v-model="$store.state.form.lastname"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 w-full p-input"
+                        class="p-3 mt-5 rounded-full border-gray-300 w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('lastname')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('lastname')">
                             <span class="text-xs" v-text="errors.get('lastname')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -66,9 +66,9 @@
                         placeholder="Phone number*"
                         v-model="$store.state.form.number"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 w-full p-input"
+                        class="p-3 mt-6 rounded-full border-gray-300 w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('number')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('number')">
                             <span class="text-xs" v-text="errors.get('number')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -89,9 +89,9 @@
                         placeholder="Email*"
                         v-model="$store.state.form.email"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 w-full p-input"
+                        class="p-3 mt-6 rounded-full border-gray-300 w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('email')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('email')">
                             <span class="text-xs" v-text="errors.get('email')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="mt-6">
                 <div>
                     <h1>Delivery info:</h1>
                 </div>
@@ -119,9 +119,9 @@
                         placeholder="City*"
                         v-model="$store.state.form.city"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 w-full p-input"
+                        class="p-3 mt-6 rounded-full border-gray-300 w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('city')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('city')">
                             <span class="text-xs" v-text="errors.get('city')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -142,9 +142,9 @@
                         placeholder="Address*"
                         v-model="$store.state.form.address"
                         data-required
-                        class="p-3 mt-5 rounded-full mb-6 border-gray-300 w-full p-input"
+                        class="p-3 mt-6 rounded-full border-gray-300 w-full p-input"
                         >
-                        <p class="text-red-600 flex gap-1 mt-1" v-if="errors.get('address')">
+                        <p class="text-red-600 flex gap-1 mt-2 ml-5" v-if="errors.get('address')">
                             <span class="text-xs" v-text="errors.get('address')"></span>
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -159,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="mt-6">
                 <div>
                     <h1>More details:</h1>
                 </div>
