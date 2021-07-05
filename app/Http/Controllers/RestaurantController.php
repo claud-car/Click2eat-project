@@ -58,6 +58,8 @@ class RestaurantController extends Controller
         $path = $request->file('thumb')->getClientOriginalName() . "_" . time() . "." . $request->file('thumb')->getClientOriginalExtension();
         $store = $request->file('thumb')->storeAs('public/restaurants/covers', $path, 's3');
 
+        Storage::disk('s3')->setVisibility($store, 'public');
+
         $restaurant = new Restaurant();
         $restaurant->name = $request->name;
         $restaurant->street = $request->street;
