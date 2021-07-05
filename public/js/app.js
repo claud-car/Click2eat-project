@@ -19153,7 +19153,9 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
     this.form.name = this.originalData.name;
     this.form.description = this.originalData.description;
     this.form.price = this.originalData.price;
-    this.form.visibility = this.originalData.is_visible;
+    this.form.visibility = 0;
+    /*this.originalData.is_visible*/
+
     console.log(this.form);
   },
   methods: {
