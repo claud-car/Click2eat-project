@@ -2,7 +2,7 @@
     <div class="w-11/12 xl:w-1/2 h-36 border-b-2 border-gray-200 flex flex-row justify-around items-center">
         <div class="w-1/3 md:w-1/2 flex flex-row items-center transform md:translate-x-10">
             <div class="hidden md:inline-block bg-blue h-20 w-20 rounded-xl overflow-hidden">
-                <img :src="item.thumb_path" alt="">
+                <img :src="item.thumb_path" alt="" class="h-full object-cover">
             </div>
             <div class="md:ml-5">
                 <p class="font-bold" v-text="item.name"></p>
