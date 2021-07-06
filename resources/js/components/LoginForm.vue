@@ -89,7 +89,7 @@ export default {
 
             axios.post('/login', data)
                 .then(() => {
-                    window.location.href('https://www.click2eat.it/dashboard')
+                    window.location.replace('/dashboard')
                 })
             .catch(error => {
                 this.errors.set(error.response.data.errors)

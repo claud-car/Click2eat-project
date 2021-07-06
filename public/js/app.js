@@ -17958,7 +17958,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
       data.append('email', this.form.email);
       data.append('password', this.form.password);
       axios.post('/login', data).then(function () {
-        window.location.href('https://www.click2eat.it/dashboard');
+        window.location.replace('/dashboard');
       })["catch"](function (error) {
         _this.errors.set(error.response.data.errors);
       });
