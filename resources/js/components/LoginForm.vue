@@ -89,11 +89,11 @@ export default {
 
             axios.post('/login', data)
                 .then(() => {
-                    window.location.replace('/dashboard')
+                    window.location.href('/dashboard')
                 })
-            .catch(error => {
-                this.errors.set(error.response.data.errors)
-            })
+                .catch(error => {
+                    this.errors.set(error.response.data.errors)
+                })
         }
     }
 }
