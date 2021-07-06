@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\OrderController;
@@ -24,3 +25,5 @@ Route::get('/generate-token', [OrderController::class, 'generateToken']);
 Route::post('/payment', [OrderController::class, 'payment']);
 
 Route::get('/last-orders', [OrderController::class, 'getLastOrders']);
+
+Route::post('/newsletter', [NewsletterController::class, 'subscribe']);

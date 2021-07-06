@@ -21,6 +21,7 @@ import Plates from "./components/plates/Plates";
 import CartProducts from "./components/cart/CartProducts";
 import CheckoutTable from "./components/cart/CheckoutTable";
 import Checkout from "./components/cart/checkout/Checkout";
+import Newsletter from "./components/Newsletter";
 
 import Cart from "./core/Cart";
 
@@ -47,7 +48,8 @@ createApp({
         Plates,
         CartProducts,
         CheckoutTable,
-        Checkout
+        Checkout,
+        Newsletter
     },
     created() {
         this.$store.commit('getTotalCartItems')

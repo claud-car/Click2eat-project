@@ -64,21 +64,21 @@
             <div class="flex flex-wrap justify-center">
                 <div class="w-80 m-5">
                     <div class="mx-auto w-16 mb-8">
-                        <img class="" src="{{url('/images/homepage_images/discount.svg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/discount.svg')}}" alt="">
                     </div>
                    <h4 class="font-bold">Discount System</h4>
                    <p>We have a favorable discount system for our regular customers.</p>
                 </div>
                 <div class="w-80 m-5">
                     <div class="mx-auto w-16 mb-8">
-                        <img class="" src="{{url('/images/homepage_images/delivery.svg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/delivery.svg')}}" alt="">
                     </div>
                    <h4 class="font-bold">Express Delivery</h4>
                    <p>The hottest food & fastest delivery to any location of your city.</p>
                 </div>
                 <div class="w-80 m-5">
                     <div class="mx-auto w-16 mb-8">
-                        <img class="" src="{{url('/images/homepage_images/food.svg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/food.svg')}}" alt="">
                     </div>
                    <h4 class="font-bold">50+ restaurants</h4>
                    <p>Large selection of restaurants and cafes throughout the country.</p>
@@ -154,7 +154,7 @@
 
                 <div class="w-80 m-5 border border-gray-400 rounded-2xl overflow-hidden">
                     <div class="mx-auto">
-                        <img class="" src="{{url('/images/homepage_images/cake.jpg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/cake.jpg')}}" alt="">
                     </div>
                     <div class="flex items-center justify-around my-5">
                         <div class="w-5">
@@ -164,20 +164,20 @@
                         <a href="#"><span class="text-gray-400">May 15, 2020</span></a>
                     </div> -->
                     <!-- horizontal rule -->
-                    <!-- <div class="border w-4/5 m-auto border-gray-400"></div> 
+                    <!-- <div class="border w-4/5 m-auto border-gray-400"></div>
                     <a href="#"><span class="my-10 text-left text-blue font-bold text-2xl hover:text-yellow">The Traditional recipe of apple pie</span></a>
                 </div>
 
                 <div class="w-80 m-5">
                     <div class="mx-auto w-16">
-                        <img class="" src="{{url('/images/homepage_images/cupcake.jpg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/cupcake.jpg')}}" alt="">
                     </div>
                     <h4 class="font-bold">Express Delivery</h4>
                     <p>The hottest food & fastest delivery to any location of your city.</p>
                 </div>
                 <div class="w-80 m-5">
                     <div class="mx-auto w-16">
-                        <img class="" src="{{url('/images/homepage_images/cake2.jpg')}}" alt=""> 
+                        <img class="" src="{{url('/images/homepage_images/cake2.jpg')}}" alt="">
                     </div>
                     <h4 class="font-bold">50+ restaurants</h4>
                     <p>Large selection of restaurants and cafes throughout the country.</p>
@@ -187,8 +187,8 @@
         <!-- latest post fine -->
 
     </x-slot>
-    
-   
+
+
 
 <!-- bg: 'big-pizza': "url('/images/homepage_images/bg-pizza.jpg)", -->
 
