@@ -31,7 +31,7 @@
             </svg>
             <div class="relative z-20 text-xl text-white font-bold flex flex-col justify-evenly items-center h-1/2">
                 <a href="/" class="hover:opacity-75">Home</a>
-                <a href="#" class="hover:opacity-75">About Us</a>
+                <a href="/about-us" class="hover:opacity-75">About Us</a>
                 <a href="#footer"  class="hover:opacity-75" @click="isOpen = false">Contact Us</a>
                 <div class="h-1/3 flex flex-col justify-evenly">
                     <a v-if="!isLogged" href="/login" class="hover:opacity-75">
