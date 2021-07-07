@@ -88,12 +88,12 @@ export default {
             data.append('password', this.form.password)
 
             axios.post('/login', data)
-                .then(() => {
-                    window.location.href('/dashboard')
-                })
-                .catch(error => {
-                    this.errors.set(error.response.data.errors)
-                })
+                    .then(() => {
+                        window.location.replace('/dashboard')
+                    })
+                    .catch(error => {
+                        this.errors.set(error.response.data.errors)
+                    })
         }
     }
 }
